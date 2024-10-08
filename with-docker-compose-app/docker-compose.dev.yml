@@ -9,20 +9,22 @@ services:
     environment:
       ENV_VARIABLE: ${ENV_VARIABLE}
       NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
+      CHOKIDAR_USEPOLLING: "true"  # Scrutation activée pour le mode développement
 
     # Set environment variables based on the .env file
     env_file:
       - .env
+
     volumes:
-      - ./next-app/src:/app/src
-      - ./next-app/public:/app/public
+      - ./next-app:/app  # Montez tout le projet pour refléter les changements
+      - /app/node_modules  # Exclure node_modules pour éviter les conflits
+
     restart: always
     ports:
       - 3000:3000
+    command: npm run dev  # Utilisez le mode développement
     networks:
       - my_network
-
-  # Add more containers below (nginx, postgres, etc.)
 
 # Define a network, which allows containers to communicate
 # with each other, by using their container name as a hostname
