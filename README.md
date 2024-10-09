@@ -1,101 +1,70 @@
-# With Docker Compose
 
-This example contains everything needed to get a Next.js development and production environment up and running with Docker Compose.
+# Installation du projet NextJS Starter Kit sous Docker avec WSL 2
 
-## Benefits of Docker Compose
+![NextJS](https://img.shields.io/badge/next.js-%23000000.svg?style=for-the-badge&logo=next.js&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
+![WSL 2](https://img.shields.io/badge/wsl-2-%2361DAFB.svg?style=for-the-badge&logo=linux&logoColor=white)
 
-- Develop locally without Node.js or TypeScript installed ✨
-- Easy to run, consistent development environment across macOS, Windows, and Linux teams
-- Run multiple Next.js apps, databases, and other microservices in a single deployment
-- Multistage builds combined with [Output Standalone](https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files) outputs up to 85% smaller apps (Approximately 110 MB compared to 1 GB with create-next-app)
-- Easy configuration with YAML files
+## 1. Pré-requis
 
-## How to use
+Avant de commencer l'installation, assurez-vous d'avoir les prérequis suivants :
+- Un système d'exploitation Windows 10 version 2004 ou supérieure ou Windows 11.
+- WSL 2 installé et configuré.
+- Docker Desktop installé et configuré pour fonctionner avec WSL 2.
+- Un éditeur de code comme Visual Studio Code (VS Code).
 
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
+## 2. Installation de Docker
 
-```bash
-npx create-next-app --example with-docker-compose with-docker-compose-app
-```
+1. Téléchargez Docker Desktop depuis le site officiel: [Docker Desktop](https://www.docker.com/products/docker-desktop).
+2. Installez Docker Desktop en suivant les instructions de l'installateur.
+3. Une fois installé, ouvrez Docker Desktop puis allez dans les paramètres pour activer l'intégration avec WSL 2 :
+   - Allez dans **Settings > General** et cochez 'Use the WSL 2 based engine'.
+   - Allez dans **Settings > Resources > WSL Integration** et activez l'intégration avec la distribution WSL.
 
-```bash
-yarn create next-app --example with-docker-compose with-docker-compose-app
-```
+## 3. Configuration de WSL 2
 
-```bash
-pnpm create next-app --example with-docker-compose with-docker-compose-app
-```
+Si WSL 2 n'est pas encore configuré, suivez les étapes ci-dessous :
 
-Optionally, after the installation is complete:
+1. Activez WSL et définissez WSL 2 comme la version par défaut :
+   ```bash
+   wsl --install
+   wsl --set-default-version 2
+   ```
+2. Installez une distribution Linux depuis le Microsoft Store (comme Ubuntu).
+3. Démarrez la distribution Linux et configurez-la.
 
-- Run `cd next-app`, then run `npm install` or `yarn install` or `pnpm install` to generate a lockfile.
+## 4. Installation de Windows Terminal
 
-It is recommended to commit a lockfile to version control. Although the example will work without one, build errors are more likely to occur when using the latest version of all dependencies. This way, we're always using a known good configuration to develop and run in production.
+Windows Terminal est un outil recommandé pour gérer vos terminaux WSL. Il permet de travailler avec plusieurs onglets et de mieux gérer vos sessions WSL. Pour l'installer, suivez les étapes suivantes :
 
-## Prerequisites
+1. Ouvrez le Microsoft Store.
+2. Recherchez 'Windows Terminal'.
+3. Cliquez sur 'Installer'.
+4. Une fois installé, ouvrez Windows Terminal et sélectionnez votre distribution WSL (par exemple Ubuntu).
 
-Install [Docker Desktop](https://docs.docker.com/get-docker) for Mac, Windows, or Linux. Docker Desktop includes Docker Compose as part of the installation.
+## 5. Installation du projet NextJS
 
-## Development
+1. Demandez l'accès en tant que contributeur sur le projet à **Touin Thierry**.
+2. Clonez le projet :
+   ```bash
+   git clone https://github.com/ThierryTouinPro/nextjs-starter-kit.git
+   ```
+3. Lancez `npm install` au niveau du container `next-app`.
+4. Installez le module WSL dans Visual Studio Code (VS Code).
+   - Astuce : lancez `code .` pour ouvrir l’éditeur de code à l'endroit du projet NextJS.
 
-First, run the development server:
+## 6. Lancer le projet avec Docker
 
-```bash
-# Create a network, which allows containers to communicate
-# with each other, by using their container name as a hostname
-docker network create my_network
+1. Assurez-vous que Docker est en cours d'exécution.
+2. Depuis le terminal WSL, accédez au répertoire de votre projet Next.js.
+3. Construisez l'image Docker :
+   ```bash
+   docker compose -f docker-compose.dev.yml build
+   ```
+4. Lancez le conteneur Docker :
+   ```bash
+   docker compose -f docker-compose.dev.yml up
+   ```
+5. Ouvrez votre navigateur et accédez à [http://localhost:3000](http://localhost:3000) pour voir votre projet Next.js en cours d'exécution.
 
-# Build dev
-docker compose -f docker-compose.dev.yml build
-
-# Up dev
-docker compose -f docker-compose.dev.yml up
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-## Production
-
-Multistage builds are highly recommended in production. Combined with the Next [Output Standalone](https://nextjs.org/docs/advanced-features/output-file-tracing#automatically-copying-traced-files) feature, only `node_modules` files required for production are copied into the final Docker image.
-
-First, run the production server (Final image approximately 110 MB).
-
-```bash
-# Create a network, which allows containers to communicate
-# with each other, by using their container name as a hostname
-docker network create my_network
-
-# Build prod
-docker compose -f docker-compose.prod.yml build
-
-# Up prod in detached mode
-docker compose -f docker-compose.prod.yml up -d
-```
-
-Alternatively, run the production server without multistage builds (Final image approximately 1 GB).
-
-```bash
-# Create a network, which allows containers to communicate
-# with each other, by using their container name as a hostname
-docker network create my_network
-
-# Build prod without multistage
-docker compose -f docker-compose.prod-without-multistage.yml build
-
-# Up prod without multistage in detached mode
-docker compose -f docker-compose.prod-without-multistage.yml up -d
-```
-
-Open [http://localhost:3000](http://localhost:3000).
-
-## Useful commands
-
-```bash
-# Stop all running containers
-docker kill $(docker ps -aq) && docker rm $(docker ps -aq)
-
-# Free space
-docker system prune -af --volumes
-```
