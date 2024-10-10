@@ -1,0 +1,11 @@
+@import "_variables.css";
+
+body {
+    font-family: var(--font-overpass);
+}
+
+h1,h2 {
+    font-family: var(--font-ubuntu);
+    font-weight: var(--font-weight-black);
+}
+

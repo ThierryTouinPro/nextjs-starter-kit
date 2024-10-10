@@ -1,0 +1,35 @@
+:root {
+  /* Layout breakpoints */
+    --breakpoint-mobile: 375px;
+    --breakpoint-desktop: 1440px;
+  
+  /* Colors */
+    /* Primary Colors */
+    --light-red: hsl(356, 100%, 66%);
+    --very-light-red: hsl(355, 100%, 74%);
+    --very-dark-blue: hsl(208, 49%, 24%);
+
+    /* Neutral Colors */
+    --white: hsl(0, 0%, 100%);
+    --grayish-blue: hsl(240, 2%, 79%);
+    --very-dark-grayish-blue: hsl(207, 13%, 34%);
+    --very-dark-black-blue: hsl(240, 10%, 16%);
+
+    /* Gradient Colors */
+    --gradient-mobile-nav-start: hsl(13, 100%, 72%);
+    --gradient-mobile-nav-end: hsl(353, 100%, 62%);
+    --gradient-body-start: hsl(237, 17%, 21%);
+    --gradient-body-end: hsl(237, 23%, 32%);
+  
+  
+  /* Typography */
+    --font-body-size: 16px;
+    --font-overpass: 'Overpass', sans-serif;
+    --font-ubuntu: 'Ubuntu', sans-serif;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 600;
+    --font-weight-black: 700;
+  }
+    
