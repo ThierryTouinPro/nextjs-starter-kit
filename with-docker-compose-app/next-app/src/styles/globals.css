@@ -1,11 +1,14 @@
 @import "_variables.css";
+@import '../components/Home/Home.module.css';
 
 body {
     font-family: var(--font-overpass);
+    background-color: var(--white);
 }
-
 h1,h2 {
     font-family: var(--font-ubuntu);
-    font-weight: var(--font-weight-black);
+    color : var(--very-dark-blue);
 }
-
+p, span {
+    font-family: var(--very-dark-grayish-blue);
+}

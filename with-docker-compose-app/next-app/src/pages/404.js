@@ -2,7 +2,7 @@ import Link from "next/link";
 
 function Page404() {
   return (
-    <div className="text-center d-flex flex-column align-items-center justify-content-center vh-100">
+    <div className="text-center d-flex flex-column align-items-center justify-content-center vh-100 404Page">
         <h1 className="display-1">404</h1>
         <h2 className="mb-5">Page non trouvée</h2>
         <p>
