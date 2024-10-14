@@ -1,5 +1,5 @@
 import Container from "../components/Container/Container";
-import Layout from "./layout"
+import RootLayout from "./layout"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../styles/globals.css";
 
@@ -7,9 +7,9 @@ import "../styles/globals.css";
 function MyApp({ Component, pageProps }) {
   return (
     <Container>
-      <Layout>
+      <RootLayout>
         <Component {...pageProps} />
-      </Layout>
+      </RootLayout>
     </Container>
     
   );

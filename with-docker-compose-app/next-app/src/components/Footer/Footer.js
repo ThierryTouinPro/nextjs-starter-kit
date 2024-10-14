@@ -1,4 +1,4 @@
-import classes from './Footer.module.css'; 
+import classes from './css/Footer.module.css'; 
 import { mainMenus } from '../../constants/main-menus'
 
 function Footer() {
@@ -10,7 +10,7 @@ function Footer() {
                             <h4 class="fw-bold mb-4">Blogr</h4>  
                         </div>
                         {mainMenus.map((footerMenu) => (
-                            <div className='col-md-3 col-lg-2 col-xl-2 mx-auto'key={footerMenu.groupTitle}>
+                            <div className="col-md-3 col-lg-2 col-xl-2 mx-auto" key={footerMenu.groupTitle}>
                                 <h6 className='fw-bold mb-3'>
                                     {footerMenu.groupTitle}
                                 </h6>

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import styles from './Navigation.module.css';
+import styles from './css/Navigation.module.css';
 import { mainMenus } from '../../constants/main-menus'
+import Buttons from '../Interface/Buttons';
 
 function Navigation() {
     const [openDropdown, setOpenDropdown] = useState(null);
@@ -11,9 +12,9 @@ function Navigation() {
     };
 
     return (
-        <nav className={`d-flex align-items-center ${styles.nav}`}>
+        <nav className={`d-flex align-items-center col-12 ${styles.nav}`}>
             {mainMenus.map((menu, index) => (
-                <div className="nav-item dropdown" key={index}>
+                <div className="nav-item dropdown " key={index}>
                     <button 
                         onClick={() => toggleDropdown(menu.groupTitle)} 
                         className={`${styles.navLink} d-flex align-items-baseline`} 
@@ -41,6 +42,10 @@ function Navigation() {
                     </ul>
                 </div>
             ))}
+            <div className="d-flex d-lg-none d-xl-none d-xxl-none justify-content-center gap-4">
+                <Buttons label="Connexion" mode="secondary" />
+                <Buttons label="Sign Up" mode="primary" />
+            </div> 
         </nav>
     );
 };

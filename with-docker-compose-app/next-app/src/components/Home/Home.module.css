@@ -4,14 +4,17 @@
   color: white;
   padding: 6rem;
 }
-.home .phone-img {
+.home .phones img {
+  position: absolute;
+  top: 78em;
   max-width: 100%; 
   height: auto;
 }
-.home .phones img {
-  position: absolute;
-  width: auto;
-  top: 48em;
+
+@media (max-width: 1024px) {
+  .home .phones img {
+    position: static;
+  }
 }
 .home .text-section h2 {
   font-size: 1.8rem;

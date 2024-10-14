@@ -1,12 +1,11 @@
 .nav {
     gap: 2.5rem;
-    margin-right: 400px;
     flex-direction: row;
 }
 
 .navLink {
     position: relative;
-    color: var(--grayish-blue);
+    color: var(--white);
     background: transparent;
     border: none;
     padding: 0;
@@ -20,11 +19,11 @@
 .navLink:hover,
 .navLink:focus {
     text-decoration: underline;
-    color: var(--grayish-blue);
+    color: var(--white);
 }
 
 .arrowIcon {
-    color: var(--grayish-blue);
+    color: var(--white);
     margin-left: 8px;
     transition: transform 0.3s ease;
 }
@@ -106,7 +105,7 @@
         box-shadow: none;
         padding: 0.5rem;
         opacity: 1;
-        background-color: var(--grayish-blue);
+        background-color: var(--white);
         border-radius: 5px;
         text-align: center;
     }

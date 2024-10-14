@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import styles from './Logo.module.css';
+import styles from './css/Logo.module.css';
 import Image from 'next/image';
 
 function Logo() {

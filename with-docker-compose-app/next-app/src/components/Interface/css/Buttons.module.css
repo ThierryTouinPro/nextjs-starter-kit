@@ -1,10 +1,10 @@
-.authButtons {
+.buttonsStyle {
     gap: 1rem;
     flex-direction: row;
 }
 
 .buttonText{
-    color: var(--grayish-blue);
+    color: var(--white);
 }
 
 .buttonPrimary{
@@ -24,8 +24,22 @@
     color: var(--white);
 }
 
+.buttonSecondary {
+    color: var(--white);
+    border-radius: 5rem;
+    padding: .75rem 1.5rem;
+    font-weight: var(--font-weight-black);
+    text-decoration: none;
+    background-color: var(--very-light-red);
+}
+
+.buttonSecondary:hover {
+    background-color: var(--white);
+    color: var(--very-light-red);
+}
+
 @media (max-width: 768px) {
-    .authButtons {
+    .buttonsStyle {
         flex-direction: column;
         gap: 0;
     }
@@ -43,7 +57,12 @@
         width: 100%;
         border: none;        
         height: 1px;         
-        background-color: var(--grayish-blue);
+        background-color: var(--white);
         margin: 10px 0 0px;
+    }
+
+    .buttonSecondary {
+        color: var(--white);
+        background-color: var(--very-light-red);
     }
 }

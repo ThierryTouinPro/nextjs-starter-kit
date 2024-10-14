@@ -3,7 +3,6 @@
     background: linear-gradient(45deg, var(--gradient-mobile-nav-start), var(--gradient-mobile-nav-end));
     overflow: hidden;
     z-index: 0;
-    height: 35rem;
     border-bottom-left-radius: 7.5rem;
 }
 
@@ -22,7 +21,6 @@
 .navToggler {
     border: none;
     outline: none;
-    margin-right: -100px;
 }
 
 .navToggler span {
@@ -46,7 +44,7 @@
 
 .section p {
     font-size: 18px;
-    color: var(--grayish-blue);
+    color: var(--white);
     margin-top: 1rem;
 }
 
@@ -56,7 +54,7 @@
 }
 
 .buttonText{
-    color: var(--grayish-blue);
+    color: var(--white);
     border-color: var(--white);
 }
 

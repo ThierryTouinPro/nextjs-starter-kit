@@ -8,7 +8,7 @@ export default function FeatureInfrastructure() {
         <div className="row">
             <div className="col-md-6">
                 <div className="phones">
-                    <img src="/images/illustration-phones.svg" alt="Blogr Phone" class="img-fluid" />
+                    <img src="/images/illustration-phones.svg" alt="Blogr Phone" class="img-fluid phone-img" />
                 </div>
             </div>
             <div className="col-md-6">
