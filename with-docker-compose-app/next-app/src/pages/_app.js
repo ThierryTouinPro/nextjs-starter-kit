@@ -1,3 +1,4 @@
+import Container from "../components/Container/Container";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../styles/globals.css";
 import Layout from '../components/layout/layout'; 
