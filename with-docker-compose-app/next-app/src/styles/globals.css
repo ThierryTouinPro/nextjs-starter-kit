@@ -1,6 +1,7 @@
 @import "_variables.css";
 @import '../components/Home/Home.module.css';
 
+html,
 body {
     font-family: var(--font-overpass);
     background-color: var(--white);
@@ -11,4 +12,9 @@ h1,h2 {
 }
 p, span {
     font-family: var(--very-dark-grayish-blue);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }

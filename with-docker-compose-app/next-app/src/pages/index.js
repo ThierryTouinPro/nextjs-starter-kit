@@ -1,8 +1,7 @@
+import Head from "next/head";
 import FeatureFuture from "../components/Home/FeatureFuture";
 import FeatureExtras from "../components/Home/FeatureExtras";
 import FeatureInfrastructure from "../components/Home/FeatureInfrastructure";
-import Head from "next/head";
-
 
 
 export default function Home() {

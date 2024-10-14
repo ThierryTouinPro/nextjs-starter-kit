@@ -1,14 +1,17 @@
 import Container from "../components/Container/Container";
+import Layout from "./layout"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../styles/globals.css";
-import Layout from '../components/layout/layout'; 
 
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout> 
+    <Container>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </Container>
+    
   );
 }
 
