@@ -1,14 +1,15 @@
 import Container from "../components/Container/Container";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../styles/globals.css";
+import Layout from '../components/layout/layout'; 
 
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Container>
+    <Layout>
       <Component {...pageProps} />
-    </Container>
-  )
+    </Layout> 
+  );
 }
 
 export default MyApp;
