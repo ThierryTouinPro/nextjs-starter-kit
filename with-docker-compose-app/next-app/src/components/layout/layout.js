@@ -1,10 +1,11 @@
 import React from 'react'
 import Footer from './footer'; 
+import Header from './Header/Header'; 
 
 function Layout() {
     return (
         <>
-            <header>Header section</header>
+            <Header />
             <main>Main section</main>
             <Footer />
         </>
