@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import styles from './Navigation.module.css';
-import { mainMenus } from '../../../constants/main-menus'
+import { mainMenus } from '../../constants/main-menus'
 
 function Navigation() {
     const [openDropdown, setOpenDropdown] = useState(null);
