@@ -93,7 +93,7 @@
     .navbarCollapse {
         position: absolute;
         top: 90%;
-        left: 38px;
+        right: 0;
         background-color: var(--white);
         z-index: 1000;
         width: 80%;

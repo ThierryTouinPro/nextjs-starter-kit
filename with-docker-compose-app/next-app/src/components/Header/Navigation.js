@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import styles from './css/Navigation.module.css';
 import { mainMenus } from '../../constants/main-menus'
@@ -6,15 +6,30 @@ import Buttons from '../Interface/Buttons';
 
 function Navigation() {
     const [openDropdown, setOpenDropdown] = useState(null);
+    const dropdownRef = useRef(null);
 
     const toggleDropdown = (menuTitle) => {
         setOpenDropdown(openDropdown === menuTitle ? null : menuTitle);
     };
 
+    // Ajout d'un effet pour fermer le menu en cliquant en dehors
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setOpenDropdown(null); // Ferme le menu de navigation
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
-        <nav className={`d-flex align-items-center col-12 ${styles.nav}`}>
+        <nav ref={dropdownRef} className={`d-flex align-items-center col-12 ${styles.nav}`}>
             {mainMenus.map((menu, index) => (
-                <div className="nav-item dropdown " key={index}>
+                <div className="nav-item dropdown" key={index}>
                     <button 
                         onClick={() => toggleDropdown(menu.groupTitle)} 
                         className={`${styles.navLink} d-flex align-items-baseline`} 
@@ -42,9 +57,9 @@ function Navigation() {
                     </ul>
                 </div>
             ))}
-            <div className="d-flex d-lg-none d-xl-none d-xxl-none justify-content-center gap-4">
-                <Buttons label="Connexion" mode="secondary" />
-                <Buttons label="Sign Up" mode="primary" />
+            <div className="d-flex d-lg-none d-xl-none d-xxl-none justify-content-center gap-2">
+                <Buttons label="Connexion" mode="secondary" href="/connexion" />
+                <Buttons label="Sign Up" mode={typeof window !== 'undefined' && window.innerWidth < 768 ? 'secondary' : 'primary'} href="/signup" />
             </div> 
         </nav>
     );

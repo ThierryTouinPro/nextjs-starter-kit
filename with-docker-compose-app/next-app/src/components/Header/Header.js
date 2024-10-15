@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './css/Header.module.css';
 import Logo from './Logo';
 import Navigation from './Navigation';
@@ -6,10 +6,28 @@ import Buttons from '../Interface/Buttons';
  
 function Header() {
     const [navbarOpen, setNavbarOpen] = useState(false);
+    const navbarRef = useRef(null);
 
     const toggleNavbar = () => {
         setNavbarOpen(!navbarOpen);
     };
+
+    // Fonction pour gérer les clics en dehors du menu
+    const handleClickOutside = (event) => {
+        if (navbarRef.current && !navbarRef.current.contains(event.target) && navbarOpen) {
+            setNavbarOpen(false);
+        }
+    };
+
+    useEffect(() => {
+        // Ajout de l'écouteur d'événements
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            // Nettoyage de l'écouteur d'événements
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
     return (
         <header className={`${styles.header} container-fluid pt-4`} style={{ backgroundColor: 'transparent' }}>
             <picture>
@@ -52,9 +70,9 @@ function Header() {
                 <div className="container">
                     <h1 className="display-4">A modern publishing platform</h1>
                     <p className="lead">
-                    Grow your audience and build your online brand
+                        Grow your audience and build your online brand
                     </p>
-                    <div className={`d-flex flex-column flex-md-row align-items-center justify-content-center ${styles.buttons}`}>
+                    <div className={`d-flex flex-md-row align-items-center justify-content-center ${styles.buttons}`}>
                         <Buttons label="Start for free" mode="primary" href="/start-free" />
                         <Buttons label="Learn more" mode="secondary" href="/learn-more" />
 

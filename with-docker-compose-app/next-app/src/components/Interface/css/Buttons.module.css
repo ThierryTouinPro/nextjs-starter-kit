@@ -49,8 +49,8 @@
     }
 
     .buttonPrimary{
-        color: var(--white);
-        background-color: var(--very-light-red);
+        color: var(--very-light-red);
+        background-color: var(--white);
     }
 
     .customHr {
