@@ -55,8 +55,8 @@ function Header() {
                     Grow your audience and build your online brand
                     </p>
                     <div className={`d-flex flex-column flex-md-row align-items-center justify-content-center ${styles.buttons}`}>
-                        <Buttons label="Start for free" mode="primary" />
-                        <Buttons label="Learn more" mode="secondary" />
+                        <Buttons label="Start for free" mode="primary" href="/" />
+                        <Buttons label="Learn more" mode="secondary" href="/" />
                     </div>
                 </div>
             </section>
