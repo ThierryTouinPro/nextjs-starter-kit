@@ -15,6 +15,10 @@
   .home .phones img {
     position: static;
   }
+
+  .home .state-art-section {
+    padding: 35px;
+  }
 }
 .home .text-section h2 {
   font-size: 1.8rem;
@@ -37,6 +41,7 @@
 @media (max-width: 768px) {
   .home .state-art-section {
     text-align: center; /* Centrer le texte sur les petits écrans */
+    padding: 50px;
   }
   .home .text-section {
     margin-top: 2rem;
