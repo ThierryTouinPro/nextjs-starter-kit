@@ -3,7 +3,7 @@
     background: linear-gradient(45deg, var(--gradient-mobile-nav-start), var(--gradient-mobile-nav-end));
     overflow: hidden;
     z-index: 0;
-    border-bottom-left-radius: 7.5rem;
+    border-bottom-left-radius: 5rem;
 }
 
 .headerBg {
@@ -33,7 +33,7 @@
 }
 
 .section {
-    padding: 3rem;
+    padding: 1rem;
 }
 
 .section h1 {

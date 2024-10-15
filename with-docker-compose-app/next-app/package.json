@@ -6,8 +6,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "@lucia-auth/adapter-sqlite": "^3.0.2",
     "bootstrap": "^5.3.3",
-    "next": "latest",
+    "lucia": "^3.2.1",
+    "next": "^14.2.15",
+    "next-cookies": "^2.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

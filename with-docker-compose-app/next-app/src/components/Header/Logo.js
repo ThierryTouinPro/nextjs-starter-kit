@@ -5,15 +5,20 @@ import Image from 'next/image';
 
 function Logo() {
   return (
+    // <Link href="/">
+    //       <Image
+    //         src="/images/logo.svg"
+    //         alt="NSK Site"
+    //         width={100}
+    //         height={40}
+    //         className={styles.logo}
+    //       />
+    // 
+
     <Link href="/">
-          <Image
-            src="/images/logo.svg"
-            alt="Blogr"
-            width={100}
-            height={40}
-            className={styles.logo}
-          />
+        <h2 class="fw-bold text-white">NSK Site</h2>  
     </Link>
+
   );
 };
 

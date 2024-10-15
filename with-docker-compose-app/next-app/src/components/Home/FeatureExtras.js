@@ -11,10 +11,11 @@ export default function FeatureExtras() {
             </div>
         </div>
         <div className="col-md-6">
-            <h2>Free, open, simple</h2>
-            <p>Blogr is a free and open source application backed by a large community of helpful developers. It supports features such as code syntax highlighting, RSS feeds, social media integration, third-party commenting tools, and works seamlessly with Google Analytics. The architecture is clean and is relatively easy to learn.</p>
-            <h2>Powerful tooling</h2>
-            <p>Batteries included. We built a simple and straightforward CLI tool that makes customization and deployment a breeze, but capable of producing even the most complicated sites.</p>
+            <h2>Technologies Utilisées</h2>
+            <strong>Next.js</strong> : Framework React pour la construction de sites web et applications avec des fonctionnalités optimisées.<br />
+            <strong>Docker</strong> : Conteneurisation pour uniformiser l'environnement de développement et simplifier les déploiements.<br />
+            <strong>WSL 2</strong> (Windows Subsystem for Linux) : Pour les développeurs sous Windows, permettant une expérience de développement proche de Linux.<br />
+            <strong>Visual Studio Code (VS Code) </strong>: L'éditeur de code recommandé, avec des extensions pour faciliter le développement sous Next.js et Docker.<br />
         </div>
     </>
 )

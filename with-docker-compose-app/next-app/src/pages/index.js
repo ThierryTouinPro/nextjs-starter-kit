@@ -10,7 +10,7 @@ export default function Home() {
       <div className="container home">
         <Head>
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-          <title>Blogr - NextJS</title>
+          <title>NSK Site - NextJS</title>
         </Head>
         <section className="row align-items-center my-5">
           <FeatureFuture />
