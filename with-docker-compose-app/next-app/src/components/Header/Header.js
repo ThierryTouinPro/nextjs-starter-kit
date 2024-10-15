@@ -57,6 +57,7 @@ function Header() {
                     <div className={`d-flex flex-column flex-md-row align-items-center justify-content-center ${styles.buttons}`}>
                         <Buttons label="Start for free" mode="primary" href="/start-free" />
                         <Buttons label="Learn more" mode="secondary" href="/learn-more" />
+
                     </div>
                 </div>
             </section>
