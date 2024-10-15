@@ -18,7 +18,7 @@ function Header() {
                 media="(min-width: 50rem)"
                 />
                 <img
-                className={`${styles.headerBg} img-fluid`}
+                className={`${styles.headerBg}`}
                 src="/images/bg-pattern-intro-mobile.svg"
                 alt="background for header"
                 />
@@ -55,8 +55,8 @@ function Header() {
                     Grow your audience and build your online brand
                     </p>
                     <div className={`d-flex flex-column flex-md-row align-items-center justify-content-center ${styles.buttons}`}>
-                        <Buttons label="Start for free" mode="primary" />
-                        <Buttons label="Learn more" mode="secondary" />
+                        <Buttons label="Start for free" mode="primary" href="/start-free" />
+                        <Buttons label="Learn more" mode="secondary" href="/learn-more" />
                     </div>
                 </div>
             </section>
