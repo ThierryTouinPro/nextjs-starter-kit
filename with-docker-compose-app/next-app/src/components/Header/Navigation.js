@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import styles from './css/Navigation.module.css';
 import { mainMenus } from '../../data/main-menus'
-import Buttons from '../Interface/Buttons';
+import ButtonLink from '../Interface/ButtonLink';
 
 function Navigation() {
     const [openDropdown, setOpenDropdown] = useState(null);
@@ -58,8 +58,8 @@ function Navigation() {
                 </div>
             ))}
             <div className="d-flex d-lg-none d-xl-none d-xxl-none justify-content-center gap-2">
-                <Buttons label="Connexion" mode="secondary" href="/connection" />
-                <Buttons label="Inscription" mode={typeof window !== 'undefined' && window.innerWidth < 768 ? 'secondary' : 'primary'} href="/signup" />
+                <ButtonLink label="Connexion" mode="secondary" href="/connection" />
+                <ButtonLink label="Inscription" mode={typeof window !== 'undefined' && window.innerWidth < 768 ? 'secondary' : 'primary'} href="/signup" />
             </div> 
         </nav>
     );

@@ -19,8 +19,33 @@ export default function Login() {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        setErrors(errorData.errors || { global: 'An error occurred' });
+        let errorMessage = 'An error occurred';
+      
+        try {
+          const errorData = await response.json();
+        
+          // Gérer les différentes erreurs en fonction du statut HTTP
+          if (response.status === 400) {
+            // Erreur de validation, par exemple : email ou mot de passe manquants ou invalides
+            errorMessage = errorData.error || 'Données invalides, veuillez vérifier vos informations.';
+          } else if (response.status === 401) {
+            // Utilisateur non autorisé, si applicable
+            errorMessage = errorData.error || 'Accès non autorisé.';
+          } else if (response.status === 500) {
+            // Erreur serveur
+            errorMessage = 'Erreur serveur, veuillez réessayer plus tard.';
+          } else {
+            // Erreur générique si le type d'erreur n'est pas spécifié
+            errorMessage = errorData.error || 'Une erreur est survenue.';
+          }
+        } catch (e) {
+          // Gérer les cas où la réponse n'est pas un JSON valide ou si quelque chose ne va pas
+          errorMessage = 'Une erreur inattendue est survenue. Veuillez réessayer.';
+        }
+        
+      
+        // Définir les erreurs dans l'état
+        setErrors({ global: errorMessage });
         return;
       }
 

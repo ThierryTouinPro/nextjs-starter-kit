@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useCallback } from 'react';
 import styles from './css/Header.module.css';
 import Logo from './Logo';
 import Navigation from './Navigation';
-import Buttons from '../Interface/Buttons';
+import ButtonLink from '../Interface/ButtonLink';
 
 function Header() {
     const [navbarOpen, setNavbarOpen] = useState(false);
@@ -51,8 +51,8 @@ function Header() {
                     </nav>
                     <div className='col-4 d-none d-lg-block'>
                         <div className="d-flex justify-content-end gap-4">
-                            <Buttons label="Connexion" mode="secondary" href="/login" className="me-2" />
-                            <Buttons label="Inscription" mode="primary" href="/register" />
+                            <ButtonLink label="Connexion" mode="secondary" href="/login" className="me-2" />
+                            <ButtonLink label="Inscription" mode="primary" href="/register" />
                         </div>  
                     </div>
                 </div> 
@@ -65,8 +65,8 @@ function Header() {
                             Présentation des concepts et fonctionnalités de NextJS pour une réutilisation dans un projet.
                         </p>
                         <div className={`d-flex flex-md-row align-items-center justify-content-center ${styles.buttons}`}>
-                            <Buttons label="Jira" mode="primary" href="https://delivery.inetum.com/jira/secure/RapidBoard.jspa?rapidView=4869&view=planning&selectedIssue=DPPCP-113&issueLimit=100#" />
-                            <Buttons label="Confluence" mode="secondary" href="https://delivery.inetum.com/confluence/display/DPPS2402/Projet+Collaboratif+Interne+%3A+Next.js+Starter+Kit" />
+                            <ButtonLink label="Jira" mode="primary" href="https://delivery.inetum.com/jira/secure/RapidBoard.jspa?rapidView=4869&view=planning&selectedIssue=DPPCP-113&issueLimit=100#" />
+                            <ButtonLink label="Confluence" mode="secondary" href="https://delivery.inetum.com/confluence/display/DPPS2402/Projet+Collaboratif+Interne+%3A+Next.js+Starter+Kit" />
                         </div>
                     </div>
                 </section>

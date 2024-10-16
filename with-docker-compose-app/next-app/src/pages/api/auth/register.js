@@ -1,54 +1,48 @@
-// pages/api/register.js
-import { auth } from '../../../lib/lucia';
+import db, { createSession } from '../../../lib/db';
+import bcrypt from 'bcryptjs';
 
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).end(); // Méthode non autorisée
-  }
+  if (req.method === 'POST') {
+    const { email, password } = req.body;
 
-  const { email, password } = req.body;
+    console.log(email);
+    console.log(password);
 
-  let errors = {};
-
-  if (!email.includes('@')) {
-    errors.email = 'Please enter a valid email address';
-  }
-
-  if (password.trim().length < 8) {
-    errors.password = 'Password must be at least 8 characters long';
-  }
-
-  if (Object.keys(errors).length > 0) {
-    return res.status(400).json({ errors });
-  }
-
-  try {
-    const user = await auth.createUser({
-      primaryKey: {
-        providerId: 'email',
-        providerUserId: email,
-        password
-      },
-      attributes: {
-        email
-      }
-    });
-
-    // Créer une session d'authentification pour l'utilisateur
-    const session = await auth.createSession(user.userId);
-
-    // Définir le cookie de session
-    res.setHeader('Set-Cookie', session.cookies);
-
-    // Rediriger l'utilisateur après l'inscription réussie
-    res.status(201).json({ success: true });
-  } catch (error) {
-    if (error.code === 'SQLITE_CONSTRAINT_UNIQUE') {
-      return res.status(400).json({
-        errors: { email: 'Email already exists' }
-      });
+    // Vérification des champs
+    if (!email?.trim() || !password?.trim()) {
+      return res.status(400).json({ error: 'Email and password are required' });
     }
-    console.error('Error during registration:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    
+
+    // Vérifier si l'utilisateur existe déjà
+    const existingUser = db.prepare('SELECT * FROM users WHERE email = ?').get(email);
+    if (existingUser) {
+      return res.status(400).json({ error: 'User already exists' });
+    }
+
+    // Hachage du mot de passe
+    const hashedPassword = bcrypt.hashSync(password, 10);
+
+    try {
+      // Insérer l'utilisateur dans la base de données
+      const insertUserStmt = db.prepare(`
+        INSERT INTO users (email, password) 
+        VALUES (?, ?)
+      `);
+      const result = insertUserStmt.run(email, hashedPassword);
+
+      // Créer automatiquement une session pour l'utilisateur
+      const { sessionId, expiresAt } = createSession(result.lastInsertRowid);
+
+      // Définir un cookie avec l'identifiant de la session
+      res.setHeader('Set-Cookie', `sessionId=${sessionId}; HttpOnly; Path=/; Max-Age=86400; SameSite=Lax`);
+
+      return res.status(201).json({ message: 'User registered successfully', expiresAt });
+    } catch (error) {
+      console.error('Error registering user:', error);
+      return res.status(500).json({ error: 'Internal server error' });
+    }
+  } else {
+    res.status(405).json({ message: 'Method not allowed' });
   }
 }

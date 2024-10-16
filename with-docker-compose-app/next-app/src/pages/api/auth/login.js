@@ -1,44 +1,29 @@
-// pages/api/login.js
-import { auth } from '../../../lib/lucia';
+import db, { createSession } from '../../../lib/db'; // Importez également db
 
 export default async function handler(req, res) {
-  if (req.method !== 'POST') {
-    return res.status(405).end(); // Méthode non autorisée
-  }
+  if (req.method === 'POST') {
+    const { email, password } = req.body;
 
-  const { email, password } = req.body;
+    console.log(email);
+    console.log(password);
 
-  let errors = {};
+    // Recherche de l'utilisateur dans la base de données
+    const user = db.prepare('SELECT * FROM users WHERE email = ?').get(email);
 
-  if (!email.includes('@')) {
-    errors.email = 'Please enter a valid email address';
-  }
+    console.log(user);
 
-  if (password.trim().length < 8) {
-    errors.password = 'Password must be at least 8 characters long';
-  }
-
-  if (Object.keys(errors).length > 0) {
-    return res.status(400).json({ errors });
-  }
-
-  try {
-    const user = await auth.authenticateUser('email', email, password);
-
-    if (!user) {
-      return res.status(401).json({ errors: { email: 'Email not found' } });
+    if (!user || user.password !== password) {
+      return res.status(401).json({ error: 'Invalid credentials' });
     }
 
-    // Créer une session d'authentification pour l'utilisateur
-    const session = await auth.createSession(user.userId);
+    // Crée une session pour cet utilisateur
+    const { sessionId, expiresAt } = createSession(user.id);
 
-    // Définir le cookie de session
-    res.setHeader('Set-Cookie', session.cookies);
+    // Définit un cookie avec l'identifiant de la session
+    res.setHeader('Set-Cookie', `sessionId=${sessionId}; HttpOnly; Path=/; Max-Age=86400; SameSite=Lax`);
 
-    // Rediriger l'utilisateur après une connexion réussie
-    res.status(200).json({ success: true });
-  } catch (error) {
-    console.error('Error during login:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
+    return res.status(200).json({ message: 'Login successful', expiresAt });
+  } else {
+    res.status(405).json({ message: 'Method not allowed' });
   }
 }
