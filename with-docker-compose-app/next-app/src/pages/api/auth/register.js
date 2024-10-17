@@ -1,12 +1,10 @@
 import db, { createSession } from '../../../lib/db';
+import { createUser } from '../../../lib/user';
 import bcrypt from 'bcryptjs';
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { email, password } = req.body;
-
-    console.log(email);
-    console.log(password);
 
     // Vérification des champs
     if (!email?.trim() || !password?.trim()) {

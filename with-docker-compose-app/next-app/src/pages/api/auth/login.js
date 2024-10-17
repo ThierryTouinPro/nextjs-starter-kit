@@ -1,19 +1,17 @@
-import db, { createSession } from '../../../lib/db'; // Importez également db
+import db, { createSession } from '../../../lib/db';
+import bcrypt from 'bcryptjs'
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { email, password } = req.body;
 
-    console.log(email);
-    console.log(password);
-
     // Recherche de l'utilisateur dans la base de données
     const user = db.prepare('SELECT * FROM users WHERE email = ?').get(email);
+    const test = bcrypt.compareSync(password, user.password);
 
-    console.log(user);
 
-    if (!user || user.password !== password) {
-      return res.status(401).json({ error: 'Invalid credentials' });
+    if (!user || !bcrypt.compareSync(password, user.password)) {
+      return res.status(401).json({ error: 'Identifiants invalides' });
     }
 
     // Crée une session pour cet utilisateur

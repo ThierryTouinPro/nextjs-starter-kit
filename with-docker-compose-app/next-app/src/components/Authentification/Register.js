@@ -53,7 +53,7 @@ export default function Register() {
       const data = await response.json();
       console.log('User registered successfully:', data);
       // Rediriger l'utilisateur après l'inscription
-      window.location.href = '/OKK!!!!!';
+      window.location.href = '/';
     } catch (error) {
       console.error('Error during registration:', error);
       setErrors({ global: 'Internal Server Error' });

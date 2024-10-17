@@ -28,6 +28,10 @@ try {
 
 // Fonction pour créer une nouvelle session
 export const createSession = (userId) => {
+  if (!userId) {
+    throw new Error('userId is required to create a session.');
+  }
+
   const sessionId = uuidv4(); // Génère un identifiant unique pour la session
   const expiresAt = Date.now() + 1000 * 60 * 60 * 24; // Session valide pendant 24h
 
@@ -35,14 +39,23 @@ export const createSession = (userId) => {
     const stmt = db.prepare(`
       INSERT INTO sessions (id, expires_at, user_id) 
       VALUES (?, ?, ?)
-    `);
-    stmt.run(sessionId, expiresAt, userId);
+    `);  // Éxécute la requête SQL avec les paramètres passés
+
+    console.log('sessionId:', sessionId, 'expiresAt:', expiresAt, 'userId:', userId);
+
+    const result = stmt.run(sessionId, expiresAt, userId);
+    
+    if (result.changes === 0) {
+      throw new Error('No session was created. Check the userId.');
+    }
+
     return { sessionId, expiresAt };
   } catch (error) {
     console.error('Error creating session:', error);
     return null;
   }
 };
+
 
 // Fonction pour vérifier une session
 export const verifySession = (sessionId) => {
