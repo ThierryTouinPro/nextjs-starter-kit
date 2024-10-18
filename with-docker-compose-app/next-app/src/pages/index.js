@@ -1,7 +1,5 @@
 import Head from "next/head";
-import FeatureFuture from "../components/Home/FeatureFuture";
-import FeatureExtras from "../components/Home/FeatureExtras";
-import FeatureInfrastructure from "../components/Home/FeatureInfrastructure";
+import MainHome from "../components/Home/MainHome";
 
 
 export default function Home() {
@@ -12,15 +10,7 @@ export default function Home() {
           <meta name="viewport" content="width=device-width, initial-scale=1.0" />
           <title>NSK Site - NextJS</title>
         </Head>
-        <section className="row align-items-center my-5">
-          <FeatureFuture />
-        </section>
-        <section className="state-art-section rounded-corners circle-image-background">
-          <FeatureInfrastructure />
-        </section>
-        <section className="row align-items-center my-5">
-          <FeatureExtras />
-        </section>
+        <MainHome />
       </div>
     </>
   );

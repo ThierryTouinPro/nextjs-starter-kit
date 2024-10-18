@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { ReponseError } from '../../lib/reponse';
 import ButtonSubmit from '../Interface/ButtonSubmit';
 
 export default function Login() {
@@ -18,39 +19,19 @@ export default function Login() {
         },
         body: JSON.stringify({ email, password }),
       });
-    
-      if (!response.ok) {
-        let errorMessage = 'An error occurred';
-      
-        try {
-          const errorData = await response.json();
-        
-          if (response.status === 400) {
-            errorMessage = errorData.error || 'Données invalides, veuillez vérifier vos informations.';
-          } else if (response.status === 401) {
-            errorMessage = errorData.error || 'Accès non autorisé.';
-          } else if (response.status === 500) {
-            errorMessage = 'Erreur serveur, veuillez réessayer plus tard.';
-          } else {
-            errorMessage = errorData.error || 'Une erreur est survenue.';
-          }
-        } catch (e) {
-          console.error('Error parsing JSON response:', e);
-          errorMessage = 'Une erreur inattendue est survenue. Veuillez réessayer.';
-        }
-      
-        setErrors({ global: errorMessage });
-        return;
+
+      const isValidResponse = await ReponseError(response, setErrors);
+      if (!isValidResponse) {
+        return; // Arrêter l'exécution si une erreur s'est produite
       }
-    
+
       const data = await response.json();
       console.log('User logged in successfully:', data);
-      window.location.href = '/login';
+      window.location.href = '/connected';
     } catch (error) {
       console.error('Error during login:', error);
       setErrors({ global: 'Internal Server Error' });
     }
-    
   };
 
   return (

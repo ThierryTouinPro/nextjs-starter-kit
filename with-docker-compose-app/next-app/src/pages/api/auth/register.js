@@ -8,14 +8,14 @@ export default async function handler(req, res) {
 
     // Vérification des champs
     if (!email?.trim() || !password?.trim()) {
-      return res.status(400).json({ error: 'Email and password are required' });
+      return res.status(400).json({ error: 'L\'email et le mot de passe sont requis' });
     }
     
 
     // Vérifier si l'utilisateur existe déjà
     const existingUser = db.prepare('SELECT * FROM users WHERE email = ?').get(email);
     if (existingUser) {
-      return res.status(400).json({ error: 'User already exists' });
+      return res.status(400).json({ error: 'L\'utilisateur existe déjà' });
     }
 
     // Hachage du mot de passe
@@ -38,7 +38,7 @@ export default async function handler(req, res) {
       return res.status(201).json({ message: 'User registered successfully', expiresAt });
     } catch (error) {
       console.error('Error registering user:', error);
-      return res.status(500).json({ error: 'Internal server error' });
+      return res.status(500).json({ error: 'Erreur serveur interne' });
     }
   } else {
     res.status(405).json({ message: 'Method not allowed' });
