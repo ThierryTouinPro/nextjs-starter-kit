@@ -1,5 +1,4 @@
 import db, { createSession } from '../../../lib/db';
-import { createUser } from '../../../lib/user';
 import bcrypt from 'bcryptjs';
 
 export default async function handler(req, res) {
