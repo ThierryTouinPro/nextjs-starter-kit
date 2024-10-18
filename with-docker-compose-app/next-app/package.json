@@ -18,7 +18,9 @@
     "next": "^14.2.15",
     "next-cookies": "^2.0.3",
     "react": "^18.2.0",
+    "react-datepicker": "^7.5.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.53.0",
     "redirect": "^0.2.0",
     "uuid": "^10.0.0"
   },
