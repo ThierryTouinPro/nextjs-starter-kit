@@ -1,0 +1,31 @@
+.sidebar {
+  background-color: var(--white);
+  padding: 20px;
+  border-right: 1px solid var(--grayish-blue);
+}
+
+.stepCircle {
+  display: inline-block;
+  width: 35px;
+  height: 30px;
+  line-height: 30px;
+  background-color: var(--grayish-blue);
+  color: var(--very-dark-black-blue);
+  text-align: center;
+  border-radius: 50%;
+  font-weight: bold;
+}
+
+.activeStepCircle {
+  background-color: var(--very-light-red);
+  color: var(--white);
+}
+
+.activeText {
+  font-weight: bold;
+  color: var(--very-light-red);
+}
+
+.active {
+  font-weight: bold;
+}

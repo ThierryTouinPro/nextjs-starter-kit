@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm, FormProvider } from "react-hook-form";
+import { ReponseError } from "../../lib/reponse";
 import ButtonSubmit from "../Interface/ButtonSubmit";
-import Input from "../Interface/Input";
-import RadioGroup from "../Interface/RadioGroup";
-import BirthDate from "../Interface/BirthDate";
+import PersonalInfoForm from "./SignupForms/PersonalInfoForm";
+import ChoosePwdForm from "./SignupForms/ChoosePwdForm";
+import { Sidebar } from "./Sidebar/Sidebar";
 
 export default function Register() {
   const methods = useForm();
@@ -12,20 +13,25 @@ export default function Register() {
     setError,
     clearErrors,
     formState: { errors },
-    watch,
   } = methods;
-  const password = watch("password");
-  const confirmPassword = watch("confirmPassword");
 
-  const options = [
-    { value: "Mr", label: "Monsieur" },
-    { value: "Mme", label: "Madame" },
-  ];
+  const [step, setStep] = useState(1);
+  const [recap, setRecap] = useState([]);
+
+  const handleNextStep = (data) => {
+    setRecap((prev) => ({ ...prev, ...data }));
+    setStep(step + 1);
+  };
+
+  const handlePrevStep = () => {
+    setStep(step - 1);
+  };
 
   const onSubmit = async (data) => {
     clearErrors();
     // Log des données du formulaire
-    console.log(data);
+    const finalData = { ...recap, ...data };
+    console.log(finalData);
 
     try {
       const response = await fetch("/api/auth/register", {
@@ -36,15 +42,15 @@ export default function Register() {
         body: JSON.stringify(data),
       });
 
-      const isValidResponse = await ReponseError(response, setErrors);
+      const isValidResponse = await ReponseError(response, setError);
       if (!isValidResponse) {
         return; // Arrêter l'exécution si une erreur s'est produite
       }
 
-      const data = await response.json();
-      console.log('User registered successfully:', data);
+      const responseData = await response.json();
+      console.log("User registered successfully:", responseData);
       // Rediriger l'utilisateur après l'inscription
-      window.location.href = '/login';
+      window.location.href = "/login";
     } catch (error) {
       console.error("Error during registration:", error);
       setError("global", { message: "Internal Server Error" });
@@ -52,75 +58,57 @@ export default function Register() {
   };
 
   return (
-    <div className="row justify-content-center">
-      <div className="col-md-6">
-        <FormProvider {...methods}>
-          <form id="auth-form" onSubmit={handleSubmit(onSubmit)}>
-            <div>
-              <img src="/images/auth-icon.png" alt="A lock icon" />
-            </div>
-            <RadioGroup name="gender" options={options} />
-            <Input
-              name="firstName"
-              label="Prénom"
-              type="text"
-              placeholder="Prénom"
-            />
-            <Input name="lastName" label="Nom" type="text" placeholder="Nom" />
-            <BirthDate name="dateDeNaissance" placeholder="31/12/1990" />
-            <Input
-              name="phone"
-              label="Numéro Téléphone"
-              type="tel"
-              placeholder="+33 7 22 33 44 55"
-            />
-            <Input
-              name="email"
-              label="Email"
-              type="email"
-              placeholder="Email"
-              validations={{
-                pattern: {
-                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                  message: "Email invalide",
-                },
-              }}
-            />
-            <Input
-              name="password"
-              label="Mot de passe"
-              type="password"
-              placeholder="Mot de passe"
-              validations={{
-                pattern: {
-                  value:
-                    /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-                  message:
-                    "Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial",
-                },
-              }}
-            />
-            <Input
-              name="confirmPassword"
-              label="Confirmation du mot de passe"
-              type="password"
-              placeholder="Confirmer le mot de passe"
-              validations={{
-                validate: (value) =>
-                  value === password ||
-                  "Les mots de passe ne correspondent pas",
-              }}
-            />
-            <div className="text-center">
-              <p className="my-4">
-                {errors.global && (
-                  <span className="error-message">{errors.global.message}</span>
-                )}
-              </p>
-              <ButtonSubmit type="submit" label="S'inscrire" mode="secondary" />
-            </div>
-          </form>
-        </FormProvider>
+    <div className="container">
+      <div className="row d-flex flex-row justify-content-center align-items-center">
+        {/* Sidebar Section */}
+        <div
+          className={
+            "col-md-4 col-offset-2 col-xs-12 d-flex justify-content-center"
+          }
+        >
+          <Sidebar currentStep={step} />
+        </div>
+        {/* Form Section */}
+        <div className="col-md-8 col-xs-12d-flex justify-content-center">
+          <FormProvider {...methods}>
+            <form id="auth-form" onSubmit={handleSubmit(onSubmit)}>
+              <div>
+                <img src="/images/auth-icon.png" alt="A lock icon" />
+              </div>
+              {step === 1 && (
+                <>
+                  <PersonalInfoForm onNext={handleNextStep} />
+                  <div className="text-center">
+                    <ButtonSubmit
+                      type="button"
+                      label="Suivant"
+                      mode="secondary"
+                      onClick={methods.handleSubmit(handleNextStep)}
+                    />
+                  </div>
+                </>
+              )}
+              {step === 2 && (
+                <>
+                  <ChoosePwdForm />
+                  <div className="text-center">
+                    <ButtonSubmit
+                      type="button"
+                      label="Précédent"
+                      mode="secondary"
+                      onClick={handlePrevStep}
+                    />
+                    <ButtonSubmit
+                      type="submit"
+                      label="S'inscrire"
+                      mode="primary"
+                    />
+                  </div>
+                </>
+              )}
+            </form>
+          </FormProvider>
+        </div>
       </div>
     </div>
   );
