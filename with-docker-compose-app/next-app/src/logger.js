@@ -1,26 +1,30 @@
-// logger.js
-const { createLogger, format, transports } = require('winston');
-const { combine, timestamp, printf, colorize } = format;
+let logger = null;
 
-// Format des logs
-const logFormat = printf(({ level, message, timestamp }) => {
-  return `${timestamp} [${level}]: ${message}`;
-});
+if (typeof window === 'undefined') {
+  // Winston ne doit être importé que côté serveur
+  const { createLogger, format, transports } = require('winston');
+  const { combine, timestamp, printf, colorize } = format;
 
-// Création du logger
-const logger = createLogger({
-  level: 'info', // Définir le niveau par défaut
-  format: combine(
-    colorize(),
-    timestamp(),
-    logFormat
-  ),
-  transports: [
-    new transports.Console(), // Logs dans la console
-    new transports.File({ filename: 'logs/error.log', level: 'error' }), // Logs d'erreurs dans un fichier
-    new transports.File({ filename: 'logs/combined.log' }) // Tous les logs dans un autre fichier
-  ],
-});
+  const logFormat = printf(({ level, message, timestamp }) => {
+    return `${timestamp} [${level}]: ${message}`;
+  });
 
-// Exporter le logger pour l'utiliser dans d'autres fichiers
+  logger = createLogger({
+    level: 'info',
+    format: combine(
+      colorize(),
+      timestamp(),
+      logFormat
+    ),
+    transports: [
+      new transports.Console(),
+      new transports.File({ filename: 'logs/error.log', level: 'error' }),
+      new transports.File({ filename: 'logs/combined.log' }),
+    ],
+  });
+} else {
+  // Si le code est exécuté côté client, ne pas charger Winston
+  logger = console; // Utiliser console.log pour les logs client-side
+}
+
 module.exports = logger;
