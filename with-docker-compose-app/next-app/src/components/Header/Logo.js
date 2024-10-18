@@ -1,7 +1,7 @@
-import React from 'react';
-import Link from 'next/link';
-import styles from './css/Logo.module.css';
-import Image from 'next/image';
+import React from "react";
+import Link from "next/link";
+import styles from "./css/Logo.module.css";
+import Image from "next/image";
 
 function Logo() {
   return (
@@ -13,13 +13,12 @@ function Logo() {
     //         height={40}
     //         className={styles.logo}
     //       />
-    // 
+    //
 
     <Link href="/">
-        <h2 class="fw-bold text-white">NSK Site</h2>  
+      <h2 className="fw-bold text-white">NSK Site</h2>
     </Link>
-
   );
-};
+}
 
 export default Logo;
