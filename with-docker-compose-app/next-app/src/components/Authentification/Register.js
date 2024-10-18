@@ -36,15 +36,15 @@ export default function Register() {
         body: JSON.stringify(data),
       });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        setError("global", { message: errorData.error || "An error occurred" });
-        return;
+      const isValidResponse = await ReponseError(response, setErrors);
+      if (!isValidResponse) {
+        return; // Arrêter l'exécution si une erreur s'est produite
       }
 
-      const result = await response.json();
-      console.log("User registered successfully:", result);
-      window.location.href = "/";
+      const data = await response.json();
+      console.log('User registered successfully:', data);
+      // Rediriger l'utilisateur après l'inscription
+      window.location.href = '/login';
     } catch (error) {
       console.error("Error during registration:", error);
       setError("global", { message: "Internal Server Error" });
