@@ -1,12 +1,15 @@
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
+import { useRouter } from 'next/router';
 
 export default function Layout({ children }) {
+  const router = useRouter();
+
   return (
     <>
-        <Header />
+        {!router.pathname.includes('/admin/logs') && <Header />}
             {children}
-        <Footer />
+        {!router.pathname.includes('/admin/logs') && <Footer />}
     </>
   )
 }

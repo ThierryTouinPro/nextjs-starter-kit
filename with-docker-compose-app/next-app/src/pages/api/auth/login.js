@@ -1,6 +1,7 @@
 import db, { createSession } from '../../../lib/db';
 import bcrypt from 'bcryptjs';
-const logger = require('../../../logger'); // Import de Winston
+const logger = require('../../../config/winston');
+
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
