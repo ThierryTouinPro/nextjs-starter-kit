@@ -1,5 +1,7 @@
+name: "next"
+
 services:
-  next-app:
+  app:
     container_name: next-app
     build:
       context: ./next-app
@@ -24,10 +26,10 @@ services:
       - 3000:3000
     command: npm run dev  # Utilisez le mode développement
     networks:
-      - my_network
+      - next-network
 
 # Define a network, which allows containers to communicate
 # with each other, by using their container name as a hostname
 networks:
-  my_network:
+  next-network:
     external: true
