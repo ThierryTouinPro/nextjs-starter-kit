@@ -83,7 +83,7 @@ export default function Register() {
                       type="button"
                       label="Suivant"
                       mode="secondary"
-                      onClick={methods.handleSubmit(handleNextStep)}
+                      action={methods.handleSubmit(handleNextStep)}
                     />
                   </div>
                 </>
@@ -96,7 +96,7 @@ export default function Register() {
                       type="button"
                       label="Précédent"
                       mode="secondary"
-                      onClick={handlePrevStep}
+                      action={handlePrevStep}
                     />
                     <ButtonSubmit
                       type="submit"
