@@ -6,10 +6,21 @@
     "start": "next start"
   },
   "dependencies": {
+    "18": "^0.0.0",
+    "@lucia-auth/adapter-sqlite": "^3.0.2",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.3.0",
     "bootstrap": "^5.3.3",
-    "next": "latest",
+    "crypto": "^1.0.1",
+    "lucia": "^3.2.1",
+    "lucia-auth": "^1.8.0",
+    "next": "^14.2.15",
+    "next-cookies": "^2.0.3",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "redirect": "^0.2.0",
+    "uuid": "^10.0.0"
   },
   "devDependencies": {
     "@types/node": "^18.11.9",

@@ -1,0 +1,18 @@
+.error-message {
+    color: var(--light-red); /* Rouge vif pour attirer l'attention */
+    padding: 15px; /* Espace intérieur pour bien espacer le texte */
+    margin: 10px 0; /* Marge autour du message */
+    border: 1px solid var(--light-red); /* Bordure rouge pour délimiter clairement */
+    border-radius: 5px; /* Coins arrondis pour un style plus moderne */
+    font-family: var(--font-overpass); /* Police claire et lisible */
+    max-width: 400px; /* Largeur maximale pour s'adapter aux écrans plus petits */
+    text-align: center; /* Centrer le texte pour un meilleur alignement */
+  }
+  
+  /* Style pour ajouter une icône d'alerte avant le message d'erreur */
+  .error-message::before {
+    float: left;
+    padding-top: 2px;
+    /* content: '⚠️'; */
+    font-size: 18px; /* Un peu plus grande que le texte */
+  }

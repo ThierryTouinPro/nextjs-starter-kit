@@ -1,0 +1,25 @@
+.footer {
+    border-top-right-radius: 4rem; 
+    background-color: var( --very-dark-black-blue);
+}
+
+.footer h6 {
+    color: var( --white);
+    font-family: var(--font-overpass);
+    font-size: 0.8rem;
+    line-height: normal;
+}
+
+.footer h4 {
+    color: var( --white);
+    font-family: var(--font-overpass);
+    line-height: normal;
+}
+
+.footer p a {
+    text-decoration: none;
+    color: var( --grayish-blue);
+    font-size: 0.7rem;
+    font-weight: var( --font-weight-light);
+}
+

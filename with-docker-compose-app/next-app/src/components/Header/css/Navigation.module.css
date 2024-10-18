@@ -1,0 +1,116 @@
+.nav {
+    gap: 2.5rem;
+    flex-direction: row;
+}
+
+.navLink {
+    position: relative;
+    color: var(--white);
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-weight: var(--font-weight-medium);
+    text-decoration: none;
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.navLink:hover,
+.navLink:focus {
+    text-decoration: underline;
+    color: var(--white);
+}
+
+.arrowIcon {
+    color: var(--white);
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.arrowIcon img {
+    width: 10px;
+    height: 10px;
+}
+
+.arrowIcon.open {
+    transform: rotate(180deg);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdownMenu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--white);
+    border-radius: 5px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    list-style: none;
+    min-width: 150px;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-align: left;
+}
+
+.dropdownMenu.show {
+    display: block;
+    opacity: 1;
+}
+
+.dropdownItem {
+    padding: 0.5rem 0;
+    font-size: var(--font-body-size);
+    color: var(--very-dark-black-blue);
+    text-decoration: none;
+    transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+.dropdownItem:hover,
+.dropdownItem:focus {
+    color: var(--very-dark-grayish-blue);
+    text-decoration: underline;
+}
+
+.dropdownItem + .dropdownItem {
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        margin-right: 0;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .navLink {
+        font-size: 1rem;
+        color: var(--very-dark-black-blue);
+    }
+
+    .navLink:hover,
+    .navLink:focus {
+        text-decoration: underline;
+        color: var(--very-dark-black-blue);
+    }
+
+    .dropdownMenu {
+        position: static;
+        box-shadow: none;
+        padding: 0.5rem;
+        opacity: 1;
+        background-color: var(--white);
+        border-radius: 5px;
+        text-align: center;
+    }
+
+    .dropdownMenu.show {
+        display: block;
+    }
+}

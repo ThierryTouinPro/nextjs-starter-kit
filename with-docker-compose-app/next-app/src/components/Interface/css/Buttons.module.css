@@ -1,0 +1,68 @@
+.buttonsStyle {
+    gap: 1rem;
+    flex-direction: row;
+}
+
+.buttonText{
+    color: var(--white);
+}
+
+.buttonPrimary{
+    color: var(--very-light-red);
+    background-color: var(--white);
+}
+
+.buttonText, .buttonPrimary{
+    border-radius: 5rem;
+    padding: .75rem 1.5rem;
+    font-weight: var(--font-weight-black);
+    text-decoration: none;
+}
+
+.buttonText:hover, .buttonPrimary:hover {
+    background-color: var(--very-light-red);
+    color: var(--white);
+}
+
+.buttonSecondary {
+    color: var(--white);
+    border-radius: 5rem;
+    padding: .75rem 1.5rem;
+    font-weight: var(--font-weight-black);
+    text-decoration: none;
+    background-color: var(--very-light-red);
+}
+
+.buttonSecondary:hover {
+    background-color: var(--white);
+    color: var(--very-light-red);
+}
+
+@media (max-width: 768px) {
+    .buttonsStyle {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .buttonText{
+        color: var(--very-dark-black-blue);
+    }
+
+    .buttonPrimary{
+        color: var(--very-light-red);
+        background-color: var(--white);
+    }
+
+    .customHr {
+        width: 100%;
+        border: none;        
+        height: 1px;         
+        background-color: var(--white);
+        margin: 10px 0 0px;
+    }
+
+    .buttonSecondary {
+        color: var(--white);
+        background-color: var(--very-light-red);
+    }
+}

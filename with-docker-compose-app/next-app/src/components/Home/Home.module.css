@@ -1,0 +1,49 @@
+/* Styles pour page d'accueil (Home) */
+.home .state-art-section {
+  background-color: var(--gradient-body-start);
+  color: white;
+  padding: 6rem;
+}
+.home .phones img {
+  position: absolute;
+  top: 76em;
+  max-width: 100%; 
+  height: auto;
+}
+
+@media (max-width: 1024px) {
+  .home .phones img {
+    position: static;
+  }
+
+  .home .state-art-section {
+    padding: 35px;
+  }
+}
+.home .text-section h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.home .text-section p {
+  font-size: 1rem;
+  color: var(--white); /* Légèrement transparent pour le texte */
+}
+.home .rounded-corners {
+  border-top-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+}
+.home .circle-image-background {
+  background-image: url('/images/bg-pattern-circles.svg');
+  background-repeat: no-repeat;
+  border-bottom-right-radius: 10px;
+} 
+@media (max-width: 768px) {
+  .home .state-art-section {
+    text-align: center; /* Centrer le texte sur les petits écrans */
+    padding: 50px;
+  }
+  .home .text-section {
+    margin-top: 2rem;
+  }
+}
