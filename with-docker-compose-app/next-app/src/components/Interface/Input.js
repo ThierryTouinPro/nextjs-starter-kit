@@ -8,6 +8,7 @@ export default function Input({
   id,
   placeholder,
   validations,
+  icon,
 }) {
   const {
     register,
@@ -16,7 +17,9 @@ export default function Input({
 
   return (
     <p>
-      <label htmlFor={id}>{label}</label>
+      <label htmlFor={id}>
+        {icon} {label} : <span className="text-danger">*</span>
+      </label>
       <input
         id={id}
         name={name}

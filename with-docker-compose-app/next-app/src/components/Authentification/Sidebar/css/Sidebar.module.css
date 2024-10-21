@@ -29,3 +29,9 @@
 .active {
   font-weight: bold;
 }
+
+@media (max-width: 768px) {
+  .sidebar {
+    border-right: 0;
+  }
+}

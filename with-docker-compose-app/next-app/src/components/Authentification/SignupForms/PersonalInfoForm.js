@@ -3,6 +3,7 @@ import { useFormContext } from "react-hook-form";
 import RadioGroup from "../../Interface/RadioGroup";
 import Input from "../../Interface/Input";
 import BirthDateInput from "../../Interface/BirthDateInput";
+import { FaCalendarAlt, FaEnvelope, FaPhone, FaUser } from "react-icons/fa";
 
 export default function PersonalInfoForm() {
   const options = [
@@ -14,9 +15,25 @@ export default function PersonalInfoForm() {
   return (
     <div>
       <RadioGroup name="gender" options={options} />
-      <Input name="firstName" label="Prénom" type="text" placeholder="Prénom" />
-      <Input name="lastName" label="Nom" type="text" placeholder="Nom" />
-      <BirthDateInput name="dateDeNaissance" placeholder="31/12/1990" />
+      <Input
+        name="firstName"
+        label="Prénom"
+        type="text"
+        placeholder="Prénom"
+        icon={<FaUser />}
+      />
+      <Input
+        name="lastName"
+        label="Nom"
+        type="text"
+        placeholder="Nom"
+        icon={<FaUser />}
+      />
+      <BirthDateInput
+        name="dateDeNaissance"
+        placeholder="31/12/1990"
+        icon={<FaCalendarAlt />}
+      />
       <Input
         name="phone"
         label="Numéro Téléphone"
@@ -28,6 +45,7 @@ export default function PersonalInfoForm() {
             message: "Numéro de téléphone invalide",
           },
         }}
+        icon={<FaPhone />}
       />
       <Input
         name="email"
@@ -40,6 +58,7 @@ export default function PersonalInfoForm() {
             message: "Email invalide",
           },
         }}
+        icon={<FaEnvelope />}
       />
     </div>
   );

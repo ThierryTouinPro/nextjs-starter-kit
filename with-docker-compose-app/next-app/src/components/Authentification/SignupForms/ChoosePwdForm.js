@@ -1,6 +1,7 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
 import Input from "../../Interface/Input";
+import { FaLock } from "react-icons/fa";
 
 export default function ChoosePwdForm({ onNext }) {
   const { watch } = useFormContext();
@@ -21,6 +22,7 @@ export default function ChoosePwdForm({ onNext }) {
               "Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial",
           },
         }}
+        icon={<FaLock />}
       />
       <Input
         name="confirmPassword"
@@ -31,6 +33,7 @@ export default function ChoosePwdForm({ onNext }) {
           validate: (value) =>
             value === password || "Les mots de passe ne correspondent pas",
         }}
+        icon={<FaLock />}
       />
     </div>
   );

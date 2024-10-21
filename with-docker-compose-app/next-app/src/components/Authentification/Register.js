@@ -59,7 +59,10 @@ export default function Register() {
 
   return (
     <div className="container">
-      <div className="row d-flex flex-row justify-content-center align-items-center">
+      <div
+        className="row d-flex flex-row justify-content-center align-items-center"
+        style={{ maxWidth: "1000px", margin: "0 auto" }}
+      >
         {/* Sidebar Section */}
         <div
           className={
@@ -73,7 +76,7 @@ export default function Register() {
           <FormProvider {...methods}>
             <form id="auth-form" onSubmit={handleSubmit(onSubmit)}>
               <div>
-                <img src="/images/auth-icon.png" alt="A lock icon" />
+                <img src="/images/register-icon.png" alt="A lock icon" />
               </div>
               {step === 1 && (
                 <>
