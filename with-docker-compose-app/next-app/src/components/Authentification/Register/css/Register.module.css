@@ -1,7 +1,10 @@
+#registernsk{
+  background-color: var(--very-grey-blue);
+  margin: 45px;
+}
+
 .sidebar {
-  background-color: var(--white);
-  padding: 20px;
-  border-right: 1px solid var(--grayish-blue);
+  padding-top: 25px;
 }
 
 .stepCircle {
@@ -24,14 +27,9 @@
 .activeText {
   font-weight: bold;
   color: var(--very-light-red);
+  font-size: 18px;
 }
 
 .active {
   font-weight: bold;
-}
-
-@media (max-width: 768px) {
-  .sidebar {
-    border-right: 0;
-  }
 }

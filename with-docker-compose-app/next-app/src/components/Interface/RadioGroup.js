@@ -1,7 +1,7 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
 
-export default function RadioGroup({ name, options }) {
+export default function RadioGroup({ label, name, options, icon }) {
   const {
     register,
     formState: { errors },
@@ -9,9 +9,12 @@ export default function RadioGroup({ name, options }) {
 
   return (
     <>
-      <div className="d-flex align-items-center gap-5 mb-2">
+      <div className="d-flex align-items-center gap-5">
+      <label className="d-flex align-items-center gap-2">
+        {icon} {label} : <span className="text-danger">*</span>
+      </label>
         {options.map((option) => (
-          <label key={option.value} className="d-flex align-items-center gap-2">
+          <label key={option.value} className="d-flex align-items-center gap-2 mt-2 mb-2">
             <span>{option.label}</span>
             <input
               type="radio"

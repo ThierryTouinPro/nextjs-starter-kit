@@ -8,7 +8,7 @@ export default function Input({
   id,
   placeholder,
   validations,
-  icon,
+  icon
 }) {
   const {
     register,
@@ -17,7 +17,7 @@ export default function Input({
 
   return (
     <p>
-      <label htmlFor={id}>
+      <label htmlFor={id} className="d-flex align-items-center gap-2">
         {icon} {label} : <span className="text-danger">*</span>
       </label>
       <input
@@ -26,7 +26,7 @@ export default function Input({
         type={type}
         placeholder={placeholder}
         {...register(name, { required: `${label} est requis`, ...validations })}
-        className="text-dark"
+        className="text-dark mt-2 mb-2"
       />
       {errors[name] && (
         <span className="error text-danger">{errors[name].message}</span>

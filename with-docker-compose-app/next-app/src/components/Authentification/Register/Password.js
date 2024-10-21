@@ -3,7 +3,7 @@ import { useFormContext } from "react-hook-form";
 import Input from "../../Interface/Input";
 import { FaLock } from "react-icons/fa";
 
-export default function ChoosePwdForm({ onNext }) {
+export default function RegisterPassword({ onNext }) {
   const { watch } = useFormContext();
   const password = watch("password");
 

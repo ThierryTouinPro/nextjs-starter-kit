@@ -1,5 +1,3 @@
-// lib/reponse.js
-
 export async function ReponseError(response, setErrors) {
     if (!response.ok) {
       let errorMessage = 'An error occurred';

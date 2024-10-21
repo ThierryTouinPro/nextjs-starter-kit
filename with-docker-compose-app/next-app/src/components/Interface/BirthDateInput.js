@@ -10,11 +10,11 @@ export default function BirthDateInput({ name, placeholder, icon }) {
 
   return (
     <div className="mb-3">
-      <label>
+      <label className="d-flex align-items-center gap-2">
         {" "}
         {icon} Date de Naissance : <span className="text-danger">*</span>
       </label>
-      <div>
+      <div className="mt-2 mb-2">
         <Controller
           name={name}
           control={control}
