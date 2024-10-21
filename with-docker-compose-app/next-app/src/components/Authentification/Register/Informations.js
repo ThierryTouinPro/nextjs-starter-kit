@@ -1,5 +1,4 @@
 import React from "react";
-import { useFormContext } from "react-hook-form";
 import RadioGroup from "../../Interface/RadioGroup";
 import Input from "../../Interface/Input";
 import BirthDateInput from "../../Interface/BirthDateInput";
@@ -10,7 +9,6 @@ export default function RegisterInformation() {
     { value: "Mr", label: "Mr" },
     { value: "Mme", label: "Mme" },
   ];
-  const { handleSubmit } = useFormContext();
 
   return (
     <div className="row">

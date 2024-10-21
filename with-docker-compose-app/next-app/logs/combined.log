@@ -106,3 +106,20 @@
 {"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-21T16:03:44.150Z"}
 {"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-21T17:11:43.455Z"}
 {"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-21T17:11:43.457Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-21T17:40:58.067Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-21T17:40:58.072Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-21T17:41:32.746Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-21T17:41:32.746Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-21T17:45:19.553Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-21T17:45:19.555Z"}
+{"level":"warn","message":"Tentative de connexion avec email ou mot de passe vide","timestamp":"2024-10-21T19:03:37.562Z"}
+{"level":"warn","message":"Tentative de connexion avec email ou mot de passe vide","timestamp":"2024-10-21T19:03:42.072Z"}
+{"level":"warn","message":"Tentative de connexion avec email ou mot de passe vide","timestamp":"2024-10-21T19:03:52.741Z"}
+{"level":"info","message":"Connexion réussie pour l'utilisateur : test@test.fr","timestamp":"2024-10-21T19:03:58.650Z"}
+{"level":"info","message":"Nouvel utilisateur enregistré avec succès : zahir@gmail.fr","timestamp":"2024-10-21T19:04:57.639Z"}
+{"level":"warn","message":"Tentative d'enregistrement avec un email déjà utilisé : haniche.zahir@gmail.com","timestamp":"2024-10-21T19:06:23.325Z"}
+{"level":"warn","message":"Tentative de connexion avec email ou mot de passe vide","timestamp":"2024-10-21T19:10:35.981Z"}
+{"level":"warn","message":"Tentative de connexion avec email ou mot de passe vide","timestamp":"2024-10-21T19:10:55.550Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-21T19:16:31.508Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-21T19:16:31.510Z"}
+{"level":"warn","message":"Tentative de connexion avec email ou mot de passe vide","timestamp":"2024-10-21T19:16:38.897Z"}

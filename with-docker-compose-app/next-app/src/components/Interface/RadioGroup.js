@@ -12,7 +12,8 @@ export default function RadioGroup({ label, name, options, icon }) {
       <div className="d-flex align-items-center gap-5">
 
       <label className="d-none d-md-block align-items-center gap-2">
-        {icon} {label} : <span className="text-danger">*</span>
+        {/* {icon}  */}
+        {label} : <span className="text-danger">*</span>
       </label>
         {options.map((option) => (
           <label key={option.value} className="d-flex align-items-center gap-2 mt-2 mb-2">

@@ -1,119 +1,79 @@
 import React, { useState } from "react";
-import { useForm, FormProvider } from "react-hook-form";
-import { ReponseError } from "../../lib/reponse";
-import ButtonSubmit from "../Interface/ButtonSubmit";
-import RegisterInformation from "./Register/Informations";
-import RegisterPassword from "./Register/Password";
 import styles from "../Authentification/Register/css/Register.module.css";
+import Connexion from "./Login/Connexion";
+import Registration from "./Register/Registration";
 
 export default function AuthForm() {
-  const methods = useForm();
-  const {
-    handleSubmit,
-    setError,
-    clearErrors,
-    formState: { errors },
-  } = methods;
+  const [isLogin, setIsLogin] = useState(true);
 
-  const [step, setStep] = useState(1);
-  const [recap, setRecap] = useState([]);
-
-  const handleNextStep = (data) => {
-    setRecap((prev) => ({ ...prev, ...data }));
-    setStep(step + 1);
-  };
-
-  const handlePrevStep = () => {
-    setStep(step - 1);
-  };
-
-  const onSubmit = async (data) => {
-    clearErrors();
-    const finalData = { ...recap, ...data };
-    console.log(finalData);
-
-    try {
-      const response = await fetch("/api/auth/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      const isValidResponse = await ReponseError(response, setError);
-      if (!isValidResponse) {
-        return;
-      }
-
-      const responseData = await response.json();
-      console.log("User registered successfully:", responseData);
-      window.location.href = "/login";
-    } catch (error) {
-      console.error("Error during registration:", error);
-      setError("global", { message: "Internal Server Error" });
-    }
-  };
+  function switchAuthModeHandler() {
+    setIsLogin((prevState) => !prevState);
+  }
 
   return (
     <div className="container">
-       <h1 className="text-center text-dark pt-5">
-            Inscription
-        </h1> 
+      <h1 className="text-center text-dark pt-5">
+        <h1>{isLogin ? 'Connexion' : 'Inscription'}</h1>
+      </h1>
       <div className="text-center mb-4">
         <p>Cette page est sécurisée par un protocole SSL/TLS pour protéger vos informations.</p>
       </div>
-      <div 
-        id={styles.registernsk}
-        className="row justify-content-center align-items-center mb-5 mt-4 rounded">
-        {/* Section gauche (Titre et lien de connexion) */}
-        <div className="col-12 col-md-4 mb-4 mt-4">
-          <div className="container text-center">
-            <h2>Créer un compte</h2>
-            <p>
-              Vous êtes déjà inscrit ? <a href="/login"><u>Connectez-vous</u></a>
-            </p>
-          </div>
-        </div>
+      <div id={styles.registernsk} className={`row justify-content-center align-items-center mb-5 mt-4 ${styles.detailsFormRegister}`} >
         
-        {/* Section droite (Formulaire) */}
-        <div className="col-12 col-md-8 d-flex justify-content-center">
-          <div className="container">
-            <FormProvider {...methods}>
-              <form id="auth-form" onSubmit={handleSubmit(onSubmit)}>
-                {step === 1 && (
-                  <>
-                    <RegisterInformation onNext={handleNextStep} />
-                    <div className="text-center">
-                      <ButtonSubmit
-                        type="button"
-                        label="Suivant"
-                        mode="secondary"
-                        action={methods.handleSubmit(handleNextStep)}
-                      />
-                    </div>
-                  </>
-                )}
-                {step === 2 && (
-                  <>
-                    <RegisterPassword />
-                    <div className="text-center d-flex justify-content-center gap-3">
-                      <ButtonSubmit
-                        type="button"
-                        label="Précédent"
-                        mode="primary"
-                        action={handlePrevStep}
-                      />
-                      <ButtonSubmit
-                        type="submit"
-                        label="S'inscrire"
-                        mode="secondary"
-                      />
-                    </div>
-                  </>
-                )}
-              </form>
-            </FormProvider>
+        <div className="row">
+          {/* Bloc de texte centré verticalement */}
+          <div className="col-md-4 col-sm-4 col-xs-12 mb-4 mt-4 d-flex flex-column justify-content-center">
+            {!isLogin ? (
+              <div className="container text-center">
+                <h3>Connectez-vous</h3>
+                <p>
+                  Vous êtes déjà inscrit ?{" "}
+                  <button
+                    type="button"
+                    onClick={switchAuthModeHandler}
+                    style={{
+                      border: "none",
+                      background: "none",
+                      padding: "0",
+                      textDecoration: "underline",
+                    }}
+                  >
+                    Connectez-vous
+                  </button>
+                </p>
+              </div>
+            ) : (
+              <div className="container text-center">
+                <h3>Créer un compte</h3>
+                <p>
+                  Vous n'avez pas de compte ?{" "}
+                  <button
+                    type="button"
+                    onClick={switchAuthModeHandler}
+                    style={{
+                      border: "none",
+                      background: "none",
+                      padding: "0",
+                      textDecoration: "underline",
+                    }}
+                  >
+                    Inscrivez-vous
+                  </button>
+                </p>
+              </div>
+            )}
+          </div>
+
+          {/* Séparateur vertical */}
+          <div className="col-md-1 d-none d-md-flex justify-content-center align-items-center">
+            <div style={{ width: "1px", height: "50%", backgroundColor: "#ccc" }}></div>
+          </div>
+
+          {/* Bloc de formulaire */}
+          <div className="col-md-7 col-sm-8 col-xs-12 d-flex justify-content-center">
+            <div className="container">
+              {!isLogin ? <Registration /> : <Connexion />}
+            </div>
           </div>
         </div>
       </div>
