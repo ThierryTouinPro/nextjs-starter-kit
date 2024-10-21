@@ -67,7 +67,7 @@ export default function AuthForm() {
         id={styles.registernsk}
         className="row justify-content-center align-items-center mb-5 mt-4 rounded">
         {/* Section gauche (Titre et lien de connexion) */}
-        <div className="col-12 col-md-3 mb-4 mt-4">
+        <div className="col-12 col-md-4 mb-4 mt-4">
           <div className="container text-center">
             <h2>Créer un compte</h2>
             <p>
