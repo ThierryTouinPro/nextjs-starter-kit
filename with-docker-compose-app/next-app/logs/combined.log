@@ -104,3 +104,5 @@
 {"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-21T15:49:51.621Z"}
 {"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-21T16:03:44.148Z"}
 {"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-21T16:03:44.150Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-21T17:11:43.455Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-21T17:11:43.457Z"}

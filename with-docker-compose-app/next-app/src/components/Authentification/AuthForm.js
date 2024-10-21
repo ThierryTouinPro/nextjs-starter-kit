@@ -5,7 +5,6 @@ import ButtonSubmit from "../Interface/ButtonSubmit";
 import RegisterInformation from "./Register/Informations";
 import RegisterPassword from "./Register/Password";
 import styles from "../Authentification/Register/css/Register.module.css";
-import { Sidebar } from "./Register/Sidebar";
 
 export default function AuthForm() {
   const methods = useForm();
@@ -30,7 +29,6 @@ export default function AuthForm() {
 
   const onSubmit = async (data) => {
     clearErrors();
-    // Log des données du formulaire
     const finalData = { ...recap, ...data };
     console.log(finalData);
 
@@ -45,12 +43,11 @@ export default function AuthForm() {
 
       const isValidResponse = await ReponseError(response, setError);
       if (!isValidResponse) {
-        return; // Arrêter l'exécution si une erreur s'est produite
+        return;
       }
 
       const responseData = await response.json();
       console.log("User registered successfully:", responseData);
-      // Rediriger l'utilisateur après l'inscription
       window.location.href = "/login";
     } catch (error) {
       console.error("Error during registration:", error);
@@ -60,55 +57,63 @@ export default function AuthForm() {
 
   return (
     <div className="container">
+       <h1 className="text-center text-dark pt-5">
+            Inscription
+        </h1> 
+      <div className="text-center mb-4">
+        <p>Cette page est sécurisée par un protocole SSL/TLS pour protéger vos informations.</p>
+      </div>
       <div 
         id={styles.registernsk}
-        className="row d-flex flex-row justify-content-center align-items-center mb-5 mt-4 rounded"
-        style={{ maxWidth: "600px", margin: "0 auto" }}
-      >
-        {/* Form Section */}
-        <div className="col-12 d-flex justify-content-center">
-          {/* Sidebar Section */}
+        className="row justify-content-center align-items-center mb-5 mt-4 rounded">
+        {/* Section gauche (Titre et lien de connexion) */}
+        <div className="col-12 col-md-3 mb-4 mt-4">
+          <div className="container text-center">
+            <h2>Créer un compte</h2>
+            <p>
+              Vous êtes déjà inscrit ? <a href="/login"><u>Connectez-vous</u></a>
+            </p>
+          </div>
+        </div>
+        
+        {/* Section droite (Formulaire) */}
+        <div className="col-12 col-md-8 d-flex justify-content-center">
           <div className="container">
-            <div className="col-12">
-              <Sidebar currentStep={step} />
-            </div>
-            <div className="col-12">
-              <FormProvider {...methods}>
-                <form id="auth-form" onSubmit={handleSubmit(onSubmit)}>
-                  {step === 1 && (
-                    <>
-                      <RegisterInformation onNext={handleNextStep} />
-                      <div className="text-center">
-                        <ButtonSubmit
-                          type="button"
-                          label="Suivant"
-                          mode="secondary"
-                          action={methods.handleSubmit(handleNextStep)}
-                        />
-                      </div>
-                    </>
-                  )}
-                  {step === 2 && (
-                    <>
-                      <RegisterPassword />
-                      <div className="text-center d-flex justify-content-center gap-3">
-                        <ButtonSubmit
-                          type="button"
-                          label="Précédent"
-                          mode="primary"
-                          action={handlePrevStep}
-                        />
-                        <ButtonSubmit
-                          type="submit"
-                          label="S'inscrire"
-                          mode="secondary"
-                        />
-                      </div>
-                    </>
-                  )}
-                </form>
-              </FormProvider>
-            </div>
+            <FormProvider {...methods}>
+              <form id="auth-form" onSubmit={handleSubmit(onSubmit)}>
+                {step === 1 && (
+                  <>
+                    <RegisterInformation onNext={handleNextStep} />
+                    <div className="text-center">
+                      <ButtonSubmit
+                        type="button"
+                        label="Suivant"
+                        mode="secondary"
+                        action={methods.handleSubmit(handleNextStep)}
+                      />
+                    </div>
+                  </>
+                )}
+                {step === 2 && (
+                  <>
+                    <RegisterPassword />
+                    <div className="text-center d-flex justify-content-center gap-3">
+                      <ButtonSubmit
+                        type="button"
+                        label="Précédent"
+                        mode="primary"
+                        action={handlePrevStep}
+                      />
+                      <ButtonSubmit
+                        type="submit"
+                        label="S'inscrire"
+                        mode="secondary"
+                      />
+                    </div>
+                  </>
+                )}
+              </form>
+            </FormProvider>
           </div>
         </div>
       </div>

@@ -10,7 +10,8 @@ export default function RadioGroup({ label, name, options, icon }) {
   return (
     <>
       <div className="d-flex align-items-center gap-5">
-      <label className="d-flex align-items-center gap-2">
+
+      <label className="d-none d-md-block align-items-center gap-2">
         {icon} {label} : <span className="text-danger">*</span>
       </label>
         {options.map((option) => (
