@@ -6,10 +6,10 @@ export default function AuthPage() {
       <h1>Bienvenue sur la page d'authentification</h1>
       <div className="navigation">
         <Link href="/auth/registration">
-          <a>Go to Registration</a>
+          Go to Registration
         </Link>
         <Link href="/auth/connexion">
-          <a>Go to Connexion</a>
+          Go to Connexion
         </Link>
       </div>
     </div>
