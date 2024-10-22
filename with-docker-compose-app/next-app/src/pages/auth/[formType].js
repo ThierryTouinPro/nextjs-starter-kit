@@ -1,19 +1,28 @@
 import React, { useState } from "react";
-import styles from "../Authentification/Register/css/Register.module.css";
-import Connexion from "./Login/Connexion";
-import Registration from "./Register/Registration";
+import { useRouter } from 'next/router';
+import styles from "../../components/Authentification/Register/css/Register.module.css";
+import Connexion from "../../components/Authentification/Login/Connexion";
+import Registration from "../../components/Authentification/Register/Registration";
 
 export default function AuthForm() {
   const [isLogin, setIsLogin] = useState(true);
+  
+  const router = useRouter();
+  const { formType } = router.query;
 
   function switchAuthModeHandler() {
     setIsLogin((prevState) => !prevState);
+    if (isLogin) {
+      router.push('/auth/connexion');
+    } else {
+      router.push('/auth/inscription');
+    }
   }
 
   return (
     <div className="container">
       <h1 className="text-center text-dark pt-5">
-        <h1>{isLogin ? 'Connexion' : 'Inscription'}</h1>
+        <h1>{formType === 'registration' || !isLogin ? 'Connexion' : 'Inscription'}</h1>
       </h1>
       <div className="text-center mb-4">
         <p>Cette page est sécurisée par un protocole SSL/TLS pour protéger vos informations.</p>
@@ -23,7 +32,7 @@ export default function AuthForm() {
         <div className="row">
           {/* Bloc de texte centré verticalement */}
           <div className="col-md-4 col-sm-4 col-xs-12 mb-4 mt-4 d-flex flex-column justify-content-center">
-            {!isLogin ? (
+            {formType === 'registration' || !isLogin ? (
               <div className="container text-center">
                 <h3>Connectez-vous</h3>
                 <p>
@@ -72,7 +81,7 @@ export default function AuthForm() {
           {/* Bloc de formulaire */}
           <div className="col-md-7 col-sm-8 col-xs-12 d-flex justify-content-center">
             <div className="container">
-              {!isLogin ? <Registration /> : <Connexion />}
+              {formType === 'registration' || !isLogin ? <Registration /> : <Connexion />}
             </div>
           </div>
         </div>

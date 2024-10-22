@@ -58,8 +58,8 @@ function Navigation() {
                 </div>
             ))}
             <div className="d-flex d-lg-none d-xl-none d-xxl-none justify-content-center gap-2">
-                {/* <ButtonLink label="Connexion" mode="secondary" href="/connection" /> */}
-                <ButtonLink label="Inscription" mode={typeof window !== 'undefined' && window.innerWidth < 768 ? 'secondary' : 'primary'} href="/auth" />
+                <ButtonLink label="Connexion" mode="secondary" href="/auth/connexion" />
+                <ButtonLink label="Inscription" mode={typeof window !== 'undefined' && window.innerWidth < 768 ? 'secondary' : 'primary'} href="/auth/registration" />
             </div> 
         </nav>
     );
