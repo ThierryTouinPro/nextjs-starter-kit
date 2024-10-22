@@ -11,11 +11,11 @@ export default function Registration() {
     handleSubmit,
     setError,
     clearErrors,
+    formState: { errors },
   } = methods;
 
   const [step, setStep] = useState(1);
   const [recap, setRecap] = useState([]);
-  
 
   const handleNextStep = (data) => {
     setRecap((prev) => ({ ...prev, ...data }));
@@ -42,12 +42,17 @@ export default function Registration() {
 
       const isValidResponse = await ReponseError(response, setError);
       if (!isValidResponse) {
+        const errorData = await response.json();
+        Object.keys(errorData.errors).forEach((key) => {
+          setError(key, { type: "manual", message: errorData.errors[key] });
+        });
+        setError("global", { message: errorData.error || "An error occurred" });
         return;
       }
 
       const responseData = await response.json();
       console.log("User registered successfully:", responseData);
-      window.location.href = "/login";
+      window.location.href = "/auth/connexion";
     } catch (error) {
       console.error("Error during registration:", error);
       setError("global", { message: "Internal Server Error" });
@@ -74,6 +79,13 @@ export default function Registration() {
           {step === 2 && (
             <>
               <RegisterPassword />
+              <div className="text-center d-flex justify-content-center">
+                {errors.global && (
+                  <p className="error-message text-danger">
+                    {errors.global.message}
+                  </p>
+                )}
+              </div>
               <div className="text-center d-flex justify-content-center gap-3">
                 <ButtonSubmit
                   type="button"

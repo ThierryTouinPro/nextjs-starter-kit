@@ -13,7 +13,12 @@ export default function RegisterInformation() {
   return (
     <div className="row">
       <div className="col-md-12 col-xs-12 mb-4">
-        <RadioGroup name="gender" label="Civilité" options={options} icon={<FaUser />} />
+        <RadioGroup
+          name="gender"
+          label="Civilité"
+          options={options}
+          icon={<FaUser />}
+        />
       </div>
       <div className="col-md-6 col-xs-12">
         <Input
@@ -35,7 +40,7 @@ export default function RegisterInformation() {
       </div>
       <div className="col-md-6 col-xs-12">
         <BirthDateInput
-          name="dateDeNaissance"
+          name="birthdate"
           placeholder="31/12/1990"
           icon={<FaCalendarAlt />}
         />
