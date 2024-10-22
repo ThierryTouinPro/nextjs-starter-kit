@@ -22,7 +22,7 @@ export default function AuthForm() {
   return (
     <div className="container">
       <h1 className="text-center text-dark pt-5">
-        <h1>{formType === 'registration' || !isLogin ? 'Connexion' : 'Inscription'}</h1>
+        <h1>{formType === 'connexion' || !isLogin ? 'Connexion' : 'Inscription'}</h1>
       </h1>
       <div className="text-center mb-4">
         <p>Cette page est sécurisée par un protocole SSL/TLS pour protéger vos informations.</p>
