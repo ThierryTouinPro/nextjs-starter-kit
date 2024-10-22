@@ -51,8 +51,8 @@ function Header() {
                     </nav>
                     <div className='col-4 d-none d-lg-block'>
                         <div className="d-flex justify-content-end gap-4">
-                            {/* <ButtonLink label="Connexion" mode="secondary" href="/login" className="me-2" /> */}
-                            <ButtonLink label="Inscription" mode="primary" href="/auth" />
+                            <ButtonLink label="Connexion" mode="secondary" href="/auth/connexion" className="me-2" /> 
+                            <ButtonLink label="Inscription" mode="primary" href="/auth/registration" />
                         </div>  
                     </div>
                 </div> 

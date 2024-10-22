@@ -1,11 +1,17 @@
-import AuthForm from '../../components/Authentification/AuthForm';
+import Link from 'next/link';
 
-function AuthPage() {
+export default function AuthPage() {
   return (
     <div className="container" id="auth">
-        <AuthForm />
+      <h1>Bienvenue sur la page d'authentification</h1>
+      <div className="navigation">
+        <Link href="/auth/registration">
+          <a>Go to Registration</a>
+        </Link>
+        <Link href="/auth/connexion">
+          <a>Go to Connexion</a>
+        </Link>
+      </div>
     </div>
   );
 }
-
-export default AuthPage;
