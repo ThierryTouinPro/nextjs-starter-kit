@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useRouter } from 'next/router';
 import styles from './css/Header.module.css';
 import Logo from './Logo';
 import Navigation from './Navigation';
@@ -8,6 +9,10 @@ function Header() {
     const [navbarOpen, setNavbarOpen] = useState(false);
     const [isHome, setisHome] = useState(false);
     const navbarRef = useRef(null);
+
+    const router = useRouter();
+
+    
 
     const toggleNavbar = () => {
         setNavbarOpen(!navbarOpen);
@@ -20,19 +25,26 @@ function Header() {
     }, [navbarOpen]);
 
     useEffect(() => {
-        setisHome(true);
+        setisHome(window.location.pathname === '/' );
+        
         document.addEventListener('mousedown', handleClickOutside);
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [handleClickOutside]);
 
+    
+
     return (
-        <header className={`${styles.header} container-fluid pt-4`} style={{ backgroundColor: 'transparent' }}>
-            <picture>
-                <source srcSet="/images/bg-pattern-intro-desktop.svg" media="(min-width: 50rem)" />
-                <img className={`${styles.headerBg}`} src="/images/bg-pattern-intro-mobile.svg" alt="background for header" />
-            </picture>
+        <header className={`${styles.header} 
+        ${isHome && window.location.pathname === '/' ? styles.headerHome : ''} container-fluid pt-4  `} 
+        style={{ backgroundColor: 'transparent' }}>
+            {isHome && window.location.pathname === '/' && (
+                <picture>
+                    <source srcSet="/images/bg-pattern-intro-desktop.svg" media="(min-width: 50rem)" />
+                    <img className={`${styles.headerBg}`} src="/images/bg-pattern-intro-mobile.svg" alt="background for header" />
+                </picture>
+            )}
             <div className="container pb-4 pt-2">
                 <div className="row">
                     <nav className={`navbar navbar-expand-lg ${styles.navBar} col-md-12 col-lg-8`} ref={navbarRef}>
