@@ -18,9 +18,9 @@ export default function Connexion() {
   } = methods;
 
   const onSubmit = async (data) => {
-    clearErrors();
+    clearErrors(); // Efface les erreurs précédentes
     console.log(data);
-
+  
     try {
       const response = await fetch("/api/auth/login", {
         method: "POST",
@@ -29,23 +29,36 @@ export default function Connexion() {
         },
         body: JSON.stringify(data),
       });
-      const isValidResponse = await ReponseError(response, setError);
-      if (!isValidResponse) {
+  
+      // Si la réponse n'est pas OK (statut HTTP 200), on gère les erreurs
+      if (!response.ok) {
         const errorData = await response.json();
-        Object.keys(errorData.errors).forEach((key) => {
-          setError(key, { type: "manual", message: errorData.errors[key] });
-        });
-        setError("global", { message: errorData.error || "An error occurred" });
-        return; // Arrêter l'exécution si une erreur s'est produite
+  
+        if (response.status === 401) {
+          setError("global", { message: errorData.error || "Identifiants invalides. Veuillez réessayer." });
+        } 
+        else if (response.status === 400) {
+          setError("global", { message: errorData.error || "L'email et le mot de passe sont requis." });
+        } 
+        // Autres erreurs (par ex. 500)
+        else {
+          setError("global", { message: errorData.error || "Une erreur s'est produite." });
+        }
+        return;
       }
+  
+      // Si la réponse est correcte (statut 200)
       const responseData = await response.json();
       console.log("User logged in successfully:", responseData);
       window.location.href = "/connected";
+  
     } catch (error) {
+      // Ici on gère uniquement les erreurs réseau ou serveur inattendues
       console.error("Error during login:", error);
-      setError("global", { message: "Internal Server Error" });
+      setError("global", { message: "Erreur serveur, veuillez réessayer plus tard." });
     }
   };
+  
   
   return (
     <div className="row justify-content-center">
