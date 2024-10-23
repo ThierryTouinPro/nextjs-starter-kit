@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import styles from "../../components/Authentification/Register/css/Register.module.css";
 import Connexion from "../../components/Authentification/Login/Connexion";
@@ -10,20 +10,29 @@ export default function AuthForm() {
   const router = useRouter();
   const { formType } = router.query;
 
-  function switchAuthModeHandler() {
-    setIsLogin((prevState) => !prevState);
-    if (isLogin) {
-      router.push("/auth/connexion");
-    } else {
-      router.push("/auth/inscription");
+   // Synchroniser isLogin avec l'URL
+   useEffect(() => {
+    if (formType === "inscription") {
+      setIsLogin(false);
+    } else if (formType === "connexion") {
+      setIsLogin(true);
     }
+  }, [formType]);
+
+  function switchAuthModeHandler() {
+    if (isLogin) {
+      router.push("/auth/inscription");
+    } else {
+      router.push("/auth/connexion");
+    }
+    // Pas besoin de modifier isLogin manuellement ici, car il sera mis à jour via useEffect en fonction de l'URL
   }
 
   return (
     <div className="container">
       <div className="text-center text-dark pt-5">
         <h1>
-          {formType === "connexion" || !isLogin ? "Connexion" : "Inscription"}
+          {isLogin ? "Connexion" : "Inscription"}
         </h1>
       </div>
       <div className="text-center mb-4">
@@ -39,7 +48,7 @@ export default function AuthForm() {
         <div className="row">
           {/* Bloc de texte centré verticalement */}
           <div className="col-md-4 col-sm-4 col-xs-12 mb-4 mt-4 d-flex flex-column justify-content-center">
-            {formType === "registration" || !isLogin ? (
+            {isLogin ? (
               <div className="container text-center">
                 <h3>Connectez-vous</h3>
                 <p>
