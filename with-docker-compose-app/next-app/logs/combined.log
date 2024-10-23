@@ -248,3 +248,15 @@
 {"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-22T14:29:15.885Z"}
 {"level":"error","message":"Erreur lors de l'enregistrement de l'utilisateur : Too few parameter values were provided","timestamp":"2024-10-22T14:30:02.053Z"}
 {"level":"warn","message":"Utilisateur non trouvé avec l'email : tesmmmmmmmmt@example.com","timestamp":"2024-10-22T14:30:51.689Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-22T14:39:55.798Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-22T14:39:55.799Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-22T15:04:53.165Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-22T15:04:53.167Z"}
+{"level":"error","message":"Erreur lors de l'enregistrement de l'utilisateur : Too few parameter values were provided","timestamp":"2024-10-22T15:05:29.849Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-22T15:06:56.913Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-22T15:06:56.916Z"}
+{"level":"info","message":"Nouvel utilisateur enregistré avec succès : test@gmail.com","timestamp":"2024-10-22T15:07:23.182Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-23T06:24:11.526Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-23T06:24:11.537Z"}
+{"level":"warn","message":"Mot de passe incorrect pour l'email : test@gmail.com","timestamp":"2024-10-23T06:24:56.015Z"}
+{"level":"warn","message":"Utilisateur non trouvé avec l'email : test@example.com","timestamp":"2024-10-23T06:26:05.790Z"}

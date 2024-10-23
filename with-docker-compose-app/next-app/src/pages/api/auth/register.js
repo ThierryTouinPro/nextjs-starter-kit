@@ -4,14 +4,18 @@ const logger = require("../../../config/winston"); // Assurez-vous que c'est le 
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const { email, password } = req.body;
+    const { email, password, firstName, lastName, phone, birthDate, gender } =
+      req.body; // Ajout des champs supplémentaires
 
     // Vérification des champs
     if (!email?.trim() || !password?.trim()) {
       logger.warn("Tentative d'enregistrement avec email ou mot de passe vide");
-      return res
-        .status(400)
-        .json({ error: "L'email et le mot de passe sont requis" });
+      return res.status(400).json({
+        errors: {
+          email: "L'email est requis",
+          password: "Le mot de passe est requis",
+        },
+      });
     }
 
     try {
@@ -23,7 +27,9 @@ export default async function handler(req, res) {
         logger.warn(
           `Tentative d'enregistrement avec un email déjà utilisé : ${email}`
         );
-        return res.status(400).json({ error: "L'utilisateur existe déjà" });
+        return res
+          .status(400)
+          .json({ errors: { email: "L'utilisateur existe déjà" } });
       }
 
       // Hachage du mot de passe
@@ -34,7 +40,15 @@ export default async function handler(req, res) {
         INSERT INTO users (email, password, firstname, lastname, phone, birthdate, gender) 
         VALUES (?, ?, ?, ?, ?, ?, ?)
       `);
-      const result = insertUserStmt.run(email, hashedPassword);
+      const result = insertUserStmt.run(
+        email,
+        hashedPassword,
+        firstName,
+        lastName,
+        phone,
+        birthDate,
+        gender
+      );
 
       // Créer automatiquement une session pour l'utilisateur
       const { sessionId, expiresAt } = createSession(result.lastInsertRowid);
@@ -53,7 +67,9 @@ export default async function handler(req, res) {
       logger.error(
         `Erreur lors de l'enregistrement de l'utilisateur : ${error.message}`
       );
-      return res.status(500).json({ error: "Erreur serveur interne" });
+      return res
+        .status(500)
+        .json({ errors: { global: "Erreur serveur interne" } });
     }
   } else {
     logger.warn(`Méthode ${req.method} non autorisée pour cette route`);
