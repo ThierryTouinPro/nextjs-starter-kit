@@ -1,35 +1,45 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
+import { Radio, RadioGroup, FormControlLabel, FormControl, FormLabel } from '@mui/material';
 
-export default function RadioGroup({ label, name, options, icon }) {
+export default function RadioGroupUI({ label, name, options, icon }) {
   const {
     register,
     formState: { errors },
   } = useFormContext();
 
   return (
-    <>
-      <div className="d-flex align-items-center gap-5">
+    <FormControl component="fieldset">
+      <div className="d-flex align-items-center gap-3">
+        {/* Label et icône alignés à gauche */}
+        <label className="d-flex align-items-center gap-2">
+          <span className="d-flex align-items-center">{icon}</span> 
+          <span className="d-flex align-items-center mt-1">{label} :</span> 
+          <span className="text-danger">*</span>
+        </label>
 
-      <label className="d-none d-md-block align-items-center gap-2">
-        {/* {icon}  */}
-        {label} : <span className="text-danger">*</span>
-      </label>
-        {options.map((option) => (
-          <label key={option.value} className="d-flex align-items-center gap-2 mt-2 mb-2">
-            <span>{option.label}</span>
-            <input
-              type="radio"
-              name={name}
-              value={option.value}
-              {...register(name, { required: "Ce champ est requis" })}
+        {/* RadioGroup pour gérer correctement la sélection */}
+        <RadioGroup row aria-label={label} name={name}>
+          {options.map((option) => (
+            <FormControlLabel
+              key={option.value}
+              control={
+                <Radio
+                  {...register(name, { required: "Ce champ est requis" })}
+                  value={option.value}
+                />
+              }
+              label={option.label}
+              className="d-flex align-items-center"
             />
-          </label>
-        ))}
+          ))}
+        </RadioGroup>
       </div>
+
+      {/* Affichage des erreurs */}
       {errors[name] && (
         <span className="error text-danger">{errors[name].message}</span>
       )}
-    </>
+    </FormControl>
   );
 }
