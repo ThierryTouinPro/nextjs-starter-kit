@@ -2,7 +2,12 @@ import React from "react";
 import RadioGroup from "../../Interface/RadioGroup";
 import Input from "../../Interface/Input";
 import BirthDateInput from "../../Interface/BirthDateInput";
-import { FaCalendarAlt, FaEnvelope, FaPhone, FaUser } from "react-icons/fa";
+
+// Import des icônes de Material-UI
+import PersonIcon from '@mui/icons-material/Person';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import EmailIcon from '@mui/icons-material/Email';
+import PhoneIcon from '@mui/icons-material/Phone';
 
 export default function RegisterInformation() {
   const options = [
@@ -17,7 +22,7 @@ export default function RegisterInformation() {
           name="gender"
           label="Civilité"
           options={options}
-          icon={<FaUser />}
+          icon={<PersonIcon  />}
         />
       </div>
       <div className="col-md-6 col-xs-12">
@@ -26,7 +31,7 @@ export default function RegisterInformation() {
           label="Nom"
           type="text"
           placeholder="Nom"
-          icon={<FaUser />}
+          icon={<PersonIcon  />}
         />
       </div>
       <div className="col-md-6 col-xs-12">
@@ -35,14 +40,14 @@ export default function RegisterInformation() {
           label="Prénom"
           type="text"
           placeholder="Prénom"
-          icon={<FaUser />}
+          icon={<PersonIcon  />}
         />
       </div>
       <div className="col-md-6 col-xs-12">
         <BirthDateInput
           name="birthDate"
           placeholder="31/12/1990"
-          icon={<FaCalendarAlt />}
+          icon={<CalendarTodayIcon  />}
         />
       </div>
       <div className="col-md-6 col-xs-12">
@@ -57,7 +62,7 @@ export default function RegisterInformation() {
               message: "Numéro de téléphone invalide",
             },
           }}
-          icon={<FaPhone />}
+          icon={<PhoneIcon  />}
         />
       </div>
       <div className="col-md-12 col-xs-12">
@@ -72,7 +77,7 @@ export default function RegisterInformation() {
               message: "Email invalide",
             },
           }}
-          icon={<FaEnvelope />}
+          icon={<EmailIcon  />}
         />
       </div>
     </div>
