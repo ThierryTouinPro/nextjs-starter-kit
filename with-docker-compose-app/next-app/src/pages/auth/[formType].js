@@ -23,7 +23,8 @@ export default function AuthForm() {
     if (isLogin) {
       router.push("/auth/registration");
     } else {
-      router.push("/auth/connexion");
+      // router.push("/auth/connexion");
+      router.push("/auth/registration");
     }
     // Pas besoin de modifier isLogin manuellement ici, car il sera mis à jour via useEffect en fonction de l'URL
   }
