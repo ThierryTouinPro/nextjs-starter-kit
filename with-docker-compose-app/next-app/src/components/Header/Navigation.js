@@ -59,7 +59,7 @@ function Navigation() {
             ))}
             <div className="d-flex d-lg-none d-xl-none d-xxl-none justify-content-center gap-2">
                 <ButtonLink label="Connexion" mode="primary" href="/auth/connexion" />
-                {/* <ButtonLink label="Inscription" mode={typeof window !== 'undefined' && window.innerWidth < 768 ? 'secondary' : 'primary'} href="/auth/registration" /> */}
+                {/* <ButtonLink label="registration" mode={typeof window !== 'undefined' && window.innerWidth < 768 ? 'secondary' : 'primary'} href="/auth/registration" /> */}
             </div> 
         </nav>
     );

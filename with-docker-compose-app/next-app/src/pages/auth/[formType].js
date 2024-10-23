@@ -12,7 +12,7 @@ export default function AuthForm() {
 
    // Synchroniser isLogin avec l'URL
    useEffect(() => {
-    if (formType === "inscription") {
+    if (formType === "registration") {
       setIsLogin(false);
     } else if (formType === "connexion") {
       setIsLogin(true);
@@ -21,7 +21,7 @@ export default function AuthForm() {
 
   function switchAuthModeHandler() {
     if (isLogin) {
-      router.push("/auth/inscription");
+      router.push("/auth/registration");
     } else {
       router.push("/auth/connexion");
     }
