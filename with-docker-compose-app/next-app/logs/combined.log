@@ -301,3 +301,34 @@
 {"level":"warn","message":"Tentative d'enregistrement avec un email déjà utilisé : khouloudbensalem789@gmail.com","timestamp":"2024-10-23T09:25:12.503Z"}
 {"level":"warn","message":"Utilisateur non trouvé avec l'email : test@example.com","timestamp":"2024-10-23T09:45:36.887Z"}
 {"level":"warn","message":"Utilisateur non trouvé avec l'email : test@example.com","timestamp":"2024-10-23T09:46:31.504Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-23T10:37:47.716Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-23T10:37:47.717Z"}
+{"level":"info","message":"Nouvel utilisateur enregistré avec succès : haniche.zahir@gmail.com","timestamp":"2024-10-23T10:38:30.722Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-23T10:38:53.901Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-23T10:38:53.902Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-23T10:39:01.551Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-23T10:39:01.552Z"}
+{"level":"info","message":"Connexion réussie pour l'utilisateur : haniche.zahir@gmail.com","timestamp":"2024-10-23T10:39:29.543Z"}
+{"level":"warn","message":"Mot de passe incorrect pour l'email : haniche.zahir@gmail.com","timestamp":"2024-10-23T10:39:41.444Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-23T10:40:52.369Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-23T10:40:52.371Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-23T10:48:59.464Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-23T10:48:59.465Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-23T10:49:23.001Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-23T10:49:23.003Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-23T10:50:13.474Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-23T10:50:13.474Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-23T10:50:15.744Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-23T10:50:15.744Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-23T10:51:17.793Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-23T10:51:17.795Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-23T10:51:20.475Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-23T10:51:20.475Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-23T10:51:45.880Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-23T10:51:45.881Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-23T10:51:47.480Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-23T10:51:47.480Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-23T10:51:56.310Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-23T10:51:56.310Z"}
+{"level":"info","message":"Page d'accueil rendue avec succès - Niveau Info","timestamp":"2024-10-23T10:53:51.276Z"}
+{"level":"error","message":"Une erreur fictive est survenue - Niveau Error","timestamp":"2024-10-23T10:53:51.277Z"}
