@@ -28,8 +28,32 @@ export default function Registration() {
 
   const onSubmit = async (data) => {
     clearErrors();
-    const finalData = { ...recap, ...data };
+    const today = new Date();
+
+    let formattedBirthDate;
+    try {
+      const birthDate = new Date(data.birthDate);
+
+      if (birthDate > today) {
+        throw new Error("La date de naissance ne peut pas être dans le futur");
+      }
+
+      if (isNaN(birthDate.getTime())) {
+        throw new Error("Invalid date");
+      }
+      formattedBirthDate = birthDate.toISOString().split("T")[0]; // Formate la date en YYYY-MM-DD
+    } catch (error) {
+      setError("birthDate", { type: "manual", message: "Invalid birth date" });
+      return;
+    }
+
+    const finalData = {
+      ...recap,
+      ...data,
+      birthDate: formattedBirthDate,
+    };
     console.log(finalData);
+    console.log("Formatted Birth Date: ", formattedBirthDate);
 
     try {
       const response = await fetch("/api/auth/register", {
@@ -37,16 +61,20 @@ export default function Registration() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(finalData),
       });
 
       const isValidResponse = await ReponseError(response, setError);
       if (!isValidResponse) {
         const errorData = await response.json();
+        // Utilisation correcte de Object.keys pour itérer sur les erreurs
         Object.keys(errorData.errors).forEach((key) => {
           setError(key, { type: "manual", message: errorData.errors[key] });
         });
-        setError("global", { message: errorData.error || "An error occurred" });
+        // Cette ligne affiche l'erreur globale, si elle existe
+        setError("global", {
+          message: errorData.error || "Une erreur s'est produite",
+        });
         return;
       }
 
@@ -80,8 +108,14 @@ export default function Registration() {
             <>
               <RegisterPassword />
               <div className="text-center d-flex justify-content-center">
+                {errors.email && (
+                  <p className="error-message text-danger">
+                    {errors.email.message}
+                  </p>
+                )}
                 {errors.global && (
                   <p className="error-message text-danger">
+                    {console.log(errors.global.message)}
                     {errors.global.message}
                   </p>
                 )}

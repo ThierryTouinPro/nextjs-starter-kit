@@ -8,14 +8,17 @@ export default async function handler(req, res) {
       req.body; // Ajout des champs supplémentaires
 
     // Vérification des champs
-    if (!email?.trim() || !password?.trim()) {
-      logger.warn("Tentative d'enregistrement avec email ou mot de passe vide");
-      return res.status(400).json({
-        errors: {
-          email: "L'email est requis",
-          password: "Le mot de passe est requis",
-        },
-      });
+    if (
+      !email?.trim() ||
+      !password?.trim() ||
+      !firstName?.trim() ||
+      !lastName?.trim() ||
+      !phone?.trim() ||
+      !birthDate?.trim() ||
+      !gender?.trim()
+    ) {
+      logger.warn("Tentative d'enregistrement avec un champ vide");
+      return res.status(400).json({ error: "Tous les champs sont requis" });
     }
 
     try {
@@ -35,6 +38,13 @@ export default async function handler(req, res) {
       // Hachage du mot de passe
       const hashedPassword = bcrypt.hashSync(password, 10);
 
+      // Vérifier et formater la date de naissance
+      const birthDateObj = new Date(birthDate);
+      if (isNaN(birthDateObj.getTime())) {
+        return res.status(400).json({ error: "Date de naissance invalide" });
+      }
+      const formattedBirthDate = birthDateObj.toISOString().split("T")[0];
+
       // Insérer l'utilisateur dans la base de données
       const insertUserStmt = db.prepare(`
         INSERT INTO users (email, password, firstname, lastname, phone, birthdate, gender) 
@@ -46,7 +56,7 @@ export default async function handler(req, res) {
         firstName,
         lastName,
         phone,
-        birthDate,
+        formattedBirthDate,
         gender
       );
 

@@ -40,7 +40,7 @@ export default function RegisterInformation() {
       </div>
       <div className="col-md-6 col-xs-12">
         <BirthDateInput
-          name="birthdate"
+          name="birthDate"
           placeholder="31/12/1990"
           icon={<FaCalendarAlt />}
         />
