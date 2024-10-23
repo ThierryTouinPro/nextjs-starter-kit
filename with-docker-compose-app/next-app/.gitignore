@@ -8,7 +8,8 @@
 
 # testing
 /coverage
-/logs
+logs/combined.log
+logs/error.log
 
 # next.js
 /.next/
