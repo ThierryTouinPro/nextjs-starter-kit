@@ -38,8 +38,8 @@ function Navigation() {
                         {menu.groupTitle}
                         <span className={`${styles.arrowIcon} ${openDropdown === menu.groupTitle ? styles.open : ''}`}>
                         <picture>
-                            <source srcSet="images/icon-arrow-light.svg" media="(min-width:50rem)" />
-                            <img src="images/icon-arrow-dark.svg" alt="Arrow Icon" />
+                            <source srcSet="/images/icon-arrow-light.svg" media="(min-width:50rem)" />
+                            <img src="/images/icon-arrow-dark.svg" alt="Arrow Icon" />
                         </picture>
                         </span>
                     </button>
