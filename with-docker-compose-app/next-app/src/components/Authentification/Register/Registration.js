@@ -90,7 +90,8 @@ export default function Registration() {
   return (
     <>
       <FormProvider {...methods}>
-        <form id="auth-form" onSubmit={handleSubmit(onSubmit)}>
+        {/* <form id="auth-form" onSubmit={handleSubmit(onSubmit)}> */}
+        <form id="auth-form" > 
           {step === 1 && (
             <>
               <RegisterInformation onNext={handleNextStep} />
