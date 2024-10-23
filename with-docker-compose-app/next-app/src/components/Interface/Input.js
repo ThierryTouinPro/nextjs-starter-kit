@@ -18,8 +18,9 @@ export default function Input({
   return (
     <p>
       <label htmlFor={id} className="d-flex align-items-center gap-2">
-        {/* {icon} */}
-         {label} : <span className="text-danger">*</span>
+        <span className="d-flex align-items-center">{icon}</span> 
+        <span className="d-flex align-items-center mt-1">{label}</span> 
+        <span className="text-danger">*</span>
       </label>
       <input
         id={id}
