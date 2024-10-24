@@ -15,7 +15,7 @@ export default function RadioGroupUI({ label, name, options, icon }) {
 
   return (
     <FormControl component="fieldset">
-      <div className="row ">
+      <div className="row" style={{ paddingLeft: '12px', paddingRight: '12px' }}>
         {/* Label avec col-6 en mobile */}
         <label className="col-12 col-md-4 d-flex align-items-center gap-2 mb-3 mb-md-0">
           <span className="d-flex align-items-center">{icon}</span>
