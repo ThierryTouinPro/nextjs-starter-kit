@@ -61,6 +61,7 @@ export default function RegisterInformation() {
             },
           }}
           icon={<PhoneIcon  />}
+          flagIcon="fr" // Ajout de l'icône du drapeau français
         />
       </div>
       <div className="col-md-12 col-xs-12">
