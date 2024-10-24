@@ -8,6 +8,16 @@
   border-bottom-left-radius: 100px ;
 }
 
+#auth-form button {
+  background-color: var(--very-grey-blue);
+  margin: 45px;
+}
+
+#auth-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* Media query pour les appareils mobiles */
 @media (max-width: 768px) {
   #registernsk {

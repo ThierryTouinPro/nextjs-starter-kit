@@ -38,21 +38,6 @@
     color: var(--very-light-red);
 }
 
-.styleDisabled {
-    opacity: 1;
-    color: var(--white);
-    padding: .75rem 1.5rem;
-    font-weight: var(--font-weight-black);
-    text-decoration: none;
-    background-color: var(--very-dark-grayish-blue);
-    border: none;
-    border-radius: 5rem;
-    cursor: not-allowed;
-}
-
-.styleDisabled:hover {
-    background-color: var(--grayish-blue);
-}
 
 @media (max-width: 768px) {
     .buttonsStyle {
