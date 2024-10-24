@@ -17,15 +17,13 @@ export default function RegisterInformation() {
 
   return (
     <div className="row">
-      <div className="col-md-12 col-xs-12 mb-4">
         <RadioGroup
           name="gender"
           label="Civilité"
           options={options}
           icon={<PersonIcon  />}
         />
-      </div>
-      <div className="col-md-6 col-xs-12">
+      <div className="col-md-6 col-xs-12 mt-4">
         <Input
           name="lastName"
           label="Nom"
@@ -34,7 +32,7 @@ export default function RegisterInformation() {
           icon={<PersonIcon  />}
         />
       </div>
-      <div className="col-md-6 col-xs-12">
+      <div className="col-md-6 col-xs-12 mt-4">
         <Input
           name="firstName"
           label="Prénom"
