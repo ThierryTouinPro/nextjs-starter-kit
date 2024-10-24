@@ -8,4 +8,11 @@
   border-bottom-left-radius: 100px ;
 }
 
+/* Media query pour les appareils mobiles */
+@media (max-width: 768px) {
+  #registernsk {
+    margin: 15px; /* Marge réduite à 15px en mode mobile */
+  }
+}
+
 
