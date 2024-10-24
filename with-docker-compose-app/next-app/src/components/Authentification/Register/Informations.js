@@ -4,10 +4,10 @@ import Input from "../../Interface/Input";
 import BirthDateInput from "../../Interface/BirthDateInput";
 
 // Import des icônes de Material-UI
-import PersonIcon from '@mui/icons-material/Person';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import EmailIcon from '@mui/icons-material/Email';
-import PhoneIcon from '@mui/icons-material/Phone';
+import PersonIcon from "@mui/icons-material/Person";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import EmailIcon from "@mui/icons-material/Email";
+import PhoneIcon from "@mui/icons-material/Phone";
 
 export default function RegisterInformation() {
   const options = [
@@ -22,7 +22,7 @@ export default function RegisterInformation() {
           name="gender"
           label="Civilité"
           options={options}
-          icon={<PersonIcon  />}
+          icon={<PersonIcon />}
         />
       </div>
       <div className="col-md-6 col-xs-12">
@@ -31,7 +31,15 @@ export default function RegisterInformation() {
           label="Nom"
           type="text"
           placeholder="Nom"
-          icon={<PersonIcon  />}
+          validations={{
+            required: "Nom est requis",
+            pattern: {
+              value: /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+$/,
+              message:
+                "Le nom ne peut contenir que des lettres, des espaces, et des tirets",
+            },
+          }}
+          icon={<PersonIcon />}
         />
       </div>
       <div className="col-md-6 col-xs-12">
@@ -40,14 +48,22 @@ export default function RegisterInformation() {
           label="Prénom"
           type="text"
           placeholder="Prénom"
-          icon={<PersonIcon  />}
+          validations={{
+            required: "Nom est requis",
+            pattern: {
+              value: /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+$/,
+              message:
+                "Le nom ne peut contenir que des lettres, des espaces, et des tirets",
+            },
+          }}
+          icon={<PersonIcon />}
         />
       </div>
       <div className="col-md-6 col-xs-12">
         <BirthDateInput
           name="birthDate"
           placeholder="31/12/1990"
-          icon={<CalendarTodayIcon  />}
+          icon={<CalendarTodayIcon />}
         />
       </div>
       <div className="col-md-6 col-xs-12">
@@ -62,7 +78,7 @@ export default function RegisterInformation() {
               message: "Numéro de téléphone invalide",
             },
           }}
-          icon={<PhoneIcon  />}
+          icon={<PhoneIcon />}
         />
       </div>
       <div className="col-md-12 col-xs-12">
@@ -77,7 +93,7 @@ export default function RegisterInformation() {
               message: "Email invalide",
             },
           }}
-          icon={<EmailIcon  />}
+          icon={<EmailIcon />}
         />
       </div>
     </div>
