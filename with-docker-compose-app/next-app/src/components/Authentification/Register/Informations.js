@@ -23,7 +23,7 @@ export default function RegisterInformation() {
           options={options}
           icon={<PersonIcon  />}
         />
-      <div className="col-md-6 col-xs-12 mt-4">
+      <div className="col-md-6 col-12 mt-0">
         <Input
           name="lastName"
           label="Nom"
@@ -32,7 +32,7 @@ export default function RegisterInformation() {
           icon={<PersonIcon  />}
         />
       </div>
-      <div className="col-md-6 col-xs-12 mt-4">
+      <div className="col-md-6 col-12 mt-0">
         <Input
           name="firstName"
           label="Prénom"
