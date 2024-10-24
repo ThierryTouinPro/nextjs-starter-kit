@@ -8,7 +8,8 @@ export default function Input({
   id,
   placeholder,
   validations,
-  icon
+  icon,
+  flagIcon 
 }) {
   const {
     register,
@@ -18,7 +19,9 @@ export default function Input({
   return (
     <p>
       <label htmlFor={id} className="d-flex align-items-center gap-2">
+       
         <span className="d-flex align-items-center">{icon}</span> 
+        {flagIcon && <span className={`fi fi-${flagIcon}`}></span>}
         <span className="d-flex align-items-center mt-1">{label} :</span> 
         <span className="text-danger">*</span>
       </label>

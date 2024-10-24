@@ -98,7 +98,7 @@ export default function AuthForm() {
           </div>
 
           {/* Bloc de formulaire */}
-          <div className="col-md-7 col-sm-8 col-xs-12 d-flex justify-content-center">
+          <div className="col-md-7 col-sm-8 col-xs-12 d-flex justify-content-center p-0">
             <div className="container">
               {formType === "registration" || !isLogin ? (
                 <Registration />
