@@ -1,17 +1,9 @@
 "use client";
 
-import { useTranslation } from "react-i18next";
-import { useEffect, useState } from 'react';
+import { useClientTranslation } from '../../../utils/useClientTranslation'; 
 
 export default function FeatureExtras(): JSX.Element {
-
-    
-  const { t, i18n } = useTranslation('common');
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true); // Marquer le composant comme monté côté client
-  }, []);
+  const { t, isClient } = useClientTranslation('common'); // Utilisez le hook avec le namespace 'common'
 
   if (!isClient) {
     // Rendu d'un indicateur de chargement ou un élément temporaire pour éviter le rendu côté serveur

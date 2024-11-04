@@ -1,4 +1,7 @@
 {
+
+    
+
   "goals": "Goals",
   "goals-title-1": "Next.js Principles",
   "goals-texte-1": "The Next.js framework is at the core of the project, allowing us to integrate features like server-side rendering (SSR), static pre-rendering (SSG), and optimized route management, all based on React.",
