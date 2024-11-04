@@ -27,14 +27,56 @@ export default function Registration(): JSX.Element {
 
   const [step, setStep] = useState(1);
   const [recap, setRecap] = useState<Partial<FormData>>({});
+  const [isEmailAvailable, setIsEmailAvailable] = useState(true);
 
   const handleNextStep = (data: Partial<FormData>) => {
+    if (!isEmailAvailable) {
+      setError("email", {
+        type: "manual",
+        message: "Cet email est déjà utilisé.",
+      });
+      return; // Empêche de passer à l'étape suivante
+    }
+
     setRecap((prev) => ({ ...prev, ...data }));
     setStep(step + 1);
   };
 
   const handlePrevStep = () => {
     setStep(step - 1);
+  };
+
+  const checkEmailExists = async (email) => {
+    if (!email) return;
+
+    try {
+      const response = await fetch(`/api/auth/checkEmail`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        setError("email", {
+          type: "manual",
+          message:
+            errorData.error || "Erreur lors de la vérification de l'email",
+        });
+        setIsEmailAvailable(false); // L'email existe déjà
+      } else {
+        clearErrors("email");
+        setIsEmailAvailable(true); // L'email est disponible
+      }
+    } catch (error) {
+      setError("email", {
+        type: "manual",
+        message: "Erreur lors de la vérification de l'email",
+      });
+      setIsEmailAvailable(false);
+    }
   };
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
@@ -102,7 +144,7 @@ export default function Registration(): JSX.Element {
         <form id="auth-form" onSubmit={handleSubmit(onSubmit)}>
           {step === 1 && (
             <>
-              <RegisterInformation onNext={handleNextStep} />
+              <RegisterInformation onCheckEmail={checkEmailExists} />
               <div className="text-center">
                 <ButtonSubmit
                   type="button"

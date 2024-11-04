@@ -6,8 +6,23 @@ import PersonIcon from "@mui/icons-material/Person";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
+import { useEffect } from "react";
+import { useFormContext } from "react-hook-form";
 
-export default function RegisterInformation(): JSX.Element {
+export default function RegisterInformation({ onCheckEmail }): JSX.Element {
+  const { watch } = useFormContext();
+  const email = watch("email"); // Surveille le champ email
+
+  useEffect(() => {
+    const delayDebounceFn = setTimeout(() => {
+      if (email) {
+        onCheckEmail(email);
+      }
+    }, 500); // délai de 500 ms pour éviter les requêtes excessives
+
+    return () => clearTimeout(delayDebounceFn); // nettoie le timeout en cas de changement
+  }, [email, onCheckEmail]);
+
   const options = [
     { value: "Mr", label: "Mr" },
     { value: "Mme", label: "Mme" },
