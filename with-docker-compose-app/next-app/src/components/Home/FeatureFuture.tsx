@@ -1,8 +1,13 @@
 "use client";
 
+import { useTranslation } from "react-i18next";
+
 export default function FeatureFuture(): JSX.Element {
+  const { t } = useTranslation('common');
+
   return (
     <>
+      <p>{t('description')}</p>
       <h1 className="text-center my-4">Objectifs</h1>
       <div className="col-md-5">
         <h2>Mise en place des principes de Next.js</h2>
@@ -14,7 +19,7 @@ export default function FeatureFuture(): JSX.Element {
         </p>
         <h2>Standardiser les bonnes pratiques</h2>
         <p>
-          fonctionnalités, tout en permettant des évolutions rapides et une
+          Fonctionnalités, tout en permettant des évolutions rapides et une
           maintenance aisée.
         </p>
         <h2>Faciliter la collaboration</h2>

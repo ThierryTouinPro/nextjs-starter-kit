@@ -1,10 +1,12 @@
 import Head from 'next/head';
+import { appWithTranslation } from 'next-i18next';
 import type { AppProps } from 'next/app';
 import Container from "components/Container/Container";
 import RootLayout from "./layout";
 import ErrorBoundary from 'components/Error/ErrorBoundary';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../styles/globals.css";
+import '../../i18n';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -21,4 +23,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);
