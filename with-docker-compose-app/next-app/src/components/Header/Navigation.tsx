@@ -61,6 +61,7 @@ function Navigation(): JSX.Element {
           </ul>
         </div>
       ))}
+      
       <div className="d-flex d-lg-none d-xl-none d-xxl-none justify-content-center gap-2">
         <ButtonLink 
           label="Inscription" 

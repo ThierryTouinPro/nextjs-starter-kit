@@ -5,6 +5,7 @@ import Logo from "./Logo";
 import Navigation from "./Navigation";
 import ButtonLink from "../Interface/ButtonLink";
 import LanguageSwitcherButton from '../Interface/LanguageSwitcherButton'; // Importez le bouton de changement de langue
+import { useClientTranslation } from '../../../utils/useClientTranslation';
 
 function Header(): JSX.Element {
   const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
@@ -52,6 +53,14 @@ function Header(): JSX.Element {
       router.events.off("routeChangeComplete", handleRouteChange);
     };
   }, [router.events, navbarOpen]);
+
+  const { t, isClient } = useClientTranslation('common'); // Utilisez le hook avec le namespace 'common'
+
+  if (!isClient) {
+    // Rendu d'un indicateur de chargement ou un élément temporaire pour éviter le rendu côté serveur
+    return <h1>Loading...</h1>;
+  }
+
 
   return (
     <header
@@ -107,9 +116,9 @@ function Header(): JSX.Element {
       {isHome && (
         <section className={`text-center ${styles.section}`}>
           <div className="container">
-            <h1 className="display-4">Next.js Starter Kit</h1>
+            <h1 className="display-4">{t('title-home')}</h1>
             <p className="lead text-center display-4">
-              Présentation des concepts et fonctionnalités de NextJS pour une réutilisation dans un projet.
+              {t('text-home')}
             </p>
             <div
               className={`d-flex flex-md-row align-items-center justify-content-center ${styles.buttons}`}

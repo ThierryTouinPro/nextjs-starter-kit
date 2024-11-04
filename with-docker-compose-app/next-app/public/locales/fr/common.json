@@ -1,6 +1,7 @@
 {
 
-   
+  "title-home":"Next.js Starter Kit",
+  "text-home":"Présentation des concepts et fonctionnalités de NextJS pour une réutilisation dans un projet.",
 
   "goals": "Objectifs",
   "goals-title-1": "Les principes de Next.js",
