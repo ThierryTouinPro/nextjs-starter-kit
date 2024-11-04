@@ -3,7 +3,10 @@ const { i18n } = require('./next-i18next.config');
 
 const nextConfig = {
   output: "standalone",
-  i18n,  // Intègre la configuration i18n pour le multilingue
+  i18n: {
+    locales: ['en', 'fr'],
+    defaultLocale: 'fr',
+  },
 };
 
 module.exports = nextConfig;
