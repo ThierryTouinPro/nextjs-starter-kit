@@ -68,6 +68,7 @@ function Navigation(): JSX.Element {
           href="/auth/registration" 
         />
       </div> 
+      
     </nav>
   );
 };

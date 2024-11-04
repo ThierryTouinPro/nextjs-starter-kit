@@ -4,6 +4,7 @@ import styles from "./css/Header.module.css";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import ButtonLink from "../Interface/ButtonLink";
+import LanguageSwitcherButton from '../Interface/LanguageSwitcherButton'; // Importez le bouton de changement de langue
 
 function Header(): JSX.Element {
   const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
@@ -30,12 +31,14 @@ function Header(): JSX.Element {
   );
 
   useEffect(() => {
-    setIsHome(window.location.pathname === "/");
+    // Vérifie si l'URL actuelle est "/" ou "/en" ou "/fr"
+    setIsHome(router.pathname === "/" || router.pathname === "/en" || router.pathname === "/fr");
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [handleClickOutside]);
+  }, [handleClickOutside, router.pathname]);
 
   useEffect(() => {
     const handleRouteChange = () => {
@@ -52,17 +55,12 @@ function Header(): JSX.Element {
 
   return (
     <header
-      className={`${styles.header} container-fluid pt-4 ${
-        isHome ? styles.headerHome : ""
-      }`}
+      className={`${styles.header} container-fluid pt-4 ${isHome ? styles.headerHome : ""}`}
       style={{ backgroundColor: "transparent" }}
     >
       {isHome && (
         <picture>
-          <source
-            srcSet="/images/bg-pattern-intro-desktop.svg"
-            media="(min-width: 50rem)"
-          />
+          <source srcSet="/images/bg-pattern-intro-desktop.svg" media="(min-width: 50rem)" />
           <img
             className={`${styles.headerBg}`}
             src="/images/bg-pattern-intro-mobile.svg"
@@ -88,9 +86,7 @@ function Header(): JSX.Element {
               <span className="navbar-toggler-icon"></span>
             </button>
             <div
-              className={`collapse navbar-collapse ${
-                navbarOpen ? "show" : ""
-              } ${styles.navbarCollapse}`}
+              className={`collapse navbar-collapse ${navbarOpen ? "show" : ""} ${styles.navbarCollapse}`}
               id="navbarNav"
             >
               <Navigation />
@@ -103,6 +99,7 @@ function Header(): JSX.Element {
                 mode="primary"
                 href="/auth/registration"
               />
+              <LanguageSwitcherButton /> 
             </div>
           </div>
         </div>
@@ -112,8 +109,7 @@ function Header(): JSX.Element {
           <div className="container">
             <h1 className="display-4">Next.js Starter Kit</h1>
             <p className="lead text-center display-4">
-              Présentation des concepts et fonctionnalités de NextJS pour une
-              réutilisation dans un projet.
+              Présentation des concepts et fonctionnalités de NextJS pour une réutilisation dans un projet.
             </p>
             <div
               className={`d-flex flex-md-row align-items-center justify-content-center ${styles.buttons}`}
