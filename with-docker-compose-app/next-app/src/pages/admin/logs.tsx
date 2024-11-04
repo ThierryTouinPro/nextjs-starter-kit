@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import ButtonSubmit from 'componentsInterface/ButtonSubmit';
-import styles from 'componentsHeader/css/Header.module.css';
+import ButtonSubmit from 'components/Interface/ButtonSubmit';
+import styles from 'components/Header/css/Header.module.css';
 
 const AdminLogs = (): JSX.Element => {
   const [logLevel, setLogLevel] = useState<string>('info');
