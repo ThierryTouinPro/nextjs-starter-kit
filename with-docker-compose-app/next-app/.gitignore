@@ -8,6 +8,8 @@
 
 # testing
 /coverage
+logs/combined.log
+logs/error.log
 
 # next.js
 /.next/
@@ -33,3 +35,6 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# bdd
+main.db

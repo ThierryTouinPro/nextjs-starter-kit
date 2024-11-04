@@ -1,7 +1,7 @@
 @import "_variables.css";
 @import "_auth.css";
 @import "_msg.css";
-@import '../components/Home/Home.module.css';
+@import 'components/Home/css/Home.module.css';
 
 html,
 body {
@@ -20,3 +20,5 @@ a {
   color: inherit;
   text-decoration: none;
 }
+
+

@@ -38,6 +38,11 @@
     color: var(--very-light-red);
 }
 
+.input-with-flag {
+    background-repeat: no-repeat;
+    background-position: left center;
+}
+
 @media (max-width: 768px) {
     .buttonsStyle {
         flex-direction: column;

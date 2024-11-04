@@ -12,7 +12,7 @@ try {
       password TEXT,
       firstName TEXT,
       lastName TEXT,
-      birthDate TEXT,
+      birthDate DATE,
       phone TEXT,
       gender TEXT
     );
