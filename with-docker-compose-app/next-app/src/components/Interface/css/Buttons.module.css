@@ -41,8 +41,7 @@
 .input-with-flag {
     background-repeat: no-repeat;
     background-position: left center;
-  }
-
+}
 
 @media (max-width: 768px) {
     .buttonsStyle {

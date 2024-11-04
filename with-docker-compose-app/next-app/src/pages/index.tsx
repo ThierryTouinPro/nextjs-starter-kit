@@ -1,13 +1,13 @@
 import Head from "next/head";
 import MainHome from "../components/Home/MainHome";
 
-let logger;
+let logger: any;
 if (typeof window === 'undefined' && process.env.NODE_ENV === 'development') {
   // Nous sommes dans un environnement côté serveur et en développement
   logger = require('../config/winston');
 }
 
-export default function Home() {
+export default function Home(): JSX.Element {
   return (
     <>
       <div className="container home">
@@ -21,7 +21,7 @@ export default function Home() {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(): Promise<{ props: Record<string, unknown> }> {
   // Vérifiez si le logger est défini (cela signifie que nous sommes côté serveur et en développement)
   if (logger) {
     logger.info("Page d'accueil rendue avec succès - Niveau Info");
@@ -33,3 +33,4 @@ export async function getServerSideProps() {
     props: {}, // Possible de passer des props ici si nécessaire
   };
 }
+

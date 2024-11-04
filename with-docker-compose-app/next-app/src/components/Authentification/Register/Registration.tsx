@@ -1,23 +1,34 @@
-import React, { useState } from "react";
-import { useForm, FormProvider } from "react-hook-form";
+import { useState } from "react";
+import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
 import { ReponseError } from "../../../lib/reponse";
 import ButtonSubmit from "../../Interface/ButtonSubmit";
-import RegisterInformation from "../../../components/Authentification/Register/Informations";
-import RegisterPassword from "../../../components/Authentification/Register/Password";
+import RegisterInformation from "./Informations";
+import RegisterPassword from "./Password";
 
-export default function Registration() {
-  const methods = useForm( { mode: "onChange" });
+interface FormData {
+  email: string;
+  password: string;
+  confirmPassword?: string;
+  firstName?: string;
+  lastName?: string;
+  birthDate?: string;
+  phone?: string;
+  gender?: string;
+}
+
+export default function Registration(): JSX.Element {
+  const methods = useForm<FormData>({ mode: "onChange" });
   const {
     handleSubmit,
     setError,
     clearErrors,
-    formState: { errors }
+    formState: { errors },
   } = methods;
 
   const [step, setStep] = useState(1);
-  const [recap, setRecap] = useState([]);
+  const [recap, setRecap] = useState<Partial<FormData>>({});
 
-  const handleNextStep = (data) => {
+  const handleNextStep = (data: Partial<FormData>) => {
     setRecap((prev) => ({ ...prev, ...data }));
     setStep(step + 1);
   };
@@ -26,13 +37,13 @@ export default function Registration() {
     setStep(step - 1);
   };
 
-  const onSubmit = async (data) => {
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
     clearErrors();
     const today = new Date();
 
     let formattedBirthDate;
     try {
-      const birthDate = new Date(data.birthDate);
+      const birthDate = new Date(data.birthDate!);
 
       if (birthDate > today) {
         throw new Error("La date de naissance ne peut pas être dans le futur");
@@ -55,36 +66,34 @@ export default function Registration() {
     console.log(finalData);
     console.log("Formatted Birth Date: ", formattedBirthDate);
 
-    // try {
-    //   const response = await fetch("/api/auth/register", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(finalData),
-    //   });
+    try {
+      const response = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(finalData),
+      });
 
-    //   const isValidResponse = await ReponseError(response, setError);
-    //   if (!isValidResponse) {
-    //     const errorData = await response.json();
-    //     // Utilisation correcte de Object.keys pour itérer sur les erreurs
-    //     Object.keys(errorData.errors).forEach((key) => {
-    //       setError(key, { type: "manual", message: errorData.errors[key] });
-    //     });
-    //     // Cette ligne affiche l'erreur globale, si elle existe
-    //     setError("global", {
-    //       message: errorData.error || "Une erreur s'est produite",
-    //     });
-    //     return;
-    //   }
+      const isValidResponse = await ReponseError(response, setError);
+      if (!isValidResponse) {
+        const errorData = await response.json();
+        Object.keys(errorData.errors).forEach((key) => {
+          setError(key as keyof FormData, { type: "manual", message: errorData.errors[key] });
+        });
+        setError("global", {
+          message: errorData.error || "Une erreur s'est produite",
+        });
+        return;
+      }
 
-    //   const responseData = await response.json();
-    //   console.log("User registered successfully:", responseData);
-    //   window.location.href = "/auth/connexion";
-    // } catch (error) {
-    //   console.error("Error during registration:", error);
-    //   setError("global", { message: "Internal Server Error" });
-    // }
+      const responseData = await response.json();
+      console.log("User registered successfully:", responseData);
+      window.location.href = "/auth/connexion";
+    } catch (error) {
+      console.error("Error during registration:", error);
+      setError("global", { message: "Internal Server Error" });
+    }
   };
 
   return (
@@ -115,7 +124,6 @@ export default function Registration() {
                 )}
                 {errors.global && (
                   <p className="error-message text-danger">
-                    {console.log(errors.global.message)}
                     {errors.global.message}
                   </p>
                 )}

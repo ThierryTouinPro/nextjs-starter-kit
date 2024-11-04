@@ -1,14 +1,26 @@
+import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function BirthDateInput({ name, placeholder, icon }) {
+
+interface BirthDateInputProps {
+  name: string;
+  placeholder: string;
+  icon: React.ReactNode;
+}
+
+export default function BirthDateInput({
+  name,
+  placeholder,
+  icon,
+}: BirthDateInputProps): JSX.Element {
   const {
     control,
     formState: { errors },
   } = useFormContext();
 
-  const today = new Date(); // Date d'aujourd'hui
+  const today = new Date();
 
   return (
     <div className="mb-3">
@@ -25,7 +37,7 @@ export default function BirthDateInput({ name, placeholder, icon }) {
             required: "Date de naissance est requise",
             validate: {
               isValid: (value) =>
-                (value instanceof Date && !isNaN(value)) || "Date invalide",
+                (value instanceof Date && !isNaN(value.getTime())) || "Date invalide",
             },
           }}
           render={({ field }) => (
@@ -35,13 +47,13 @@ export default function BirthDateInput({ name, placeholder, icon }) {
               dateFormat="dd/MM/yyyy"
               className="text-dark"
               placeholderText={placeholder}
-              maxDate={today} // Empêche la sélection de dates dans le futur
+              maxDate={today}
             />
           )}
         />
       </div>
       {errors[name] && (
-        <p className="error text-danger">{errors[name].message}</p>
+        <p className="error text-danger">{(errors[name]?.message as string) || ''}</p>
       )}
     </div>
   );

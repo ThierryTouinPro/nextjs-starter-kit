@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function AuthPage() {
+export default function AuthPage(): JSX.Element {
   return (
     <div className="container" id="auth">
       <h1>Bienvenue sur la page d'authentification</h1>

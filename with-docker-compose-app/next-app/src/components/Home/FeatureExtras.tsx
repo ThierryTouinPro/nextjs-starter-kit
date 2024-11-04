@@ -1,8 +1,6 @@
 "use client";
 
-import React from "react";
-
-export default function FeatureExtras() {
+export default function FeatureExtras(): JSX.Element {
   return (
     <>
       <div className="col-md-6">
@@ -26,7 +24,7 @@ export default function FeatureExtras() {
         développeurs sous Windows, permettant une expérience de développement
         proche de Linux.
         <br />
-        <strong>Visual Studio Code (VS Code) </strong>: L'éditeur de code
+        <strong>Visual Studio Code (VS Code)</strong> : L'éditeur de code
         recommandé, avec des extensions pour faciliter le développement sous
         Next.js et Docker.
         <br />

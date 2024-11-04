@@ -1,11 +1,12 @@
 import Head from 'next/head';
-import Container from "../components/Container/Container";
+import type { AppProps } from 'next/app';
+import Container from "components/Container/Container";
 import RootLayout from "./layout";
-import ErrorBoundary from '../components/Error/ErrorBoundary';
+import ErrorBoundary from 'components/Error/ErrorBoundary';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "../styles/globals.css";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ErrorBoundary>
       <Container>

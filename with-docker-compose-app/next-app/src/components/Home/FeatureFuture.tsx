@@ -1,8 +1,6 @@
 "use client";
 
-import React from "react";
-
-export default function FeatureFuture() {
+export default function FeatureFuture(): JSX.Element {
   return (
     <>
       <h1 className="text-center my-4">Objectifs</h1>

@@ -1,15 +1,13 @@
-import React from "react";
+
 import RadioGroup from "../../Interface/RadioGroup";
 import Input from "../../Interface/Input";
 import BirthDateInput from "../../Interface/BirthDateInput";
-
-// Import des icônes de Material-UI
 import PersonIcon from "@mui/icons-material/Person";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 
-export default function RegisterInformation() {
+export default function RegisterInformation(): JSX.Element {
   const options = [
     { value: "Mr", label: "Mr" },
     { value: "Mme", label: "Mme" },
@@ -17,12 +15,12 @@ export default function RegisterInformation() {
 
   return (
     <div className="row">
-        <RadioGroup
-          name="gender"
-          label="Civilité"
-          options={options}
-          icon={<PersonIcon />}
-        />
+      <RadioGroup
+        name="gender"
+        label="Civilité"
+        options={options}
+        icon={<PersonIcon />}
+      />
       <div className="col-md-6 col-12 mt-0">
         <Input
           name="lastName"
@@ -76,7 +74,7 @@ export default function RegisterInformation() {
               message: "Numéro de téléphone invalide",
             },
           }}
-          icon={<PhoneIcon  />}
+          icon={<PhoneIcon />}
           flagIcon="fr" // Ajout de l'icône du drapeau français
         />
       </div>

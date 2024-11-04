@@ -1,17 +1,17 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import styles from "../../components/Authentification/Register/css/Register.module.css";
+import styles from "../../components/Authentification/Register/css/Register.module.css"
 import Connexion from "../../components/Authentification/Login/Connexion";
 import Registration from "../../components/Authentification/Register/Registration";
 
-export default function AuthForm() {
-  const [isLogin, setIsLogin] = useState(true);
+export default function AuthForm(): JSX.Element {
+  const [isLogin, setIsLogin] = useState<boolean>(true);
 
   const router = useRouter();
   const { formType } = router.query;
 
-   // Synchroniser isLogin avec l'URL
-   useEffect(() => {
+  // Synchroniser isLogin avec l'URL
+  useEffect(() => {
     if (formType === "registration") {
       setIsLogin(false);
     } else if (formType === "connexion") {
@@ -23,18 +23,14 @@ export default function AuthForm() {
     if (isLogin) {
       router.push("/auth/registration");
     } else {
-      // router.push("/auth/connexion");
-      router.push("/auth/registration");
+      router.push("/auth/connexion");
     }
-    // Pas besoin de modifier isLogin manuellement ici, car il sera mis à jour via useEffect en fonction de l'URL
   }
 
   return (
     <div className="container">
       <div className="text-center text-dark pt-5">
-        <h1>
-          {isLogin ? "Connexion" : "Inscription"}
-        </h1>
+        <h1>{isLogin ? "Connexion" : "Inscription"}</h1>
       </div>
       <div className="text-center mb-4">
         <p>
@@ -47,7 +43,6 @@ export default function AuthForm() {
         className={`row justify-content-center align-items-center mb-5 mt-4 ${styles.detailsFormRegister}`}
       >
         <div className="row">
-          {/* Bloc de texte centré verticalement */}
           <div className="col-md-4 col-sm-4 col-xs-12 mb-4 mt-4 d-flex flex-column justify-content-center">
             {!isLogin ? (
               <div className="container text-center">
@@ -90,14 +85,12 @@ export default function AuthForm() {
             )}
           </div>
 
-          {/* Séparateur vertical */}
           <div className="col-md-1 d-none d-md-flex justify-content-center align-items-center">
             <div
               style={{ width: "1px", height: "50%", backgroundColor: "#ccc" }}
             ></div>
           </div>
 
-          {/* Bloc de formulaire */}
           <div className="col-md-7 col-sm-8 col-xs-12 d-flex justify-content-center p-0">
             <div className="container">
               {formType === "registration" || !isLogin ? (

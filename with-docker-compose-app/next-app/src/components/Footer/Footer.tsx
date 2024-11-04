@@ -1,7 +1,12 @@
 import classes from "./css/Footer.module.css";
 import { mainMenus } from "../../data/main-menus";
 
-function Footer() {
+interface FooterMenu {
+  groupTitle: string;
+  subMenus: string[];
+}
+
+function Footer(): JSX.Element {
   return (
     <footer className={classes.footer}>
       <div className="container p-2">
@@ -9,7 +14,7 @@ function Footer() {
           <div className="col-12 col-md-auto xs-auto text-center text-md-left">
             <h2 className="fw-bold mb-4 text-white">NSK Site</h2>
           </div>
-          {mainMenus.map((footerMenu) => (
+          {mainMenus.map((footerMenu: FooterMenu) => (
             <div
               className="col-12 col-md-auto mx-auto text-center text-md-left"
               key={footerMenu.groupTitle}
@@ -18,7 +23,7 @@ function Footer() {
                 {footerMenu.groupTitle}
               </h4>
               <ul className="list-unstyled text-white">
-                {footerMenu.subMenus.map((subMenu) => (
+                {footerMenu.subMenus.map((subMenu: string) => (
                   <li className="mb-1" key={subMenu}>
                     <a href={`/${subMenu}`}>{subMenu}</a>
                   </li>

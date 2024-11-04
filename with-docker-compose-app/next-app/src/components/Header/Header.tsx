@@ -1,26 +1,26 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
-import { useRouter } from "next/router";  // Importer useRouter
+import { useState, useEffect, useRef, useCallback } from "react";
+import { useRouter } from "next/router";
 import styles from "./css/Header.module.css";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import ButtonLink from "../Interface/ButtonLink";
 
-function Header() {
-  const [navbarOpen, setNavbarOpen] = useState(false);
-  const [isHome, setIsHome] = useState(false);
-  const navbarRef = useRef(null);
-  const navbarTogglerRef = useRef(null); // Référence pour le bouton navbar-toggler
-  const router = useRouter(); // Utilisation de useRouter pour détecter les changements de route
+function Header(): JSX.Element {
+  const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
+  const [isHome, setIsHome] = useState<boolean>(false);
+  const navbarRef = useRef<HTMLDivElement | null>(null);
+  const navbarTogglerRef = useRef<HTMLButtonElement | null>(null);
+  const router = useRouter();
 
   const toggleNavbar = () => {
     setNavbarOpen(!navbarOpen);
   };
 
   const handleClickOutside = useCallback(
-    (event) => {
+    (event: MouseEvent) => {
       if (
         navbarRef.current &&
-        !navbarRef.current.contains(event.target) &&
+        !navbarRef.current.contains(event.target as Node) &&
         navbarOpen
       ) {
         setNavbarOpen(false);
@@ -37,19 +37,18 @@ function Header() {
     };
   }, [handleClickOutside]);
 
-  // Simuler un clic sur le bouton navbar-toggler lors du changement de route
   useEffect(() => {
     const handleRouteChange = () => {
       if (navbarTogglerRef.current && navbarOpen) {
-        navbarTogglerRef.current.click();  // Simule un clic pour fermer la navbar
+        navbarTogglerRef.current.click();
       }
     };
 
-    router.events.on("routeChangeComplete", handleRouteChange);  // Surveille les changements de route
+    router.events.on("routeChangeComplete", handleRouteChange);
     return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);  // Nettoyage de l'écouteur d'événements
+      router.events.off("routeChangeComplete", handleRouteChange);
     };
-  }, [router.events, navbarOpen]);  // Dépendances sur router.events et l'état navbarOpen
+  }, [router.events, navbarOpen]);
 
   return (
     <header
@@ -79,7 +78,7 @@ function Header() {
           >
             <Logo />
             <button
-              ref={navbarTogglerRef}  // Ajout de la référence pour le bouton navbar-toggler
+              ref={navbarTogglerRef}
               className={`navbar-toggler ${styles.navToggler} ms-auto`}
               type="button"
               aria-controls="navbarNav"

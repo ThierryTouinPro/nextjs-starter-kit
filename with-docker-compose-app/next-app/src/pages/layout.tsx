@@ -1,8 +1,13 @@
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import { useRouter } from 'next/router';
+import { ReactNode } from 'react';
 
-export default function Layout({ children }) {
+interface LayoutProps {
+  children: ReactNode;
+}
+
+export default function Layout({ children }: LayoutProps) {
   const router = useRouter();
 
   return (
@@ -11,5 +16,6 @@ export default function Layout({ children }) {
             {children}
         {!router.pathname.includes('/admin/logs') && <Footer />}
     </>
-  )
+  );
 }
+

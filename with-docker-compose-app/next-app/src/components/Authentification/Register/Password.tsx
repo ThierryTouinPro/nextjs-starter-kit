@@ -1,11 +1,9 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
 import Input from "../../Interface/Input";
-
-// Import des icônes de Material-UI
 import LockIcon from '@mui/icons-material/Lock';
 
-export default function RegisterPassword() {
+export default function RegisterPassword(): JSX.Element {
   const { watch } = useFormContext();
   const password = watch("password");
 
@@ -24,7 +22,7 @@ export default function RegisterPassword() {
               "Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial",
           },
         }}
-        icon={<LockIcon  />}
+        icon={<LockIcon />}
       />
       <Input
         name="confirmPassword"
@@ -32,10 +30,10 @@ export default function RegisterPassword() {
         type="password"
         placeholder="Confirmer le mot de passe"
         validations={{
-          validate: (value) =>
+          validate: (value: string) =>
             value === password || "Les mots de passe ne correspondent pas",
         }}
-        icon={<LockIcon  />}
+        icon={<LockIcon />}
       />
     </div>
   );

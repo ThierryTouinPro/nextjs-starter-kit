@@ -1,13 +1,16 @@
-import React from 'react';
 import Link from 'next/link';
 import styles from './css/Buttons.module.css';
 
-function ButtonLink( { label, mode, href } ) {
+interface ButtonLinkProps {
+  label: string;
+  mode: 'primary' | 'secondary';
+  href: string;
+}
 
-
+function ButtonLink({ label, mode, href }: ButtonLinkProps): JSX.Element {
   return (
     <div className={`d-flex align-items-center ${styles.authButtons}`}>
-      <Link 
+      <Link
         href={href}
         className={`d-block ${mode === 'primary' ? styles.buttonPrimary : styles.buttonSecondary}`}
       >
@@ -15,7 +18,6 @@ function ButtonLink( { label, mode, href } ) {
       </Link>
     </div>
   );
-  
-};
+}
 
 export default ButtonLink;

@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import ButtonSubmit from '../../components/Interface/ButtonSubmit';
-import styles from '../../components/Header/css/Header.module.css';
+import ButtonSubmit from 'componentsInterface/ButtonSubmit';
+import styles from 'componentsHeader/css/Header.module.css';
 
-const AdminLogs = () => {
-  const [logLevel, setLogLevel] = useState('info');
-  const [response, setResponse] = useState(null);
+const AdminLogs = (): JSX.Element => {
+  const [logLevel, setLogLevel] = useState<string>('info');
+  const [response, setResponse] = useState<string | null>(null);
 
-  const updateLogLevel = async () => {
+  const updateLogLevel = async (): Promise<void> => {
     try {
       const res = await fetch('/api/logs', {
         method: 'POST',
@@ -47,7 +47,7 @@ const AdminLogs = () => {
                     id="logLevel"
                     value={logLevel}
                     onChange={(e) => setLogLevel(e.target.value)} // Met à jour l'état du niveau sélectionné
-                    className="form-select "
+                    className="form-select"
                   >
                     <option value="error">Error</option>
                     <option value="warn">Warn</option>

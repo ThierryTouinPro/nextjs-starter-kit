@@ -1,8 +1,6 @@
 "use client";
 
-import React from "react";
-
-export default function FeatureInfrastructure() {
+export default function FeatureInfrastructure(): JSX.Element {
   return (
     <>
       <div className="row">
