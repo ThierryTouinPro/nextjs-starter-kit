@@ -1,5 +1,20 @@
 {
     "goals": "Objectifs",
-    "description": "Ceci est une description."
-  }
+    "goals-title-1": "Les principes de Next.js",
+    "goals-texte-1": "Le framework Next.js est au cœur du projet et nous permet d'intégrer des fonctionnalités comme le rendu côté serveur (SSR), le pré-rendu statique (SSG), et la gestion optimisée des routes, en se basant sur React.",
+    "goals-title-2": "Standardiser les bonnes pratiques",  
+    "goals-texte-2": "Fonctionnalités, tout en permettant des évolutions rapides et une maintenance aisée.",
+    "goals-title-3": "Faciliter la collaboration", 
+    "goals-texte-3": "Ce projet est conçu pour que chaque développeur au sein de l'équipe puisse contribuer facilement grâce à une structure claire et à des outils modernes tels que Docker et WSL 2.",
+
+    "register-title": "Inscrivez-vous et connectez-vous",
+    "register-text": "Créez votre compte pour accéder à une vaste bibliothèque de composants prêts à l'emploi, ainsi qu'à d'autres fonctionnalités avancées.",
+
+    "technology-title": "Technologies Utilisées",
+    "technology-next": "Next.js : Framework React pour la construction de sites web et applications avec des fonctionnalités optimisées.",
+    "technology-docker": "Docker : Conteneurisation pour uniformiser l'environnement de développement et simplifier les déploiements.",
+    "technology-wsl": "Windows Subsystem for Linux (WSL 2) :(Windows Subsystem for Linux) : Pour les développeurs sous Windows, permettant une expérience de développement proche de Linux.",
+    "technology-vscode": "Visual Studio Code (VS Code) : L'éditeur de code recommandé, avec des extensions pour faciliter le développement sous Next.js et Docker."
+  
+}
   

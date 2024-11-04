@@ -1,6 +1,23 @@
 "use client";
 
+import { useTranslation } from "react-i18next";
+import { useEffect, useState } from 'react';
+
 export default function FeatureExtras(): JSX.Element {
+
+    
+  const { t, i18n } = useTranslation('common');
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true); // Marquer le composant comme monté côté client
+  }, []);
+
+  if (!isClient) {
+    // Rendu d'un indicateur de chargement ou un élément temporaire pour éviter le rendu côté serveur
+    return <h1>Loading...</h1>;
+  }
+
   return (
     <>
       <div className="col-md-6">
@@ -13,20 +30,14 @@ export default function FeatureExtras(): JSX.Element {
         </div>
       </div>
       <div className="col-md-6">
-        <h2>Technologies Utilisées</h2>
-        <strong>Next.js</strong> : Framework React pour la construction de sites
-        web et applications avec des fonctionnalités optimisées.
+        <h2>{t('technology-title')}</h2>
+        {t('technology-next')}
         <br />
-        <strong>Docker</strong> : Conteneurisation pour uniformiser
-        l'environnement de développement et simplifier les déploiements.
+        {t('technology-docker')}
         <br />
-        <strong>WSL 2</strong> (Windows Subsystem for Linux) : Pour les
-        développeurs sous Windows, permettant une expérience de développement
-        proche de Linux.
+        {t('technology-wsl')}
         <br />
-        <strong>Visual Studio Code (VS Code)</strong> : L'éditeur de code
-        recommandé, avec des extensions pour faciliter le développement sous
-        Next.js et Docker.
+        {t('technology-vscode')}
         <br />
       </div>
     </>

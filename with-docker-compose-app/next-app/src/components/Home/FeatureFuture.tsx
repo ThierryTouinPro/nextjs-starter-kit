@@ -1,32 +1,37 @@
 "use client";
 
 import { useTranslation } from "react-i18next";
+import { useEffect, useState } from 'react';
 
 export default function FeatureFuture(): JSX.Element {
-  const { t } = useTranslation('common');
+  
+  const { t, i18n } = useTranslation('common');
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true); // Marquer le composant comme monté côté client
+  }, []);
+
+  if (!isClient) {
+    // Rendu d'un indicateur de chargement ou un élément temporaire pour éviter le rendu côté serveur
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <>
-      <p>{t('description')}</p>
-      <h1 className="text-center my-4">Objectifs</h1>
+      <h1 className="text-center my-4">{t('goals')}</h1>
       <div className="col-md-5">
-        <h2>Mise en place des principes de Next.js</h2>
+        <h2>{t('goals-title-1')}</h2>
         <p>
-          Le framework Next.js est au cœur du projet et nous permet d'intégrer
-          des fonctionnalités comme le rendu côté serveur (SSR), le pré-rendu
-          statique (SSG), et la gestion optimisée des routes, en se basant sur
-          React.
+          {t('goals-texte-1')}
         </p>
-        <h2>Standardiser les bonnes pratiques</h2>
+        <h2>{t('goals-title-2')}</h2>
         <p>
-          Fonctionnalités, tout en permettant des évolutions rapides et une
-          maintenance aisée.
+          {t('goals-texte-2')}
         </p>
-        <h2>Faciliter la collaboration</h2>
+        <h2>{t('goals-title-3')}</h2>
         <p>
-          Ce projet est conçu pour que chaque développeur au sein de l'équipe
-          puisse contribuer facilement grâce à une structure claire et à des
-          outils modernes tels que Docker et WSL 2.
+          {t('goals-texte-3')}
         </p>
       </div>
       <div className="col-md-7">

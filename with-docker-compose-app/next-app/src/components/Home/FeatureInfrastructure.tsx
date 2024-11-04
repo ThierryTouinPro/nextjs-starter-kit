@@ -1,6 +1,22 @@
 "use client";
 
+import { useTranslation } from "react-i18next";
+import { useEffect, useState } from 'react';
+
 export default function FeatureInfrastructure(): JSX.Element {
+
+  const { t, i18n } = useTranslation('common');
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true); // Marquer le composant comme monté côté client
+  }, []);
+
+  if (!isClient) {
+    // Rendu d'un indicateur de chargement ou un élément temporaire pour éviter le rendu côté serveur
+    return <h1>Loading...</h1>;
+  }
+
   return (
     <>
       <div className="row">
@@ -14,11 +30,9 @@ export default function FeatureInfrastructure(): JSX.Element {
           </div>
         </div>
         <div className="col-md-6">
-          <h2 className="text-white">Inscrivez-vous et connectez-vous</h2>
+          <h2 className="text-white">{t('register-title')}</h2>
           <p>
-            Créez votre compte pour accéder à une vaste bibliothèque de
-            composants prêts à l'emploi, ainsi qu'à d'autres fonctionnalités
-            avancées.
+            {t('register-text')}
           </p>
         </div>
       </div>

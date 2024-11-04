@@ -7,8 +7,8 @@ i18n
   .use(initReactI18next)
   .init({
     supportedLngs: ['en', 'fr'], // Liste des langues prises en charge
-    fallbackLng: 'en',           // Langue par défaut en cas d'absence de traduction
-    lng: 'en',                   // Langue actuelle (ou définissez-la dynamiquement)
+    fallbackLng: 'fr',           // Langue par défaut en cas d'absence de traduction
+    lng: 'fr',                   // Langue actuelle (ou définissez-la dynamiquement)
     ns: ['common'],              // Namespace par défaut
     defaultNS: 'common',
     interpolation: {
