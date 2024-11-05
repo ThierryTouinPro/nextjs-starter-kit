@@ -4,6 +4,7 @@ import styles from "../../components/Authentification/Register/css/Register.modu
 import Connexion from "../../components/Authentification/Login/Connexion";
 import Registration from "../../components/Authentification/Register/Registration";
 import { useTranslation } from "react-i18next";
+import { useClientTranslation } from "../../../utils/useClientTranslation";
 
 export default function AuthForm(): JSX.Element {
   const [isLogin, setIsLogin] = useState<boolean>(true);
@@ -11,7 +12,9 @@ export default function AuthForm(): JSX.Element {
   const router = useRouter();
   const { formType } = router.query;
 
-  const { t } = useTranslation(); // Initialiser le hook de traduction
+  const { t, isClient } = useClientTranslation('common'); // Utilisez le hook avec le namespace 'common'
+
+  
 
   // Synchroniser isLogin avec l'URL
   useEffect(() => {
@@ -28,6 +31,11 @@ export default function AuthForm(): JSX.Element {
     } else {
       router.push("");
     }
+  }
+
+  if (!isClient) {
+    // Rendu d'un indicateur de chargement ou un élément temporaire pour éviter le rendu côté serveur
+    return <h1>Loading...</h1>;
   }
 
   return (

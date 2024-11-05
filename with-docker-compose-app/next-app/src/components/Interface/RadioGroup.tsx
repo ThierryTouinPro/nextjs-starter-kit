@@ -13,18 +13,17 @@ export default function RadioGroupUI({ label, name, options, icon }) {
   } = useFormContext();
 
   return (
-      <div className="row">
         <FormControl component="fieldset">
           <div className="row pb-4">
             {/* Label avec col-6 en mobile */}
-            <label className="col-12 col-md-4 d-flex align-items-center gap-2 mb-3 mb-md-0">
+            <label className="col-12 col-md-4 d-flex align-items-center gap-2 mb-3 mb-md-0 px-4">
               <span className="d-flex align-items-center">{icon}</span>
               <span className="d-flex align-items-center mt-1">{label} :</span>
               <span className="text-danger">*</span>
             </label>
             
             {/* RadioGroup aligné horizontalement */}
-            <div className="col-12 col-md-6 d-flex flex-row align-items-center  mb-3 mb-md-0">
+            <div className="col-12 col-md-6 d-flex flex-row align-items-center mb-3 mb-md-0">
               <Controller
                 name={name}
                 control={control}
@@ -67,6 +66,5 @@ export default function RadioGroupUI({ label, name, options, icon }) {
             <span className="error text-danger">{errors[name].message}</span>
           )}
         </FormControl>
-      </div>
   );
 }

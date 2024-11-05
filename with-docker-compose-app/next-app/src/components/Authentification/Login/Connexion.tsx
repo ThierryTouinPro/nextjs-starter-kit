@@ -13,10 +13,7 @@ interface FormData {
 export default function Connexion(): JSX.Element {
   const { t, isClient } = useClientTranslation('common'); // Utilisez le hook avec le namespace 'common'
 
-  if (!isClient) {
-    // Rendu d'un indicateur de chargement ou un élément temporaire pour éviter le rendu côté serveur
-    return <h1>Loading...</h1>;
-  }
+  
   const methods = useForm<FormData>();
   const {
     handleSubmit,
@@ -64,6 +61,11 @@ export default function Connexion(): JSX.Element {
       setError("global", { message: "Erreur serveur, veuillez réessayer plus tard." });
     }
   };
+
+  if (!isClient) {
+    // Rendu d'un indicateur de chargement ou un élément temporaire pour éviter le rendu côté serveur
+    return <h1>Loading...</h1>;
+  }
   
   return (
     <div className="row justify-content-center">
