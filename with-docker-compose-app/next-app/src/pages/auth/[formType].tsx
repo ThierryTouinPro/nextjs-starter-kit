@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import styles from "../../components/Authentification/Register/css/Register.module.css"
+import styles from "../../components/Authentification/Register/css/Register.module.css";
 import Connexion from "../../components/Authentification/Login/Connexion";
 import Registration from "../../components/Authentification/Register/Registration";
+import { useTranslation } from "react-i18next";
 
 export default function AuthForm(): JSX.Element {
   const [isLogin, setIsLogin] = useState<boolean>(true);
 
   const router = useRouter();
   const { formType } = router.query;
+
+  const { t } = useTranslation(); // Initialiser le hook de traduction
 
   // Synchroniser isLogin avec l'URL
   useEffect(() => {
@@ -23,20 +26,17 @@ export default function AuthForm(): JSX.Element {
     if (isLogin) {
       router.push("/auth/registration");
     } else {
-      router.push("/auth/connexion");
+      router.push("");
     }
   }
 
   return (
     <div className="container">
       <div className="text-center text-dark pt-5">
-        <h1>{isLogin ? "Connexion" : "Inscription"}</h1>
+        <h1>{isLogin ? t("title-connection") : t("title-register")}</h1>
       </div>
       <div className="text-center mb-4">
-        <p>
-          Cette page est sécurisée par un protocole SSL/TLS pour protéger vos
-          informations.
-        </p>
+        <p>{t("text-securitisation")}</p>
       </div>
       <div
         id={styles.registernsk}
@@ -46,9 +46,9 @@ export default function AuthForm(): JSX.Element {
           <div className="col-md-4 col-sm-4 col-xs-12 mb-4 mt-4 d-flex flex-column justify-content-center">
             {!isLogin ? (
               <div className="container text-center">
-                <h3>Connectez-vous</h3>
+                <h3>{t("title-register-connection")}</h3>
                 <p>
-                  Vous êtes déjà inscrit ?{" "}
+                  {t("title-register-connection-text")}{" "}
                   <button
                     type="button"
                     onClick={switchAuthModeHandler}
@@ -59,15 +59,15 @@ export default function AuthForm(): JSX.Element {
                       textDecoration: "underline",
                     }}
                   >
-                    Connectez-vous
+                    {t("title-connection")}
                   </button>
                 </p>
               </div>
             ) : (
               <div className="container text-center">
-                <h3>Créer un compte</h3>
+                <h3>{t("texte-create-connection")}</h3>
                 <p>
-                  Vous n'avez pas de compte ?{" "}
+                  {t("connection-text")}{" "}
                   <button
                     type="button"
                     onClick={switchAuthModeHandler}
@@ -78,7 +78,7 @@ export default function AuthForm(): JSX.Element {
                       textDecoration: "underline",
                     }}
                   >
-                    Inscrivez-vous
+                    {t("title-register")}
                   </button>
                 </p>
               </div>

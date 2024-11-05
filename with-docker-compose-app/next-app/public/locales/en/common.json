@@ -1,22 +1,38 @@
 {
-
-  "title-home":"Next.js Starter Kit",
-  "text-home":"Introduction to Next.js concepts and features for reuse in a project.",
+  "title-home": "Next.js Starter Kit",
+  "text-home": "Presentation of NextJS concepts and features for reuse in a project.",
 
   "goals": "Goals",
-  "goals-title-1": "Next.js Principles",
-  "goals-texte-1": "The Next.js framework is at the core of the project, allowing us to integrate features like server-side rendering (SSR), static pre-rendering (SSG), and optimized route management, all based on React.",
-  "goals-title-2": "Standardizing Best Practices",  
-  "goals-texte-2": "Features that enable rapid development and easy maintenance.",
-  "goals-title-3": "Facilitating Collaboration", 
-  "goals-texte-3": "This project is designed to allow every developer on the team to contribute easily through a clear structure and modern tools like Docker and WSL 2.",
+  "goals-title-1": "The principles of Next.js",
+  "goals-texte-1": "The Next.js framework is at the heart of the project and allows us to integrate features such as server-side rendering (SSR), static pre-rendering (SSG), and optimized route management, based on React.",
+  "goals-title-2": "Standardize best practices",
+  "goals-texte-2": "Features, while allowing for rapid evolution and easy maintenance.",
+  "goals-title-3": "Facilitate collaboration",
+  "goals-texte-3": "This project is designed so that every developer on the team can easily contribute thanks to a clear structure and modern tools such as Docker and WSL 2.",
 
   "register-title": "Sign Up and Log In",
-  "register-text": "Create your account to access a large library of ready-to-use components and other advanced features.",
+  "register-text": "Create your account to access a vast library of ready-to-use components, as well as other advanced features.",
 
   "technology-title": "Technologies Used",
-  "technology-next": "Next.js: A React framework for building websites and applications with optimized features.",
+  "technology-next": "Next.js: React framework for building websites and applications with optimized features.",
   "technology-docker": "Docker: Containerization to standardize the development environment and simplify deployments.",
   "technology-wsl": "Windows Subsystem for Linux (WSL 2): For Windows developers, providing a development experience close to Linux.",
-  "technology-vscode": "Visual Studio Code (VS Code): The recommended code editor, with extensions to streamline development with Next.js and Docker."
+  "technology-vscode": "Visual Studio Code (VS Code): The recommended code editor, with extensions to facilitate development under Next.js and Docker.",
+
+  "title-register": "Registration",
+  "title-connection": "Login",
+  "text-securitisation": "This page is secured by an SSL/TLS protocol to protect your information.",
+  "title-register-connection": "Log in",
+  "title-register-connection-text": "Already registered?",
+  "texte-create-connection": "Create an account?",
+  "connection-text": "Already registered?",
+
+  "register-civilite": "Title",
+  "register-nom": "Last Name",
+  "register-prenom": "First Name",
+  "register-date-naissance": "Date of Birth",
+  "register-numero": "Phone Number",
+  "register-email": "Email",
+  "register-mdp": "Password",
+  "register-mdp-confirmation": "Password Confirmation"
 }

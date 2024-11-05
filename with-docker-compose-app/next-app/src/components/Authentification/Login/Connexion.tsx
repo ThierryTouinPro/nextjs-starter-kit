@@ -3,6 +3,7 @@ import Input from "../../Interface/Input";
 import { FormProvider, useForm, SubmitHandler } from "react-hook-form";
 import EmailIcon from '@mui/icons-material/Email';
 import LockIcon from '@mui/icons-material/Lock';
+import { useClientTranslation } from "../../../../utils/useClientTranslation";
 
 interface FormData {
   email: string;
@@ -10,6 +11,12 @@ interface FormData {
 }
 
 export default function Connexion(): JSX.Element {
+  const { t, isClient } = useClientTranslation('common'); // Utilisez le hook avec le namespace 'common'
+
+  if (!isClient) {
+    // Rendu d'un indicateur de chargement ou un élément temporaire pour éviter le rendu côté serveur
+    return <h1>Loading...</h1>;
+  }
   const methods = useForm<FormData>();
   const {
     handleSubmit,

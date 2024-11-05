@@ -12,7 +12,7 @@ export function useLanguageSwitcher() {
   const nextLocale = currentLocale === 'en' ? 'fr' : 'en';
 
   // Détermine l'icône de drapeau
-  const flagIcon = nextLocale === 'en' ? 'gb' : 'fr';
+  const flagIcon = nextLocale === 'fr' ? 'gb' : 'fr';
 
   // Fonction pour changer la langue
   const switchLanguage = () => {

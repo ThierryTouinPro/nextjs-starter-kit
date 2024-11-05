@@ -1,4 +1,3 @@
-
 import RadioGroup from "../../Interface/RadioGroup";
 import Input from "../../Interface/Input";
 import BirthDateInput from "../../Interface/BirthDateInput";
@@ -8,8 +7,10 @@ import EmailIcon from "@mui/icons-material/Email";
 import PhoneIcon from "@mui/icons-material/Phone";
 import { useEffect } from "react";
 import { useFormContext } from "react-hook-form";
+import { useTranslation } from "react-i18next"; // Importer le hook de traduction
 
 export default function RegisterInformation({ onCheckEmail }): JSX.Element {
+  const { t } = useTranslation(); // Initialiser le hook de traduction
   const { watch } = useFormContext();
   const email = watch("email"); // Surveille le champ email
 
@@ -32,22 +33,21 @@ export default function RegisterInformation({ onCheckEmail }): JSX.Element {
     <div className="row">
       <RadioGroup
         name="gender"
-        label="Civilité"
+        label={t("register-civilite")} // Utilisation de la clé i18n
         options={options}
         icon={<PersonIcon />}
       />
       <div className="col-md-6 col-12 mt-0">
         <Input
           name="lastName"
-          label="Nom"
+          label={t("register-nom")} // Utilisation de la clé i18n
           type="text"
-          placeholder="Nom"
+          placeholder={t("register-nom")} // Utilisation de la clé i18n
           validations={{
-            required: "Nom est requis",
+            required: t("Nom est requis"),
             pattern: {
               value: /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+$/,
-              message:
-                "Le nom ne peut contenir que des lettres, des espaces, et des tirets",
+              message: t("Le nom ne peut contenir que des lettres, des espaces, et des tirets"),
             },
           }}
           icon={<PersonIcon />}
@@ -56,15 +56,14 @@ export default function RegisterInformation({ onCheckEmail }): JSX.Element {
       <div className="col-md-6 col-12 mt-0">
         <Input
           name="firstName"
-          label="Prénom"
+          label={t("register-prenom")} // Utilisation de la clé i18n
           type="text"
-          placeholder="Prénom"
+          placeholder={t("register-prenom")} // Utilisation de la clé i18n
           validations={{
-            required: "Nom est requis",
+            required: t("Nom est requis"),
             pattern: {
               value: /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+$/,
-              message:
-                "Le nom ne peut contenir que des lettres, des espaces, et des tirets",
+              message: t("Le nom ne peut contenir que des lettres, des espaces, et des tirets"),
             },
           }}
           icon={<PersonIcon />}
@@ -80,13 +79,13 @@ export default function RegisterInformation({ onCheckEmail }): JSX.Element {
       <div className="col-md-6 col-xs-12">
         <Input
           name="phone"
-          label="Numéro Téléphone"
+          label={t("register-numero")} // Utilisation de la clé i18n
           type="tel"
           placeholder="+33 7 22 33 44 55"
           validations={{
             pattern: {
-              value: /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/,
-              message: "Numéro de téléphone invalide",
+              value: /^(?:(?:\+|00)33|0)\s*1-9{4}$/,
+              message: t("Numéro de téléphone invalide"),
             },
           }}
           icon={<PhoneIcon />}
@@ -96,13 +95,13 @@ export default function RegisterInformation({ onCheckEmail }): JSX.Element {
       <div className="col-md-12 col-xs-12">
         <Input
           name="email"
-          label="Email"
+          label={t("register-email")} // Utilisation de la clé i18n
           type="email"
-          placeholder="Email"
+          placeholder={t("register-email")} // Utilisation de la clé i18n
           validations={{
             pattern: {
               value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-              message: "Email invalide",
+              message: t("Email invalide"),
             },
           }}
           icon={<EmailIcon />}

@@ -18,7 +18,23 @@
   "technology-next": "Next.js : Framework React pour la construction de sites web et applications avec des fonctionnalités optimisées.",
   "technology-docker": "Docker : Conteneurisation pour uniformiser l'environnement de développement et simplifier les déploiements.",
   "technology-wsl": "Windows Subsystem for Linux (WSL 2) :(Windows Subsystem for Linux) : Pour les développeurs sous Windows, permettant une expérience de développement proche de Linux.",
-  "technology-vscode": "Visual Studio Code (VS Code) : L'éditeur de code recommandé, avec des extensions pour faciliter le développement sous Next.js et Docker."
+  "technology-vscode": "Visual Studio Code (VS Code) : L'éditeur de code recommandé, avec des extensions pour faciliter le développement sous Next.js et Docker.",
+
+  "title-register": "Inscription",
+  "title-connection": "Connexion",
+  "text-securitisation": "Cette page est sécurisée par un protocole SSL/TLS pour protéger vos informations.",
+  "title-register-connection": "Connectez-vous",
+  "title-register-connection-text": "Vous êtes déjà inscrit ?",
+  "texte-create-connection": "Créer un compte ?",
+  "connection-text": "Vous êtes déjà inscrit ?",
   
+  "register-civilite": "Civilité",
+  "register-nom": "Nom",
+  "register-prenom": "Prénom",
+  "register-date-naissance": "Date de Naissance",
+  "register-numero": "Numéro de Téléphone",
+  "register-email": "Email",
+  "register-mdp": "Mot de passe",
+  "register-mdp-confirmation": "Confirmation du mot de passe"
 }
   
