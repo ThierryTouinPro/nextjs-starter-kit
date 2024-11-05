@@ -84,7 +84,7 @@ export default function RegisterInformation({ onCheckEmail }): JSX.Element {
           placeholder="+33 7 22 33 44 55"
           validations={{
             pattern: {
-              value: /^(?:(?:\+|00)33|0)\s*1-9{4}$/,
+              value: /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/,
               message: t("Numéro de téléphone invalide"),
             },
           }}
