@@ -121,7 +121,10 @@ export default function Registration(): JSX.Element {
       if (!isValidResponse) {
         const errorData = await response.json();
         Object.keys(errorData.errors).forEach((key) => {
-          setError(key as keyof FormData, { type: "manual", message: errorData.errors[key] });
+          setError(key as keyof FormData, {
+            type: "manual",
+            message: errorData.errors[key],
+          });
         });
         setError("global", {
           message: errorData.error || "Une erreur s'est produite",
@@ -131,7 +134,7 @@ export default function Registration(): JSX.Element {
 
       const responseData = await response.json();
       console.log("User registered successfully:", responseData);
-      window.location.href = "/auth/connexion";
+      window.location.href = "/profile";
     } catch (error) {
       console.error("Error during registration:", error);
       setError("global", { message: "Internal Server Error" });
