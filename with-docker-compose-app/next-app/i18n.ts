@@ -11,7 +11,7 @@ i18n
     ns: ['common'],              // Namespace par défaut
     defaultNS: 'common',
     interpolation: {
-      escapeValue: false,
+      escapeValue: false,        // Empêche l'échappement des valeurs, nécessaire pour React
     },
     backend: {
       loadPath: '/locales/{{lng}}/{{ns}}.json',

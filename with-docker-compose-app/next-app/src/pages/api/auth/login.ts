@@ -1,16 +1,16 @@
 import db, { createSession } from '../../../lib/db';
 import bcrypt from 'bcryptjs';
-const logger = require('../../../config/winston');
+import logger from '../../../config/winston';
+import { NextApiRequest, NextApiResponse } from 'next';
 
-
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === 'POST') {
     const { email, password } = req.body;
 
     // Vérification des champs
     if (!email?.trim() || !password?.trim()) {
       logger.warn('Tentative de connexion avec email ou mot de passe vide');
-      return res.status(400).json({ error: 'L\'email et le mot de passe sont requis' });
+      return res.status(400).json({ error: "L'email et le mot de passe sont requis" });
     }
 
     try {
@@ -37,12 +37,10 @@ export default async function handler(req, res) {
 
       logger.info(`Connexion réussie pour l'utilisateur : ${email}`);
       return res.status(200).json({ message: 'Login successful', expiresAt });
-      
     } catch (error) {
       logger.error(`Erreur lors du traitement de la requête de connexion : ${error.message}`);
       return res.status(500).json({ error: 'Erreur serveur, veuillez réessayer plus tard.' });
     }
-    
   } else {
     logger.warn(`Méthode ${req.method} non autorisée pour cette route`);
     return res.status(405).json({ message: 'Method not allowed' });

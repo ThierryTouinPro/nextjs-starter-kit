@@ -1,8 +1,8 @@
-const logger = require('./winston');
+import logger from './winston';
 
 // Fonction pour modifier dynamiquement le niveau de log
-const setLogLevel = (level) => {
-  const validLogLevels = ['error', 'warn', 'info', 'http', 'verbose', 'debug', 'silly'];
+const setLogLevel = (level: string): void => {
+  const validLogLevels: string[] = ['error', 'warn', 'info', 'http', 'verbose', 'debug', 'silly'];
   
   if (validLogLevels.includes(level)) {
     logger.level = level;
@@ -12,4 +12,4 @@ const setLogLevel = (level) => {
   }
 };
 
-module.exports = setLogLevel;
+export default setLogLevel;

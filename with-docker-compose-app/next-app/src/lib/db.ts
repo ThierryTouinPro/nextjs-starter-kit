@@ -30,8 +30,15 @@ try {
   console.error("Error setting up the database:", error);
 }
 
+// Types
+interface Session {
+  id: string;
+  expires_at: number;
+  user_id: number;
+}
+
 // Fonction pour créer une nouvelle session
-export const createSession = (userId) => {
+export const createSession = (userId: number): { sessionId: string; expiresAt: number } | null => {
   if (!userId) {
     throw new Error("userId is required to create a session.");
   }
@@ -44,15 +51,6 @@ export const createSession = (userId) => {
       INSERT INTO sessions (id, expires_at, user_id) 
       VALUES (?, ?, ?)
     `); // Éxécute la requête SQL avec les paramètres passés
-
-    console.log(
-      "sessionId:",
-      sessionId,
-      "expiresAt:",
-      expiresAt,
-      "userId:",
-      userId
-    );
 
     const result = stmt.run(sessionId, expiresAt, userId);
 
@@ -68,12 +66,12 @@ export const createSession = (userId) => {
 };
 
 // Fonction pour vérifier une session
-export const verifySession = (sessionId) => {
+export const verifySession = (sessionId: string): Session | null => {
   try {
     const stmt = db.prepare(`
       SELECT * FROM sessions WHERE id = ? AND expires_at > ?
     `);
-    const session = stmt.get(sessionId, Date.now());
+    const session = stmt.get(sessionId, Date.now()) as Session | undefined;
 
     if (session) {
       return session;
@@ -89,7 +87,7 @@ export const verifySession = (sessionId) => {
 };
 
 // Fonction pour supprimer une session (déconnexion)
-export const deleteSession = (sessionId) => {
+export const deleteSession = (sessionId: string): void => {
   try {
     const stmt = db.prepare(`
       DELETE FROM sessions WHERE id = ?
@@ -101,7 +99,7 @@ export const deleteSession = (sessionId) => {
 };
 
 // Fonction pour supprimer les sessions expirées
-export const cleanupExpiredSessions = () => {
+export const cleanupExpiredSessions = (): void => {
   try {
     const stmt = db.prepare(`
       DELETE FROM sessions WHERE expires_at <= ?

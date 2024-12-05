@@ -22,15 +22,17 @@ export default function Home(): JSX.Element {
 }
 
 export async function getServerSideProps(): Promise<{ props: Record<string, unknown> }> {
-  // Vérifiez si le logger est défini (cela signifie que nous sommes côté serveur et en développement)
-  if (logger) {
+  if (logger && typeof logger.info === 'function') {
     logger.info("Page d'accueil rendue avec succès - Niveau Info");
     logger.error("Une erreur fictive est survenue - Niveau Error");
     logger.debug("Debugging les données du serveur - Niveau Debug");
+  } else {
+    console.log("Logger non défini ou méthode `info` indisponible.");
   }
 
   return {
     props: {}, // Possible de passer des props ici si nécessaire
   };
 }
+
 

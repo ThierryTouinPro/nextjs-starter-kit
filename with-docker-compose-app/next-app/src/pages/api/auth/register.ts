@@ -1,11 +1,11 @@
 import db, { createSession } from "../../../lib/db";
 import bcrypt from "bcryptjs";
-const logger = require("../../../config/winston"); // Assurez-vous que c'est le bon chemin
+import logger from "../../../config/winston";
+import { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(req, res) {
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method === "POST") {
-    const { email, password, firstName, lastName, phone, birthDate, gender } =
-      req.body; // Ajout des champs supplémentaires
+    const { email, password, firstName, lastName, phone, birthDate, gender } = req.body;
 
     // Vérification des champs
     if (
@@ -23,16 +23,10 @@ export default async function handler(req, res) {
 
     try {
       // Vérifier si l'utilisateur existe déjà
-      const existingUser = db
-        .prepare("SELECT * FROM users WHERE email = ?")
-        .get(email);
+      const existingUser = db.prepare("SELECT * FROM users WHERE email = ?").get(email);
       if (existingUser) {
-        logger.warn(
-          `Tentative d'enregistrement avec un email déjà utilisé : ${email}`
-        );
-        return res
-          .status(400)
-          .json({ errors: { email: "L'utilisateur existe déjà" } });
+        logger.warn(`Tentative d'enregistrement avec un email déjà utilisé : ${email}`);
+        return res.status(400).json({ errors: { email: "L'utilisateur existe déjà" } });
       }
 
       // Hachage du mot de passe
@@ -70,16 +64,10 @@ export default async function handler(req, res) {
       );
 
       logger.info(`Nouvel utilisateur enregistré avec succès : ${email}`);
-      return res
-        .status(201)
-        .json({ message: "User registered successfully", expiresAt });
+      return res.status(201).json({ message: "User registered successfully", expiresAt });
     } catch (error) {
-      logger.error(
-        `Erreur lors de l'enregistrement de l'utilisateur : ${error.message}`
-      );
-      return res
-        .status(500)
-        .json({ errors: { global: "Erreur serveur interne" } });
+      logger.error(`Erreur lors de l'enregistrement de l'utilisateur : ${error.message}`);
+      return res.status(500).json({ errors: { global: "Erreur serveur interne" } });
     }
   } else {
     logger.warn(`Méthode ${req.method} non autorisée pour cette route`);

@@ -1,7 +1,7 @@
-const winston = require('winston');
+import winston, { Logger } from 'winston';
 
 // Créer une instance de logger avec des transports pour les fichiers et la console
-const logger = winston.createLogger({
+const logger: Logger = winston.createLogger({
   level: 'info',  // Niveau de log par défaut
   format: winston.format.combine(
     winston.format.timestamp(),
@@ -20,4 +20,4 @@ if (process.env.NODE_ENV !== 'production') {
   }));
 }
 
-module.exports = logger;
+export default logger;
