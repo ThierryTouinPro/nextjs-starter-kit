@@ -2,7 +2,7 @@ import React from "react";
 import { Controller, useFormContext } from "react-hook-form";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-
+import { useTranslation } from "react-i18next";
 
 interface BirthDateInputProps {
   name: string;
@@ -20,13 +20,17 @@ export default function BirthDateInput({
     formState: { errors },
   } = useFormContext();
 
+  const { t } = useTranslation(); // Initialiser le hook de traduction
+
   const today = new Date();
 
   return (
     <div className="mb-3">
       <label className="d-flex align-items-center gap-2">
-        <span className="d-flex align-items-center">{icon}</span> 
-        <span className="d-flex align-items-center mt-1">Date de Naissance :</span> 
+        <span className="d-flex align-items-center">{icon}</span>
+        <span className="d-flex align-items-center mt-1">
+          {t("register-date-naissance")} :
+        </span>
         <span className="text-danger">*</span>
       </label>
       <div className="mt-2 mb-2">
@@ -34,10 +38,11 @@ export default function BirthDateInput({
           name={name}
           control={control}
           rules={{
-            required: "Date de naissance est requise",
+            required: t("required-date"),
             validate: {
               isValid: (value) =>
-                (value instanceof Date && !isNaN(value.getTime())) || "Date invalide",
+                (value instanceof Date && !isNaN(value.getTime())) ||
+                t("pattern-date"),
             },
           }}
           render={({ field }) => (
@@ -53,7 +58,9 @@ export default function BirthDateInput({
         />
       </div>
       {errors[name] && (
-        <p className="error text-danger">{(errors[name]?.message as string) || ''}</p>
+        <p className="error text-danger">
+          {(errors[name]?.message as string) || ""}
+        </p>
       )}
     </div>
   );

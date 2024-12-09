@@ -4,6 +4,8 @@ import { ReponseError } from "../../../lib/reponse";
 import ButtonSubmit from "../../Interface/ButtonSubmit";
 import RegisterInformation from "./Informations";
 import RegisterPassword from "./Password";
+import { useTranslation } from "react-i18next";
+import i18next from "i18next";
 
 interface FormData {
   email: string;
@@ -25,15 +27,19 @@ export default function Registration(): JSX.Element {
     formState: { errors },
   } = methods;
 
+  const { t } = useTranslation(); // Initialiser le hook de traduction
+
   const [step, setStep] = useState(1);
   const [recap, setRecap] = useState<Partial<FormData>>({});
   const [isEmailAvailable, setIsEmailAvailable] = useState(true);
+
+  const [globalError, setGlobalError] = useState<string | null>(null);
 
   const handleNextStep = (data: Partial<FormData>) => {
     if (!isEmailAvailable) {
       setError("email", {
         type: "manual",
-        message: "Cet email est déjà utilisé.",
+        message: t("existUserError"),
       });
       return; // Empêche de passer à l'étape suivante
     }
@@ -54,6 +60,7 @@ export default function Registration(): JSX.Element {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Accept-Language": i18next.language || "fr",
         },
         body: JSON.stringify({ email }),
       });
@@ -81,9 +88,10 @@ export default function Registration(): JSX.Element {
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     clearErrors();
+    setGlobalError(null);
     const today = new Date();
 
-    let formattedBirthDate;
+    let formattedBirthDate: string;
     try {
       const birthDate = new Date(data.birthDate!);
 
@@ -126,18 +134,20 @@ export default function Registration(): JSX.Element {
             message: errorData.errors[key],
           });
         });
-        setError("global", {
-          message: errorData.error || "Une erreur s'est produite",
-        });
+        setGlobalError(errorData.error || "Une erreur s'est produite");
         return;
       }
 
       const responseData = await response.json();
       console.log("User registered successfully:", responseData);
+
+      localStorage.setItem("currentLanguage", i18next.language);
+
+      // Rediriger avec le paramètre de langue
       window.location.href = "/profile";
     } catch (error) {
       console.error("Error during registration:", error);
-      setError("global", { message: "Internal Server Error" });
+      setGlobalError("Internal Server Error");
     }
   };
 
@@ -151,7 +161,7 @@ export default function Registration(): JSX.Element {
               <div className="text-center">
                 <ButtonSubmit
                   type="button"
-                  label="Suivant"
+                  label={t("button-next")}
                   mode="secondary"
                   action={methods.handleSubmit(handleNextStep)}
                 />
@@ -167,22 +177,20 @@ export default function Registration(): JSX.Element {
                     {errors.email.message}
                   </p>
                 )}
-                {errors.global && (
-                  <p className="error-message text-danger">
-                    {errors.global.message}
-                  </p>
+                {globalError && (
+                  <p className="error-message text-danger">{globalError}</p>
                 )}
               </div>
               <div className="text-center d-flex justify-content-center gap-3">
                 <ButtonSubmit
                   type="button"
-                  label="Précédent"
+                  label={t("button-previous")}
                   mode="primary"
                   action={handlePrevStep}
                 />
                 <ButtonSubmit
                   type="submit"
-                  label="S'inscrire"
+                  label={t("button-signup")}
                   mode="secondary"
                 />
               </div>

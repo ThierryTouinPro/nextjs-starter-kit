@@ -2,6 +2,18 @@
   "title-home": "Next.js Starter Kit",
   "text-home": "Presentation of NextJS concepts and features for reuse in a project.",
 
+  "Documentation": "Documentation",
+  "Jira": "Jira",
+  "Confluence": "Confluence",
+  "Tutoriels": "Tutorials",
+  "Inetum": "Inetum",
+  "Équipe": "Team",
+  "Ressources": "Resources",
+  "Installation": "Installation",
+  "Guide": "Guide",
+  "Prérequis": "Prerequisites",
+  "Configuration": "Configuration",
+
   "goals": "Goals",
   "goals-title-1": "The principles of Next.js",
   "goals-texte-1": "The Next.js framework is at the heart of the project and allows us to integrate features such as server-side rendering (SSR), static pre-rendering (SSG), and optimized route management, based on React.",
@@ -27,12 +39,34 @@
   "texte-create-connection": "Create an account?",
   "connection-text": "Already registered?",
 
-  "register-civilite": "Title",
+  "register-civilite": "Civility",
+  "register-civilite-woman": "Mrs",
   "register-nom": "Last Name",
   "register-prenom": "First Name",
   "register-date-naissance": "Date of Birth",
   "register-numero": "Phone Number",
   "register-email": "Email",
   "register-mdp": "Password",
-  "register-mdp-confirmation": "Password Confirmation"
+  "register-mdp-confirmation": "Password Confirmation",
+
+  "button-next": "Next",
+  "button-previous": "Previous",
+  "button-signup": "Sign Up",
+  "button-login": "Login",
+
+  "required": "This field is required.",
+  "label-required": "is required.",
+  "pattern-lastname": "Last Name can only contain letters, spaces, and hyphens.",
+  "pattern-firstname": "First Name can only contain letters, spaces, and hyphens.",
+  "pattern-phone": "Invalid phone number format.",
+  "pattern-email": "Invalid email format.",
+  "pattern-date": "Invalid date format.",
+  "required-date": "Date of birth is required.",
+  "min-password": "The password must contain at least 8 characters, an uppercase letter, a lowercase letter, a number, and a special character.",
+  "password-confirmation": "Passwords do not match.",
+
+  "existUserError": "This email is already in use.",
+  "emailRequired": "The email is required and must be a string.",
+
+  "title-profile": "Welcome to your NSK space !"
 }

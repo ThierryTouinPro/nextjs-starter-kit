@@ -26,7 +26,7 @@ export default function RegisterInformation({ onCheckEmail }): JSX.Element {
 
   const options = [
     { value: "Mr", label: "Mr" },
-    { value: "Mme", label: "Mme" },
+    { value: "Mme", label: t("register-civilite-woman") },
   ];
 
   return (
@@ -44,10 +44,10 @@ export default function RegisterInformation({ onCheckEmail }): JSX.Element {
           type="text"
           placeholder={t("register-nom")} // Utilisation de la clé i18n
           validations={{
-            required: t("Nom est requis"),
+            required: `${t("register-nom")} ${t("label-required")}`,
             pattern: {
               value: /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+$/,
-              message: t("Le nom ne peut contenir que des lettres, des espaces, et des tirets"),
+              message: t("pattern-lastname"),
             },
           }}
           icon={<PersonIcon />}
@@ -60,10 +60,10 @@ export default function RegisterInformation({ onCheckEmail }): JSX.Element {
           type="text"
           placeholder={t("register-prenom")} // Utilisation de la clé i18n
           validations={{
-            required: t("Nom est requis"),
+            required: `${t("register-prenom")} ${t("label-required")}`,
             pattern: {
               value: /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+$/,
-              message: t("Le nom ne peut contenir que des lettres, des espaces, et des tirets"),
+              message: t("pattern-firstname"),
             },
           }}
           icon={<PersonIcon />}
@@ -85,7 +85,7 @@ export default function RegisterInformation({ onCheckEmail }): JSX.Element {
           validations={{
             pattern: {
               value: /^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/,
-              message: t("Numéro de téléphone invalide"),
+              message: t("pattern-phone"),
             },
           }}
           icon={<PhoneIcon />}
@@ -101,7 +101,7 @@ export default function RegisterInformation({ onCheckEmail }): JSX.Element {
           validations={{
             pattern: {
               value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-              message: t("Email invalide"),
+              message: t("pattern-email"),
             },
           }}
           icon={<EmailIcon />}

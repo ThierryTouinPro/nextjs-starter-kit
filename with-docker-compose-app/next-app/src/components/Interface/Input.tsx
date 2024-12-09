@@ -1,4 +1,5 @@
 import { useFormContext } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 
 interface InputProps {
   name: string;
@@ -26,6 +27,8 @@ export default function Input({
     formState: { errors },
   } = useFormContext();
 
+  const { t } = useTranslation(); // Initialiser le hook de traduction
+
   return (
     <p>
       <label htmlFor={id} className="d-flex align-items-center gap-2">
@@ -39,11 +42,16 @@ export default function Input({
         name={name}
         type={type}
         placeholder={placeholder}
-        {...register(name, { required: `${label} est requis`, ...validations })}
+        {...register(name, {
+          required: `${label} ${t("label-required")}`,
+          ...validations,
+        })}
         className="text-dark mt-2 mb-2"
       />
       {errors[name] && (
-        <span className="error text-danger">{(errors[name]?.message as string) || ''}</span>
+        <span className="error text-danger">
+          {(errors[name]?.message as string) || ""}
+        </span>
       )}
     </p>
   );

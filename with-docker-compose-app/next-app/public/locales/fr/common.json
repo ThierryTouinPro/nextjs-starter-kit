@@ -1,14 +1,25 @@
 {
+  "title-home": "Next.js Starter Kit",
+  "text-home": "Présentation des concepts et fonctionnalités de NextJS pour une réutilisation dans un projet.",
 
-  "title-home":"Next.js Starter Kit",
-  "text-home":"Présentation des concepts et fonctionnalités de NextJS pour une réutilisation dans un projet.",
+  "Documentation": "Documentation",
+  "Jira": "Jira",
+  "Confluence": "Confluence",
+  "Tutoriels": "Tutoriels",
+  "Inetum": "Inetum",
+  "Équipe": "Équipe",
+  "Ressources": "Ressources",
+  "Installation": "Installation",
+  "Guide": "Guide",
+  "Prérequis": "Prérequis",
+  "Configuration": "Configuration",
 
   "goals": "Objectifs",
   "goals-title-1": "Les principes de Next.js",
   "goals-texte-1": "Le framework Next.js est au cœur du projet et nous permet d'intégrer des fonctionnalités comme le rendu côté serveur (SSR), le pré-rendu statique (SSG), et la gestion optimisée des routes, en se basant sur React.",
-  "goals-title-2": "Standardiser les bonnes pratiques",  
+  "goals-title-2": "Standardiser les bonnes pratiques",
   "goals-texte-2": "Fonctionnalités, tout en permettant des évolutions rapides et une maintenance aisée.",
-  "goals-title-3": "Faciliter la collaboration", 
+  "goals-title-3": "Faciliter la collaboration",
   "goals-texte-3": "Ce projet est conçu pour que chaque développeur au sein de l'équipe puisse contribuer facilement grâce à une structure claire et à des outils modernes tels que Docker et WSL 2.",
 
   "register-title": "Inscrivez-vous et connectez-vous",
@@ -27,14 +38,35 @@
   "title-register-connection-text": "Vous êtes déjà inscrit ?",
   "texte-create-connection": "Créer un compte ?",
   "connection-text": "Vous êtes déjà inscrit ?",
-  
+
   "register-civilite": "Civilité",
+  "register-civilite-woman": "Mme",
   "register-nom": "Nom",
   "register-prenom": "Prénom",
   "register-date-naissance": "Date de Naissance",
   "register-numero": "Numéro de Téléphone",
   "register-email": "Email",
   "register-mdp": "Mot de passe",
-  "register-mdp-confirmation": "Confirmation du mot de passe"
+  "register-mdp-confirmation": "Confirmation du mot de passe",
+
+  "button-next": "Suivant",
+  "button-previous": "Précédent",
+  "button-signup": "S'inscrire",
+  "button-login": "Se connecter",
+
+  "required": "Ce champ est requis",
+  "label-required": "est requis.",
+  "pattern-lastname": "Le nom ne peut contenir que des lettres, des espaces et des tirets",
+  "pattern-firstname": "Le prénom ne peut contenir que des lettres, des espaces et des tirets",
+  "pattern-phone": "Numéro de téléphone invalide",
+  "pattern-email": "Email invalide.",
+  "pattern-date": "Date invalide.",
+  "required-date": "Date de naissance est requise.",
+  "min-password": "Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial",
+  "password-confirmation": "Les mots de passe ne correspondent pas",
+
+  "existUserError": "Cet email est déjà utilisé.",
+  "emailRequired": "L'email est requis et doit être une chaîne de caractères.",
+
+  "title-profile": "Bienvenue dans votre espace NSK !"
 }
-  

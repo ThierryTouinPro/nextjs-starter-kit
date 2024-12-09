@@ -1,13 +1,18 @@
 import styles from "./css/Buttons.module.css";
 
 interface ButtonSubmitProps {
-  action: () => void;
+  action?: () => void;
   type: "button" | "submit" | "reset";
   label: string;
   mode: "primary" | "secondary";
 }
 
-function ButtonSubmit({ action, type, label, mode }: ButtonSubmitProps): JSX.Element {
+function ButtonSubmit({
+  action,
+  type,
+  label,
+  mode,
+}: ButtonSubmitProps): JSX.Element {
   return (
     <div className={` ${styles.authButtons}`}>
       <button
