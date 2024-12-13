@@ -1,4 +1,4 @@
-import { useFormContext, Controller } from "react-hook-form";
+import { useFormContext, Controller, FieldError } from "react-hook-form";
 import {
   Radio,
   RadioGroup,
@@ -14,6 +14,7 @@ export default function RadioGroupUI({ label, name, options, icon }) {
   } = useFormContext();
 
   const { t } = useTranslation(); // Initialiser le hook de traduction
+  const errorMessage = errors[name] as FieldError | undefined;
 
   return (
     <FormControl component="fieldset">
@@ -61,10 +62,10 @@ export default function RadioGroupUI({ label, name, options, icon }) {
           />
         </div>
         {/* Affichage des erreurs */}
-        {errors[name] && (
+        {errorMessage && (
           <span className="error text-danger mt-1 ms-3">
-            {typeof errors[name].message === "string"
-              ? errors[name].message
+            {typeof errorMessage.message === "string"
+              ? errorMessage.message
               : ""}
           </span>
         )}

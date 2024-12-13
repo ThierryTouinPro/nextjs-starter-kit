@@ -1,12 +1,11 @@
 // ce commentairepermet de bénéficier de l'autocomplétion et du typage TypeScript tout en conservant un fichier JavaScript.
 /** @type {import('next').NextConfig} */
-const { i18n } = require('./next-i18next.config');
+const { i18n } = require("./next-i18next.config");
 
 const nextConfig = {
-  output: "standalone",
   i18n: {
-    locales: ['en', 'fr'],
-    defaultLocale: 'fr',
+    locales: ["en", "fr"],
+    defaultLocale: "fr",
   },
 };
 

@@ -125,16 +125,12 @@ export default function Registration(): JSX.Element {
         body: JSON.stringify(finalData),
       });
 
-      const isValidResponse = await ReponseError(response, setError);
+      const isValidResponse = await ReponseError(
+        response,
+        setGlobalError,
+        setError
+      );
       if (!isValidResponse) {
-        const errorData = await response.json();
-        Object.keys(errorData.errors).forEach((key) => {
-          setError(key as keyof FormData, {
-            type: "manual",
-            message: errorData.errors[key],
-          });
-        });
-        setGlobalError(errorData.error || "Une erreur s'est produite");
         return;
       }
 

@@ -1,7 +1,36 @@
-import sql from "better-sqlite3";
+import path from "path";
+import fs from "fs";
+import Database from "better-sqlite3";
 import { v4 as uuidv4 } from "uuid";
 
-const db = sql("main.db");
+// Définir le chemin pour les fichiers de log
+const logDirectory =
+  process.env.NODE_ENV === "production"
+    ? "/tmp" // Utilisation de /tmp en production
+    : path.join(process.cwd(), ""); // Chemin local en développement
+
+// Vérifier si le répertoire existe, sinon le créer
+if (!fs.existsSync(logDirectory)) {
+  fs.mkdirSync(logDirectory, { recursive: true });
+  console.log(`Répertoire créé : ${logDirectory}`);
+}
+
+// Définir le chemin pour la base de données
+const dbPath = path.join(logDirectory, "main.db");
+
+// Vérifier si le fichier existe en production et copier un modèle si nécessaire
+if (process.env.NODE_ENV === "production" && !fs.existsSync(dbPath)) {
+  const templateDbPath = path.join(process.cwd(), "main.db"); // Chemin du modèle de base
+  if (fs.existsSync(templateDbPath)) {
+    fs.copyFileSync(templateDbPath, dbPath);
+    console.log("Base de données copiée dans le répertoire de production.");
+  } else {
+    console.error("Modèle de base de données introuvable.");
+  }
+}
+
+// Créer une instance de la base de données
+const db = new Database(dbPath);
 
 try {
   // Création des tables si elles n'existent pas déjà
@@ -38,7 +67,9 @@ interface Session {
 }
 
 // Fonction pour créer une nouvelle session
-export const createSession = (userId: number): { sessionId: string; expiresAt: number } | null => {
+export const createSession = (
+  userId: number
+): { sessionId: string; expiresAt: number } | null => {
   if (!userId) {
     throw new Error("userId is required to create a session.");
   }
