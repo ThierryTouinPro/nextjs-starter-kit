@@ -102,7 +102,9 @@ export default function Registration(): JSX.Element {
       if (isNaN(birthDate.getTime())) {
         throw new Error("Invalid date");
       }
-      formattedBirthDate = birthDate.toISOString().split("T")[0]; // Formate la date en YYYY-MM-DD
+      formattedBirthDate = `${birthDate.getFullYear()}-${String(
+        birthDate.getMonth() + 1
+      ).padStart(2, "0")}-${String(birthDate.getDate()).padStart(2, "0")}`;
     } catch (error) {
       setError("birthDate", { type: "manual", message: "Invalid birth date" });
       return;

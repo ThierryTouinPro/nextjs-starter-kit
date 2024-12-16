@@ -57,7 +57,9 @@ export default async function handler(
       if (isNaN(birthDateObj.getTime())) {
         return res.status(400).json({ error: "Date de naissance invalide" });
       }
-      const formattedBirthDate = birthDateObj.toISOString().split("T")[0];
+      const formattedBirthDate = `${birthDateObj.getFullYear()}-${String(
+        birthDateObj.getMonth() + 1
+      ).padStart(2, "0")}-${String(birthDateObj.getDate()).padStart(2, "0")}`;
 
       // Insérer l'utilisateur dans la base de données
       logger.info(

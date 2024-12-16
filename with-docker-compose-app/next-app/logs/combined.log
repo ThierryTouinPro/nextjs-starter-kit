@@ -193,3 +193,23 @@
 {"birthDate":"2024-12-01","email":"khouloudben@gmail.com","firstName":"Khouloud","gender":"Mme","lastName":"Ben Salem","level":"info","message":"Insertion de l'utilisateur dans la base de données avec les données :","phone":"+33758495122","timestamp":"2024-12-13T16:09:34.953Z"}
 {"level":"info","message":"Utilisateur inséré avec succès, création de la session pour l'utilisateur :","timestamp":"2024-12-13T16:09:34.972Z"}
 {"expiresAt":1734192574973,"level":"info","message":"Données envoyées au client : User registered successfully","timestamp":"2024-12-13T16:09:34.988Z"}
+{"body":{"birthDate":"2024-11-30","confirmPassword":"Khouloud96!","email":"khouloudbensalem41@gmail.com","firstName":"Khouloud","gender":"Mr","lastName":"Ben Salem","password":"Khouloud96!","phone":"+33758495122"},"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2024-12-16T14:51:48.111Z"}
+{"level":"info","message":"Vérification de l'utilisateur existant dans la base de données pour l'email :","timestamp":"2024-12-16T14:51:48.117Z"}
+{"birthDate":"2024-11-30","email":"khouloudbensalem41@gmail.com","firstName":"Khouloud","gender":"Mr","lastName":"Ben Salem","level":"info","message":"Insertion de l'utilisateur dans la base de données avec les données :","phone":"+33758495122","timestamp":"2024-12-16T14:51:48.218Z"}
+{"level":"info","message":"Utilisateur inséré avec succès, création de la session pour l'utilisateur :","timestamp":"2024-12-16T14:51:48.228Z"}
+{"expiresAt":1734447108229,"level":"info","message":"Données envoyées au client : User registered successfully","timestamp":"2024-12-16T14:51:48.236Z"}
+{"body":{"birthDate":"1996-10-11","confirmPassword":"Khouloud96!","email":"khouloudbensalem7891@gmail.com","firstName":"Khouloud","gender":"Mme","lastName":"Ben Salem","password":"Khouloud96!","phone":"+33758495122"},"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2024-12-16T15:11:51.590Z"}
+{"level":"info","message":"Vérification de l'utilisateur existant dans la base de données pour l'email :","timestamp":"2024-12-16T15:11:51.594Z"}
+{"birthDate":"1996-10-11","email":"khouloudbensalem7891@gmail.com","firstName":"Khouloud","gender":"Mme","lastName":"Ben Salem","level":"info","message":"Insertion de l'utilisateur dans la base de données avec les données :","phone":"+33758495122","timestamp":"2024-12-16T15:11:51.681Z"}
+{"level":"info","message":"Utilisateur inséré avec succès, création de la session pour l'utilisateur :","timestamp":"2024-12-16T15:11:51.700Z"}
+{"expiresAt":1734448311701,"level":"info","message":"Données envoyées au client : User registered successfully","timestamp":"2024-12-16T15:11:51.718Z"}
+{"body":{"birthDate":"2024-12-01","confirmPassword":"Khouloud96!","email":"khouloudbensalem123@gmail.com","firstName":"Khouloud","gender":"Mme","lastName":"Ben Salem","password":"Khouloud96!","phone":"+33758495122"},"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2024-12-16T15:16:36.422Z"}
+{"level":"info","message":"Vérification de l'utilisateur existant dans la base de données pour l'email :","timestamp":"2024-12-16T15:16:36.428Z"}
+{"birthDate":"2024-12-01","email":"khouloudbensalem123@gmail.com","firstName":"Khouloud","gender":"Mme","lastName":"Ben Salem","level":"info","message":"Insertion de l'utilisateur dans la base de données avec les données :","phone":"+33758495122","timestamp":"2024-12-16T15:16:36.513Z"}
+{"level":"info","message":"Utilisateur inséré avec succès, création de la session pour l'utilisateur :","timestamp":"2024-12-16T15:16:36.538Z"}
+{"expiresAt":1734448596539,"level":"info","message":"Données envoyées au client : User registered successfully","timestamp":"2024-12-16T15:16:36.553Z"}
+{"body":{"birthDate":"1996-10-12","confirmPassword":"Khouloud96!","email":"khouloudbensalem1234@gmail.com","firstName":"Khouloud","gender":"Mme","lastName":"Ben Salem","password":"Khouloud96!","phone":"+33758495122"},"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2024-12-16T15:17:17.616Z"}
+{"level":"info","message":"Vérification de l'utilisateur existant dans la base de données pour l'email :","timestamp":"2024-12-16T15:17:17.621Z"}
+{"birthDate":"1996-10-12","email":"khouloudbensalem1234@gmail.com","firstName":"Khouloud","gender":"Mme","lastName":"Ben Salem","level":"info","message":"Insertion de l'utilisateur dans la base de données avec les données :","phone":"+33758495122","timestamp":"2024-12-16T15:17:17.707Z"}
+{"level":"info","message":"Utilisateur inséré avec succès, création de la session pour l'utilisateur :","timestamp":"2024-12-16T15:17:17.732Z"}
+{"expiresAt":1734448637733,"level":"info","message":"Données envoyées au client : User registered successfully","timestamp":"2024-12-16T15:17:17.739Z"}
