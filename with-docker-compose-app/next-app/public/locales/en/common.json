@@ -68,5 +68,10 @@
   "existUserError": "This email is already in use.",
   "emailRequired": "The email is required and must be a string.",
 
-  "title-profile": "Welcome to your NSK space !"
+  "title-profile": "Welcome to your NSK space !",
+
+  "not-found-page": "Page not found",
+  "not-found-page-paragraph1": "We are sorry, the page you are looking for does not exist.",
+  "not-found-page-paragraph2": "Maybe go to our",
+  "not-found-page-link": "home page"
 }

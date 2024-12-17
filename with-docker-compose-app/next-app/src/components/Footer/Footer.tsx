@@ -1,6 +1,8 @@
 import { useTranslation } from "react-i18next";
 import classes from "./css/Footer.module.css";
 import { mainMenus } from "../../data/main-menus";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 interface FooterMenu {
   groupTitle: string;
@@ -10,6 +12,16 @@ interface FooterMenu {
 function Footer(): JSX.Element {
   const { t } = useTranslation(); // Initialisation du hook pour la traduction
   const menus = mainMenus();
+  const router = useRouter();
+
+  // Détermine le préfixe en fonction de la langue
+  const getLanguagePrefix = () => {
+    if (router.pathname.startsWith("/en")) {
+      return "/en";
+    }
+    // Retourne "/" pour toutes les autres langues (par défaut, Français)
+    return "";
+  };
 
   return (
     <footer className={classes.footer}>
@@ -34,8 +46,12 @@ function Footer(): JSX.Element {
                 {/* Boucle sur les sous-menus et traduction */}
                 {footerMenu.subMenus.map((subMenu: string) => (
                   <li className="mb-1" key={subMenu}>
-                    <a href={`/${subMenu.toLowerCase()}`}>{t(subMenu)}</a>{" "}
-                    {/* Traduction de chaque sous-menu */}
+                    <Link
+                      href={`${getLanguagePrefix()}/${subMenu.toLowerCase()}`}
+                      passHref
+                    >
+                      {t(subMenu)}
+                    </Link>
                   </li>
                 ))}
               </ul>

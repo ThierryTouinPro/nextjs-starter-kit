@@ -4,8 +4,8 @@ import styles from "./css/Header.module.css";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import ButtonLink from "../Interface/ButtonLink";
-import LanguageSwitcherButton from '../Interface/LanguageSwitcherButton'; // Importez le bouton de changement de langue
-import { useClientTranslation } from '../../../utils/useClientTranslation';
+import LanguageSwitcherButton from "../Interface/LanguageSwitcherButton"; // Importez le bouton de changement de langue
+import { useClientTranslation } from "../../../utils/useClientTranslation";
 
 function Header(): JSX.Element {
   const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
@@ -33,7 +33,11 @@ function Header(): JSX.Element {
 
   useEffect(() => {
     // Vérifie si l'URL actuelle est "/" ou "/en" ou "/fr"
-    setIsHome(router.pathname === "/" || router.pathname === "/en" || router.pathname === "/fr");
+    setIsHome(
+      router.pathname === "/" ||
+        router.pathname === "/en" ||
+        router.pathname === "/fr"
+    );
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
@@ -54,22 +58,26 @@ function Header(): JSX.Element {
     };
   }, [router.events, navbarOpen]);
 
-  const { t, isClient } = useClientTranslation('common'); // Utilisez le hook avec le namespace 'common'
+  const { t, isClient } = useClientTranslation("common"); // Utilisez le hook avec le namespace 'common'
 
   if (!isClient) {
     // Rendu d'un indicateur de chargement ou un élément temporaire pour éviter le rendu côté serveur
     return <h1>Loading...</h1>;
   }
 
-
   return (
     <header
-      className={`${styles.header} container-fluid pt-4 ${isHome ? styles.headerHome : ""}`}
+      className={`${styles.header} container-fluid pt-4 ${
+        isHome ? styles.headerHome : ""
+      }`}
       style={{ backgroundColor: "transparent" }}
     >
       {isHome && (
         <picture>
-          <source srcSet="/images/bg-pattern-intro-desktop.svg" media="(min-width: 50rem)" />
+          <source
+            srcSet="/images/bg-pattern-intro-desktop.svg"
+            media="(min-width: 50rem)"
+          />
           <img
             className={`${styles.headerBg}`}
             src="/images/bg-pattern-intro-mobile.svg"
@@ -95,10 +103,15 @@ function Header(): JSX.Element {
               <span className="navbar-toggler-icon"></span>
             </button>
             <div
-              className={`collapse navbar-collapse ${navbarOpen ? "show" : ""} ${styles.navbarCollapse}`}
+              className={`collapse navbar-collapse ${
+                navbarOpen ? "show" : ""
+              } ${styles.navbarCollapse}`}
               id="navbarNav"
             >
               <Navigation />
+            </div>
+            <div className="d-lg-none">
+              <LanguageSwitcherButton />
             </div>
           </nav>
           <div className="col-4 d-none d-lg-block">
@@ -108,7 +121,7 @@ function Header(): JSX.Element {
                 mode="primary"
                 href="/auth/registration"
               />
-              <LanguageSwitcherButton /> 
+              <LanguageSwitcherButton />
             </div>
           </div>
         </div>
@@ -116,10 +129,8 @@ function Header(): JSX.Element {
       {isHome && (
         <section className={`text-center ${styles.section}`}>
           <div className="container">
-            <h1 className="display-4">{t('title-home')}</h1>
-            <p className="lead text-center display-4">
-              {t('text-home')}
-            </p>
+            <h1 className="display-4">{t("title-home")}</h1>
+            <p className="lead text-center display-4">{t("text-home")}</p>
             <div
               className={`d-flex flex-md-row align-items-center justify-content-center ${styles.buttons}`}
             >
