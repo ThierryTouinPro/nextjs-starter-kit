@@ -1,13 +1,13 @@
 "use client";
 
-import { useClientTranslation } from '../../../utils/useClientTranslation'; 
+import { useClientTranslation } from "../../../utils/useClientTranslation";
 
 export default function FeatureExtras(): JSX.Element {
-  const { t, isClient } = useClientTranslation('common'); // Utilisez le hook avec le namespace 'common'
+  const { t, isClient } = useClientTranslation("common"); // Utilisez le hook avec le namespace 'common'
 
   if (!isClient) {
     // Rendu d'un indicateur de chargement ou un élément temporaire pour éviter le rendu côté serveur
-    return <h1>Loading...</h1>;
+    return null;
   }
 
   return (
@@ -22,14 +22,14 @@ export default function FeatureExtras(): JSX.Element {
         </div>
       </div>
       <div className="col-md-6">
-        <h2>{t('technology-title')}</h2>
-        {t('technology-next')}
+        <h2>{t("technology-title")}</h2>
+        {t("technology-next")}
         <br />
-        {t('technology-docker')}
+        {t("technology-docker")}
         <br />
-        {t('technology-wsl')}
+        {t("technology-wsl")}
         <br />
-        {t('technology-vscode')}
+        {t("technology-vscode")}
         <br />
       </div>
     </>

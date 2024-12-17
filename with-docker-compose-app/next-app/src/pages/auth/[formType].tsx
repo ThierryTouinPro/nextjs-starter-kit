@@ -33,7 +33,7 @@ export default function AuthForm(): JSX.Element {
 
   if (!isClient) {
     // Rendu d'un indicateur de chargement ou un élément temporaire pour éviter le rendu côté serveur
-    return <h1>Loading...</h1>;
+    return null;
   }
 
   return (

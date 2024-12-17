@@ -1,13 +1,13 @@
 "use client";
 
-import { useClientTranslation } from '../../../utils/useClientTranslation';
+import { useClientTranslation } from "../../../utils/useClientTranslation";
 
 export default function FeatureInfrastructure(): JSX.Element {
-  const { t, isClient } = useClientTranslation('common'); // Utilisez le hook avec le namespace 'common'
+  const { t, isClient } = useClientTranslation("common"); // Utilisez le hook avec le namespace 'common'
 
   if (!isClient) {
     // Rendu d'un indicateur de chargement ou un élément temporaire pour éviter le rendu côté serveur
-    return <h1>Loading...</h1>;
+    return null;
   }
 
   return (
@@ -23,10 +23,8 @@ export default function FeatureInfrastructure(): JSX.Element {
           </div>
         </div>
         <div className="col-md-6">
-          <h2 className="text-white">{t('register-title')}</h2>
-          <p>
-            {t('register-text')}
-          </p>
+          <h2 className="text-white">{t("register-title")}</h2>
+          <p>{t("register-text")}</p>
         </div>
       </div>
     </>

@@ -61,8 +61,7 @@ function Header(): JSX.Element {
   const { t, isClient } = useClientTranslation("common"); // Utilisez le hook avec le namespace 'common'
 
   if (!isClient) {
-    // Rendu d'un indicateur de chargement ou un élément temporaire pour éviter le rendu côté serveur
-    return <h1>Loading...</h1>;
+    return null; // Évite le rendu côté serveur
   }
 
   return (

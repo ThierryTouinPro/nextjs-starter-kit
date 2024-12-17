@@ -14,7 +14,7 @@ export default function Home(): JSX.Element {
 
   // Rendu d'un indicateur de chargement ou un élément temporaire pour éviter le rendu côté serveur
   if (!isClient) {
-    return <h1> Loading...</h1>;
+    return null;
   }
 
   return (
