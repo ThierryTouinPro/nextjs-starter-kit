@@ -26,7 +26,7 @@ export default function AuthForm(): JSX.Element {
     if (isLogin) {
       router.push("/auth/registration");
     } else {
-      router.push("/");
+      router.push("/auth/connexion");
     }
   }
 

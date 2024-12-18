@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useClientTranslation } from "../../utils/useClientTranslation";
 import i18next from "i18next";
 import styles from "../components/Authentification/Profile/css/Profile.module.css";
+import { useRouter } from "next/router";
 
 interface FormData {
   email: string;
@@ -15,6 +16,14 @@ interface FormData {
 export default function ProfilePage(): JSX.Element {
   const { t, isClient } = useClientTranslation("common"); // Utilisez le hook avec le namespace 'common'
   const [userData, setUserData] = useState<FormData | null>(null);
+  const router = useRouter();
+
+  useEffect(() => {
+    const user = localStorage.getItem("formData");
+    if (!user) {
+      router.push("/auth/connexion"); // Rediriger si l'utilisateur n'est pas connecté
+    }
+  }, []);
 
   useEffect(() => {
     // Récupérer la langue actuelle depuis localStorage
@@ -26,7 +35,7 @@ export default function ProfilePage(): JSX.Element {
     const storedData = localStorage.getItem("formData");
     if (storedData) {
       setUserData(JSON.parse(storedData)); // Stocker les données dans l'état
-      localStorage.removeItem("formData"); // Supprimer après récupération
+      //localStorage.removeItem("formData"); // Supprimer après récupération
     }
   }, []);
 

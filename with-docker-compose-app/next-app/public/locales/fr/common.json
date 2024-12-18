@@ -68,6 +68,8 @@
   "existUserError": "Cet email est déjà utilisé.",
   "emailRequired": "L'email est requis et doit être une chaîne de caractères.",
 
+  "invalidCredentials": "Identifiants invalides",
+
   "title-profile-part1": "Bienvenue ",
   "title-profile-part2": " dans votre espace NSK !",
   "no-data": "Aucune donnée disponible !",

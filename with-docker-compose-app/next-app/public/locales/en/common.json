@@ -68,6 +68,8 @@
   "existUserError": "This email is already in use.",
   "emailRequired": "The email is required and must be a string.",
 
+  "invalidCredentials": "Invalid credentials",
+
   "title-profile-part1": "Welcome ",
   "title-profile-part2": " to your NSK space !",
   "no-data": "No data available !",

@@ -5,6 +5,8 @@ import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 import { useClientTranslation } from "../../../../utils/useClientTranslation";
 import { useState } from "react";
+import { ReponseError } from "lib/reponse";
+import i18next from "i18next";
 
 interface FormData {
   email: string;
@@ -34,32 +36,30 @@ export default function Connexion(): JSX.Element {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Accept-Language": i18next.language || "fr",
         },
         body: JSON.stringify(data),
       });
 
-      // Si la réponse n'est pas OK (statut HTTP 200), on gère les erreurs
-      if (!response.ok) {
-        const errorData = await response.json();
-
-        if (response.status === 401) {
-          setGlobalError(
-            errorData.error || "Identifiants invalides. Veuillez réessayer."
-          );
-        } else if (response.status === 400) {
-          setGlobalError(
-            errorData.error || "L'email et le mot de passe sont requis."
-          );
-        } else {
-          setGlobalError(errorData.error || "Une erreur s'est produite.");
-        }
+      const isValidResponse = await ReponseError(
+        response,
+        setGlobalError,
+        setError
+      );
+      if (!isValidResponse) {
         return;
       }
 
       // Si la réponse est correcte (statut 200)
       const responseData = await response.json();
       console.log("User logged in successfully:", responseData);
-      window.location.href = "/connected";
+
+      // Enregistrer les données dans localStorage
+      localStorage.setItem("formData", JSON.stringify(responseData.user));
+
+      localStorage.setItem("currentLanguage", i18next.language);
+
+      window.location.href = "/profile";
     } catch (error) {
       console.error("Error during login:", error);
       setGlobalError(error || "Erreur serveur, veuillez réessayer plus tard.");
@@ -78,28 +78,27 @@ export default function Connexion(): JSX.Element {
           <form id="auth-form" onSubmit={handleSubmit(onSubmit)}>
             <Input
               name="email"
-              label="Email"
+              label={t("register-email")}
               type="email"
               placeholder="Email"
               validations={{
                 pattern: {
                   value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                  message: "Email invalide",
+                  message: t("pattern-email"),
                 },
               }}
               icon={<EmailIcon />}
             />
             <Input
               name="password"
-              label="Mot de passe"
+              label={t("register-mdp")}
               type="password"
               placeholder="Mot de passe"
               validations={{
                 pattern: {
                   value:
                     /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/,
-                  message:
-                    "Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial",
+                  message: t("min-password"),
                 },
               }}
               icon={<LockIcon />}
@@ -110,7 +109,7 @@ export default function Connexion(): JSX.Element {
               )}
               <ButtonSubmit
                 type="submit"
-                label="Se connecter"
+                label={t("button-login")}
                 mode="secondary"
               />
             </div>
