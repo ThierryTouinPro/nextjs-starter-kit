@@ -68,7 +68,15 @@
   "existUserError": "Cet email est déjà utilisé.",
   "emailRequired": "L'email est requis et doit être une chaîne de caractères.",
 
-  "title-profile": "Bienvenue dans votre espace NSK !",
+  "title-profile-part1": "Bienvenue ",
+  "title-profile-part2": " dans votre espace NSK !",
+  "no-data": "Aucune donnée disponible !",
+  "user-details": "Détails utilisateur",
+  "email": "Adresse e-mail",
+  "name": "Nom complet",
+  "birthDate": "Date de naissance",
+  "phone": "Téléphone",
+  "gender": "Genre",
 
   "not-found-page": "Page non trouvée",
   "not-found-page-paragraph1": "Nous sommes désolés, la page que vous recherchez n'existe pas.",

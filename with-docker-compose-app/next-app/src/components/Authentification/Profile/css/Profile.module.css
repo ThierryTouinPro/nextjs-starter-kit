@@ -1,0 +1,25 @@
+#profileContainer {
+  background-color: var(--very-grey-blue);
+  padding: 45px;
+}
+
+.detailsProfileContainer {
+  border-top-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+}
+
+.userDetails {
+  color: var(--light-red);
+  font-weight: var(--font-weight-black);
+}
+
+.userFirstName {
+  color: var(--light-red);
+}
+
+/* Media query pour les appareils mobiles */
+@media (max-width: 768px) {
+  #profileContainer {
+    padding: 15px; /* Marge réduite à 15px en mode mobile */
+  }
+}

@@ -139,6 +139,9 @@ export default function Registration(): JSX.Element {
       const responseData = await response.json();
       console.log("User registered successfully:", responseData);
 
+      // Enregistrer les données dans localStorage
+      localStorage.setItem("formData", JSON.stringify(finalData));
+
       localStorage.setItem("currentLanguage", i18next.language);
 
       // Rediriger avec le paramètre de langue

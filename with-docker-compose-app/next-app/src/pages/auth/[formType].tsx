@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import styles from "../../components/Authentification/Register/css/Register.module.css";
 import Connexion from "../../components/Authentification/Login/Connexion";
 import Registration from "../../components/Authentification/Register/Registration";
-import { useTranslation } from "react-i18next";
 import { useClientTranslation } from "../../../utils/useClientTranslation";
 
 export default function AuthForm(): JSX.Element {
