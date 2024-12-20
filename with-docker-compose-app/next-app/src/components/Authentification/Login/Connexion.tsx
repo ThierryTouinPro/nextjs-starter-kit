@@ -54,9 +54,6 @@ export default function Connexion(): JSX.Element {
       const responseData = await response.json();
       console.log("User logged in successfully:", responseData);
 
-      // Enregistrer les données dans localStorage
-      localStorage.setItem("formData", JSON.stringify(responseData.user));
-
       localStorage.setItem("currentLanguage", i18next.language);
 
       window.location.href = "/profile";
