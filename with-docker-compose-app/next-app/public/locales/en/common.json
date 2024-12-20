@@ -53,6 +53,8 @@
   "button-previous": "Previous",
   "button-signup": "Sign Up",
   "button-login": "Login",
+  "button-logout": "Logout",
+  "link-profile": "My profile",
 
   "required": "This field is required.",
   "label-required": "is required.",

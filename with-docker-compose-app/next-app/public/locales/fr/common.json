@@ -53,6 +53,8 @@
   "button-previous": "Précédent",
   "button-signup": "S'inscrire",
   "button-login": "Se connecter",
+  "button-logout": "Déconnexion",
+  "link-profile": "Mon profil",
 
   "required": "Ce champ est requis",
   "label-required": "est requis.",
