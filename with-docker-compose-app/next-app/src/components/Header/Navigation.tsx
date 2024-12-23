@@ -3,7 +3,6 @@ import Link from "next/link";
 import styles from "./css/Navigation.module.css";
 import { mainMenus } from "../../data/main-menus";
 import { useTranslation } from "react-i18next";
-import { useRouter } from "next/router";
 import { AuthButton } from "components/Interface/AuthButton";
 import { useAuth } from "components/Authentification/Logout/useAuth";
 
@@ -15,12 +14,11 @@ interface Menu {
 function Navigation(): JSX.Element {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
-  const router = useRouter();
 
   const { t } = useTranslation(); // Initialisation du hook pour la traduction
   const menus = mainMenus();
 
-  const { isLoggedIn, handleLogout } = useAuth(); // Utilise le hook personnalisé de déconnexion
+  const { isLoggedIn, handleLogout } = useAuth();
 
   const toggleDropdown = (menuTitle: string) => {
     setOpenDropdown(openDropdown === menuTitle ? null : menuTitle);

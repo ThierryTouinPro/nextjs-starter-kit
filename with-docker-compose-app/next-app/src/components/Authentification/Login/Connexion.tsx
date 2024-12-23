@@ -7,6 +7,7 @@ import { useClientTranslation } from "../../../../utils/useClientTranslation";
 import { useState } from "react";
 import { ReponseError } from "lib/reponse";
 import i18next from "i18next";
+import { useRouter } from "next/router";
 
 interface FormData {
   email: string;
@@ -25,6 +26,17 @@ export default function Connexion(): JSX.Element {
     clearErrors,
     formState: { errors },
   } = methods;
+
+  const router = useRouter();
+
+  // Détermine le préfixe en fonction de la langue
+  const getLanguagePrefix = () => {
+    if (router.pathname.startsWith("/en")) {
+      return "/en";
+    }
+    // Retourne "/" pour toutes les autres langues (par défaut, Français)
+    return "";
+  };
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     clearErrors(); // Efface les erreurs précédentes
@@ -56,7 +68,7 @@ export default function Connexion(): JSX.Element {
 
       localStorage.setItem("currentLanguage", i18next.language);
 
-      window.location.href = "/profile";
+      router.push(getLanguagePrefix() + "/profile");
     } catch (error) {
       console.error("Error during login:", error);
       setGlobalError(error || "Erreur serveur, veuillez réessayer plus tard.");

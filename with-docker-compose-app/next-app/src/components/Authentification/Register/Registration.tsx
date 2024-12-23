@@ -6,6 +6,7 @@ import RegisterInformation from "./Informations";
 import RegisterPassword from "./Password";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
+import { useRouter } from "next/router";
 
 interface FormData {
   email: string;
@@ -34,6 +35,17 @@ export default function Registration(): JSX.Element {
   const [isEmailAvailable, setIsEmailAvailable] = useState(true);
 
   const [globalError, setGlobalError] = useState<string | null>(null);
+
+  const router = useRouter();
+
+  // Détermine le préfixe en fonction de la langue
+  const getLanguagePrefix = () => {
+    if (router.pathname.startsWith("/en")) {
+      return "/en";
+    }
+    // Retourne "/" pour toutes les autres langues (par défaut, Français)
+    return "";
+  };
 
   const handleNextStep = (data: Partial<FormData>) => {
     if (!isEmailAvailable) {
@@ -142,7 +154,7 @@ export default function Registration(): JSX.Element {
       localStorage.setItem("currentLanguage", i18next.language);
 
       // Rediriger avec le paramètre de langue
-      window.location.href = "/profile";
+      router.push(getLanguagePrefix() + "/profile");
     } catch (error) {
       console.error("Error during registration:", error);
       setGlobalError("Internal Server Error");

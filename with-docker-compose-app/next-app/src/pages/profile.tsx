@@ -1,17 +1,7 @@
 import { useEffect, useState } from "react";
 import { useClientTranslation } from "../../utils/useClientTranslation";
-import i18next from "i18next";
 import styles from "../components/Authentification/Profile/css/Profile.module.css";
 import { useRouter } from "next/router";
-
-interface FormData {
-  email: string;
-  firstName?: string;
-  lastName?: string;
-  birthDate?: string;
-  phone?: string;
-  gender?: string;
-}
 
 export default function ProfilePage(): JSX.Element {
   const { t, isClient } = useClientTranslation("common"); // Utilisez le hook avec le namespace 'common'
@@ -43,12 +33,12 @@ export default function ProfilePage(): JSX.Element {
     fetchUser();
   }, []);
 
-  useEffect(() => {
+  /*useEffect(() => {
     // Récupérer la langue actuelle depuis localStorage
     const currentLanguage =
       localStorage.getItem("currentLanguage") || i18next.language;
     i18next.changeLanguage(currentLanguage);
-  }, []);
+  }, []);*/
 
   if (!user && isClient) {
     return <p>Chargement des données...</p>;

@@ -4,7 +4,7 @@ import styles from "./css/Header.module.css";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 import ButtonLink from "../Interface/ButtonLink";
-import LanguageSwitcherButton from "../Interface/LanguageSwitcherButton"; // Importez le bouton de changement de langue
+import LanguageSwitcherButton from "../Interface/LanguageSwitcherButton";
 import { useClientTranslation } from "../../../utils/useClientTranslation";
 import { AuthButton } from "components/Interface/AuthButton";
 import { useAuth } from "components/Authentification/Logout/useAuth";
@@ -16,7 +16,7 @@ function Header(): JSX.Element {
   const navbarTogglerRef = useRef<HTMLButtonElement | null>(null);
   const router = useRouter();
 
-  const { isLoggedIn, handleLogout } = useAuth(); // Utilise le hook personnalisé de déconnexion
+  const { isLoggedIn, handleLogout } = useAuth();
 
   const toggleNavbar = () => {
     setNavbarOpen(!navbarOpen);
