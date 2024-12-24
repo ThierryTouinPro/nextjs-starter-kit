@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useClientTranslation } from "../../utils/useClientTranslation";
-import styles from "../components/Authentification/Profile/css/Profile.module.css";
+import { useClientTranslation } from "@/utils/useClientTranslation";
+import styles from "@/components/Authentification/Profile/css/Profile.module.css";
 import { useRouter } from "next/router";
 
 export default function ProfilePage(): JSX.Element {

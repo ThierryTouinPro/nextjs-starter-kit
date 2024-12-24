@@ -1,4 +1,4 @@
-import { verifySession } from "lib/db";
+import { verifySession } from "@/lib/db";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(

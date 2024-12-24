@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/router";
-import styles from "./css/Header.module.css";
-import Logo from "./Logo";
-import Navigation from "./Navigation";
-import ButtonLink from "../Interface/ButtonLink";
-import LanguageSwitcherButton from "../Interface/LanguageSwitcherButton";
-import { useClientTranslation } from "../../../utils/useClientTranslation";
-import { AuthButton } from "components/Interface/AuthButton";
-import { useAuth } from "components/Authentification/Logout/useAuth";
+import styles from "@/components/Header/css/Header.module.css";
+import Logo from "@/components/Header/Logo";
+import Navigation from "@/components/Header/Navigation";
+import ButtonLink from "@/components/Interface/ButtonLink";
+import LanguageSwitcherButton from "@/components/Interface/LanguageSwitcherButton";
+import { useClientTranslation } from "@/utils/useClientTranslation";
+import { AuthButton } from "@/components/Interface/AuthButton";
+import { useAuth } from "@/components/Authentification/Logout/useAuth";
 
 function Header(): JSX.Element {
   const [navbarOpen, setNavbarOpen] = useState<boolean>(false);

@@ -1,11 +1,11 @@
-import ButtonSubmit from "../../../components/Interface/ButtonSubmit";
-import Input from "../../Interface/Input";
+import ButtonSubmit from "@/components/Interface/ButtonSubmit";
+import Input from "@/components/Interface/Input";
 import { FormProvider, useForm, SubmitHandler } from "react-hook-form";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
-import { useClientTranslation } from "../../../../utils/useClientTranslation";
+import { useClientTranslation } from "@/utils/useClientTranslation";
 import { useState } from "react";
-import { ReponseError } from "lib/reponse";
+import { ReponseError } from "@/lib/reponse";
 import i18next from "i18next";
 import { useRouter } from "next/router";
 

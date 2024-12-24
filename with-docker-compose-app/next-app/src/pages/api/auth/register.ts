@@ -1,6 +1,6 @@
-import db, { createSession } from "../../../lib/db";
+import db, { createSession } from "@/lib/db";
 import bcrypt from "bcryptjs";
-import logger from "../../../config/winston";
+import logger from "@/config/winston";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(

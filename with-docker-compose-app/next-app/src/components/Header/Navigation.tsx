@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import styles from "./css/Navigation.module.css";
-import { mainMenus } from "../../data/main-menus";
+import styles from "@/components/Header/css/Navigation.module.css";
+import { mainMenus } from "@/data/main-menus";
 import { useTranslation } from "react-i18next";
-import { AuthButton } from "components/Interface/AuthButton";
-import { useAuth } from "components/Authentification/Logout/useAuth";
+import { AuthButton } from "@/components/Interface/AuthButton";
+import { useAuth } from "@/components/Authentification/Logout/useAuth";
 
 interface Menu {
   groupTitle: string;

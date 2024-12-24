@@ -1,5 +1,5 @@
-import ButtonLink from "../Interface/ButtonLink";
-import ButtonSubmit from "../Interface/ButtonSubmit";
+import ButtonLink from "@/components/Interface/ButtonLink";
+import ButtonSubmit from "@/components/Interface/ButtonSubmit";
 
 interface AuthButtonProps {
   isLoggedIn: boolean;

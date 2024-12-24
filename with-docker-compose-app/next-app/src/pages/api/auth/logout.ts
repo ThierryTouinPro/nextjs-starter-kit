@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { deleteSession } from "lib/db";
-import logger from "config/winston";
+import { deleteSession } from "@/lib/db";
+import logger from "@/config/winston";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {

@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import styles from "../../components/Authentification/Register/css/Register.module.css";
-import Connexion from "../../components/Authentification/Login/Connexion";
-import Registration from "../../components/Authentification/Register/Registration";
-import { useClientTranslation } from "../../../utils/useClientTranslation";
+import styles from "@/components/Authentification/Register/css/Register.module.css";
+import Connexion from "@/components/Authentification/Login/Connexion";
+import Registration from "@/components/Authentification/Register/Registration";
+import { useClientTranslation } from "@/utils/useClientTranslation";
 
 export default function AuthForm(): JSX.Element {
   const [isLogin, setIsLogin] = useState<boolean>(true);

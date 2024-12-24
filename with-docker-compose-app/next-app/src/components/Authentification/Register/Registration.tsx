@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
-import { ReponseError } from "../../../lib/reponse";
-import ButtonSubmit from "../../Interface/ButtonSubmit";
-import RegisterInformation from "./Informations";
-import RegisterPassword from "./Password";
+import { ReponseError } from "@/lib/reponse";
+import ButtonSubmit from "@/components/Interface/ButtonSubmit";
+import RegisterInformation from "@/components/Authentification/Register/Informations";
+import RegisterPassword from "@/components/Authentification/Register/Password";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 import { useRouter } from "next/router";
