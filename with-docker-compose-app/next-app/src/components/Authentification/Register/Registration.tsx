@@ -7,6 +7,7 @@ import RegisterPassword from "@/components/Authentification/Register/Password";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
 import { useRouter } from "next/router";
+import { useAuth } from "@/components/Authentification/Logout/useAuth";
 
 interface FormData {
   email: string;
@@ -37,6 +38,7 @@ export default function Registration(): JSX.Element {
   const [globalError, setGlobalError] = useState<string | null>(null);
 
   const router = useRouter();
+  const { setIsLoggedIn } = useAuth();
 
   // Détermine le préfixe en fonction de la langue
   const getLanguagePrefix = () => {
@@ -152,6 +154,8 @@ export default function Registration(): JSX.Element {
       console.log("User registered successfully:", responseData);
 
       localStorage.setItem("currentLanguage", i18next.language);
+
+      setIsLoggedIn(true);
 
       // Rediriger avec le paramètre de langue
       router.push(getLanguagePrefix() + "/profile");

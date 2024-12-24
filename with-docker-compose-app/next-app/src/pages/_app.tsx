@@ -6,16 +6,19 @@ import ErrorBoundary from "@/components/Error/ErrorBoundary";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@/styles/globals.css";
 import "../../i18n";
+import { AuthProvider } from "@/components/Authentification/Logout/useAuth";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ErrorBoundary>
-      <Container>
-        <RootLayout>
-          <Component {...pageProps} />
-        </RootLayout>
-      </Container>
-    </ErrorBoundary>
+    <AuthProvider>
+      <ErrorBoundary>
+        <Container>
+          <RootLayout>
+            <Component {...pageProps} />
+          </RootLayout>
+        </Container>
+      </ErrorBoundary>
+    </AuthProvider>
   );
 }
 

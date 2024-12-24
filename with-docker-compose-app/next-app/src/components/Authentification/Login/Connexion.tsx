@@ -8,6 +8,7 @@ import { useState } from "react";
 import { ReponseError } from "@/lib/reponse";
 import i18next from "i18next";
 import { useRouter } from "next/router";
+import { useAuth } from "@/components/Authentification/Logout/useAuth";
 
 interface FormData {
   email: string;
@@ -28,6 +29,7 @@ export default function Connexion(): JSX.Element {
   } = methods;
 
   const router = useRouter();
+  const { setIsLoggedIn } = useAuth();
 
   // Détermine le préfixe en fonction de la langue
   const getLanguagePrefix = () => {
@@ -67,6 +69,8 @@ export default function Connexion(): JSX.Element {
       console.log("User logged in successfully:", responseData);
 
       localStorage.setItem("currentLanguage", i18next.language);
+
+      setIsLoggedIn(true);
 
       router.push(getLanguagePrefix() + "/profile");
     } catch (error) {

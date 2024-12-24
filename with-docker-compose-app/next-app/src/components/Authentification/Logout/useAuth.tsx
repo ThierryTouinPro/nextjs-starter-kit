@@ -1,11 +1,26 @@
-import { useState, useEffect } from "react";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  ReactNode,
+} from "react";
 import { useRouter } from "next/router";
 
-export function useAuth() {
+interface AuthContextType {
+  isLoggedIn: boolean;
+  setIsLoggedIn: (isLoggedIn: boolean) => void;
+  handleLogout: () => void;
+}
+
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
+
+export const AuthProvider: React.FC<{ children: ReactNode }> = ({
+  children,
+}) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const router = useRouter();
 
-  // Vérification de la session
   useEffect(() => {
     const checkSession = async () => {
       try {
@@ -13,6 +28,7 @@ export function useAuth() {
           method: "GET",
           credentials: "include",
         });
+
         if (response.ok) {
           const data = await response.json();
           setIsLoggedIn(data.isLoggedIn);
@@ -28,13 +44,13 @@ export function useAuth() {
     checkSession();
   }, []);
 
-  // Gestion de la déconnexion
   const handleLogout = async () => {
     try {
       const response = await fetch("/api/auth/logout", {
         method: "POST",
         credentials: "include",
       });
+
       if (response.ok) {
         setIsLoggedIn(false);
         router.push("/auth/connexion");
@@ -46,5 +62,17 @@ export function useAuth() {
     }
   };
 
-  return { isLoggedIn, handleLogout };
-}
+  return (
+    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, handleLogout }}>
+      {children}
+    </AuthContext.Provider>
+  );
+};
+
+export const useAuth = (): AuthContextType => {
+  const context = useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
+};
