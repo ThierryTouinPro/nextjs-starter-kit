@@ -35,9 +35,9 @@
   "title-connection": "Login",
   "text-securitisation": "This page is secured by an SSL/TLS protocol to protect your information.",
   "title-register-connection": "Log in",
-  "title-register-connection-text": "Already registered?",
-  "texte-create-connection": "Create an account?",
-  "connection-text": "Already registered?",
+  "title-register-connection-text": "Already registered ? ",
+  "texte-create-connection": "Create an account",
+  "connection-text": "If you don't have an account, click on ",
 
   "register-civilite": "Civility",
   "register-civilite-woman": "Mrs",
