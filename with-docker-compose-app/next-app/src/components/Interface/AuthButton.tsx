@@ -33,12 +33,12 @@ export function AuthButton({ isLoggedIn, onLogout, t }: AuthButtonProps) {
       ) : (
         <>
           <ButtonLink
-            label="Connexion"
+            label={t("title-connection")}
             mode={buttonMode}
             href="/auth/connexion"
           />
           <ButtonLink
-            label="Inscription"
+            label={t("title-register")}
             mode={buttonMode}
             href="/auth/registration"
           />

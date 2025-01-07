@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import db from "@/lib/db";
+import { getUserProfile, verifySession } from "@/lib/db";
 
 export default async function handler(
   req: NextApiRequest,
@@ -10,9 +10,10 @@ export default async function handler(
   console.log("Cookies:", req.cookies); // Affiche les cookies reçus
   console.log("Session ID from cookies:", sessionId); // Vérifie la présence du sessionId
 
-  const session = db
+  const session = verifySession(sessionId);
+  /*const session = db
     .prepare("SELECT * FROM sessions WHERE id = ?")
-    .get(sessionId);
+    .get(sessionId);*/
 
   if (!session) {
     console.log("Session invalide ou expirée.", sessionId);
@@ -24,9 +25,10 @@ export default async function handler(
   const userId = session.user_id;
   console.log("User ID from session:", userId);
 
-  const user = db
+  /*const user = db
     .prepare("SELECT * FROM users WHERE id = ?")
-    .get(session.user_id);
+    .get(session.user_id);*/
+  const user = getUserProfile(userId);
 
   console.log("Utilisateur trouvé :", user);
 
@@ -36,6 +38,6 @@ export default async function handler(
     return res.status(404).json({ error: "Utilisateur non trouvé." });
   }
 
-  console.log("Utilisateur connecté :", user.email);
+  console.log("Utilisateur connecté :", user);
   return res.status(200).json(user);
 }

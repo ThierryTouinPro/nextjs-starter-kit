@@ -2,6 +2,7 @@ import path from "path";
 import fs from "fs";
 import Database from "better-sqlite3";
 import { v4 as uuidv4 } from "uuid";
+import { User } from "lucia";
 
 // Définir le chemin pour les fichiers de log
 const logDirectory =
@@ -140,5 +141,25 @@ export const cleanupExpiredSessions = (): void => {
     console.error("Error cleaning up expired sessions:", error);
   }
 };
+
+export function getUserProfile(userId: number): User | null {
+  try {
+    const stmt = db.prepare(`
+      SELECT * FROM users WHERE id = ?
+    `);
+    const user = stmt.get(userId) as User | undefined;
+
+    if (user) {
+      console.log(`User trouvé : ${user}`);
+      return user;
+    } else {
+      console.log(`User non trouvé`);
+      return null;
+    }
+  } catch (error) {
+    console.error("Error finding user profile: ", error);
+    return null;
+  }
+}
 
 export default db;
