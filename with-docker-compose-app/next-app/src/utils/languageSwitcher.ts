@@ -17,7 +17,9 @@ export function useLanguageSwitcher() {
   // Fonction pour changer la langue
   const switchLanguage = () => {
     i18n.changeLanguage(nextLocale);
+    console.log("Current cookies before language change:", document.cookie);
     router.push(router.asPath, undefined, { locale: nextLocale });
+    console.log("Current cookies after language change:", document.cookie);
   };
 
   return { switchLanguage, flagIcon, currentLocale, nextLocale };

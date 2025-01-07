@@ -1,5 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { getUserProfile, verifySession } from "@/lib/db";
+import { verifySession } from "@/lib/db";
+import { getUserProfile } from "@/lib/user";
 
 export default async function handler(
   req: NextApiRequest,
@@ -11,9 +12,6 @@ export default async function handler(
   console.log("Session ID from cookies:", sessionId); // Vérifie la présence du sessionId
 
   const session = verifySession(sessionId);
-  /*const session = db
-    .prepare("SELECT * FROM sessions WHERE id = ?")
-    .get(sessionId);*/
 
   if (!session) {
     console.log("Session invalide ou expirée.", sessionId);
@@ -25,9 +23,6 @@ export default async function handler(
   const userId = session.user_id;
   console.log("User ID from session:", userId);
 
-  /*const user = db
-    .prepare("SELECT * FROM users WHERE id = ?")
-    .get(session.user_id);*/
   const user = getUserProfile(userId);
 
   console.log("Utilisateur trouvé :", user);

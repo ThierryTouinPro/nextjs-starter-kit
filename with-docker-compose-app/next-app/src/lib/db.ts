@@ -106,6 +106,7 @@ export const verifySession = (sessionId: string): Session | null => {
     const session = stmt.get(sessionId, Date.now()) as Session | undefined;
 
     if (session) {
+      console.log(`Session Id from db :  ${session.id}`);
       return session;
     } else {
       // Supprime la session expirée si trouvée
@@ -141,25 +142,5 @@ export const cleanupExpiredSessions = (): void => {
     console.error("Error cleaning up expired sessions:", error);
   }
 };
-
-export function getUserProfile(userId: number): User | null {
-  try {
-    const stmt = db.prepare(`
-      SELECT * FROM users WHERE id = ?
-    `);
-    const user = stmt.get(userId) as User | undefined;
-
-    if (user) {
-      console.log(`User trouvé : ${user}`);
-      return user;
-    } else {
-      console.log(`User non trouvé`);
-      return null;
-    }
-  } catch (error) {
-    console.error("Error finding user profile: ", error);
-    return null;
-  }
-}
 
 export default db;

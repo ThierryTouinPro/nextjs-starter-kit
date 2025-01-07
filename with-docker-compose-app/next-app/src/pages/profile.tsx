@@ -11,7 +11,10 @@ export default function ProfilePage(): JSX.Element {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const response = await fetch("/api/user/profile");
+        const response = await fetch("/api/user/profile", {
+          method: "GET",
+          credentials: "include",
+        });
 
         if (!response.ok) {
           console.error("Erreur:", response.status, response.statusText);
