@@ -1,6 +1,7 @@
+import logger from "@/config/winston";
 import db, { createSession } from "@/lib/db";
 import bcrypt from "bcryptjs";
-import logger from "@/config/winston";
+import { serialize } from "cookie";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
@@ -67,10 +68,25 @@ export default async function handler(
       const { sessionId, expiresAt } = createSession(user.id);
 
       // Définit un cookie avec l'identifiant de la session
-      res.setHeader(
+      /*res.setHeader(
         "Set-Cookie",
         `sessionId=${sessionId}; HttpOnly; Path=/; Max-Age=86400; SameSite=Lax`
+      );*/
+
+      const userId = user.id;
+
+      const sessionCookie = serialize(
+        "session",
+        JSON.stringify({ sessionId, userId, expiresAt }),
+        {
+          httpOnly: true,
+          maxAge: 24 * 60 * 60, // 24 heures
+          path: "/",
+          sameSite: "lax",
+        }
       );
+
+      res.setHeader("Set-Cookie", sessionCookie);
 
       logger.info(`Connexion réussie pour l'utilisateur : ${email}`);
       console.log(`Connexion réussie pour l'utilisateur : ${email}`);

@@ -1,6 +1,7 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import { deleteSession } from "@/lib/db";
 import logger from "@/config/winston";
+import { deleteSession } from "@/lib/db";
+import { parse } from "cookie";
+import { NextApiRequest, NextApiResponse } from "next";
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") {
@@ -9,31 +10,47 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   }
 
   logger.info("Requête reçue :", { method: req.method, body: req.body });
-  console.log("Requête reçue :", { method: req.method, body: req.body });
 
-  // Récupérer l'ID de session à partir des cookies
-  const sessionId = req.cookies.sessionId;
+  // Récupérer les cookies de la requête
+  const cookies = parse(req.headers.cookie || "");
+  const sessionCookie = cookies.session;
+
+  if (!sessionCookie) {
+    logger.warn("Aucun cookie de session trouvé");
+    return res.status(400).json({ error: "No session cookie found" });
+  }
+
+  let session;
+  try {
+    // Parser le contenu du cookie
+    session = JSON.parse(sessionCookie);
+  } catch (error) {
+    logger.error("Erreur lors du parsing du cookie de session :", error);
+    return res.status(400).json({ error: "Invalid session cookie format" });
+  }
+
+  const { sessionId } = session;
 
   if (!sessionId) {
-    logger.info("No session ID found in cookies");
-    console.log("No session ID found in cookies");
-    return res.status(400).json({ error: "No session ID found in cookies" });
+    logger.warn("Aucun ID de session trouvé dans le cookie");
+    return res.status(400).json({ error: "No session ID found in cookie" });
   }
 
   try {
-    // Supprimer la session
+    // Supprimer la session côté backend
     deleteSession(sessionId);
-    logger.info("Supprimer la session");
-    console.log("Supprimer la session");
+    logger.info(`Session ${sessionId} supprimée avec succès`);
 
-    // Supprimer le cookie côté client
-    res.setHeader("Set-Cookie", "sessionId=; Path=/; Max-Age=0; HttpOnly;");
-    logger.info("Supprimer le cookie côté client");
-    console.log("Supprimer le cookie côté client");
+    // Supprimer les cookies côté client
+    res.setHeader("Set-Cookie", [
+      "session=; Path=/; Max-Age=0; HttpOnly; Secure; SameSite=Lax;",
+    ]);
+    logger.info("Supprimer les cookies côté client");
+    console.log("Supprimer les cookies côté client");
 
     return res.status(200).json({ message: "Successfully logged out" });
   } catch (error) {
-    console.error("Error during logout:", error);
+    logger.error("Erreur lors de la suppression de la session :", error);
     return res.status(500).json({ error: "Internal Server Error" });
   }
 }

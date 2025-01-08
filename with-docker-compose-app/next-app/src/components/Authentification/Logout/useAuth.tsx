@@ -1,16 +1,17 @@
+import { useRouter } from "next/router";
 import React, {
   createContext,
-  useContext,
-  useState,
-  useEffect,
   ReactNode,
+  useContext,
+  useEffect,
+  useState,
 } from "react";
-import { useRouter } from "next/router";
 
 interface AuthContextType {
   isLoggedIn: boolean;
   setIsLoggedIn: (isLoggedIn: boolean) => void;
   handleLogout: () => void;
+  checkSession: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -21,26 +22,28 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const router = useRouter();
 
-  useEffect(() => {
-    const checkSession = async () => {
-      try {
-        const response = await fetch("/api/auth/verifySession", {
-          method: "GET",
-          credentials: "include",
-        });
+  const checkSession = async () => {
+    try {
+      const response = await fetch("/api/auth/verifySession", {
+        method: "GET",
+        credentials: "include",
+      });
 
-        if (response.ok) {
-          const data = await response.json();
-          setIsLoggedIn(data.isLoggedIn);
-        } else {
-          setIsLoggedIn(false);
-        }
-      } catch (error) {
-        console.error("Erreur lors de la vérification de la session :", error);
+      if (response.ok) {
+        const data = await response.json();
+        console.log("Session vérifiée avec succès:", data);
+        setIsLoggedIn(data.isLoggedIn);
+      } else {
+        console.log("Session non valide");
         setIsLoggedIn(false);
       }
-    };
+    } catch (error) {
+      console.error("Erreur lors de la vérification de la session :", error);
+      setIsLoggedIn(false);
+    }
+  };
 
+  useEffect(() => {
     checkSession();
   }, []);
 
@@ -52,10 +55,11 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
       });
 
       if (response.ok) {
+        console.log("Déconnexion réussie");
         setIsLoggedIn(false);
         router.push("/auth/connexion");
       } else {
-        console.error("Erreur lors de la déconnexion");
+        console.error("Erreur lors de la déconnexion: ", response.status);
       }
     } catch (error) {
       console.error("Erreur lors de la déconnexion", error);
@@ -63,7 +67,9 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, handleLogout }}>
+    <AuthContext.Provider
+      value={{ isLoggedIn, setIsLoggedIn, handleLogout, checkSession }}
+    >
       {children}
     </AuthContext.Provider>
   );

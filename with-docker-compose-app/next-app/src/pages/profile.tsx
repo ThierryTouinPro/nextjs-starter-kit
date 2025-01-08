@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
-import { useClientTranslation } from "@/utils/useClientTranslation";
+import { useAuth } from "@/components/Authentification/Logout/useAuth";
 import styles from "@/components/Authentification/Profile/css/Profile.module.css";
+import { useClientTranslation } from "@/utils/useClientTranslation";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 
 export default function ProfilePage(): JSX.Element {
   const { t, isClient } = useClientTranslation("common"); // Utilisez le hook avec le namespace 'common'
   const [user, setUser] = useState(null);
   const router = useRouter();
+  const { isLoggedIn, checkSession } = useAuth();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -33,15 +35,19 @@ export default function ProfilePage(): JSX.Element {
         );
       }
     };
-    fetchUser();
-  }, []);
 
-  /*useEffect(() => {
-    // Récupérer la langue actuelle depuis localStorage
-    const currentLanguage =
-      localStorage.getItem("currentLanguage") || i18next.language;
-    i18next.changeLanguage(currentLanguage);
-  }, []);*/
+    if (isLoggedIn) {
+      fetchUser();
+    } else {
+      checkSession().then(() => {
+        if (isLoggedIn) {
+          fetchUser();
+        } else {
+          //router.push("/auth/connexion");
+        }
+      });
+    }
+  }, [isLoggedIn]);
 
   if (!user && isClient) {
     return <p>Chargement des données...</p>;
