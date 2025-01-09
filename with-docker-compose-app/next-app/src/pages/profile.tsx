@@ -1,34 +1,57 @@
+import { useAuth } from "@/components/Authentification/Logout/useAuth";
+import styles from "@/components/Authentification/Profile/css/Profile.module.css";
+import { useClientTranslation } from "@/utils/useClientTranslation";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { useClientTranslation } from "../../utils/useClientTranslation";
-import i18next from "i18next";
-import styles from "../components/Authentification/Profile/css/Profile.module.css";
-
-interface FormData {
-  email: string;
-  firstName?: string;
-  lastName?: string;
-  birthDate?: string;
-  phone?: string;
-  gender?: string;
-}
 
 export default function ProfilePage(): JSX.Element {
   const { t, isClient } = useClientTranslation("common"); // Utilisez le hook avec le namespace 'common'
-  const [userData, setUserData] = useState<FormData | null>(null);
+  const [user, setUser] = useState(null);
+  const router = useRouter();
+  const { isLoggedIn, checkSession } = useAuth();
 
   useEffect(() => {
-    // Récupérer la langue actuelle depuis localStorage
-    const currentLanguage =
-      localStorage.getItem("currentLanguage") || i18next.language;
-    i18next.changeLanguage(currentLanguage);
+    const fetchUser = async () => {
+      try {
+        const response = await fetch("/api/user/profile", {
+          method: "GET",
+          credentials: "include",
+        });
 
-    // Récupérer les données utilisateur depuis localStorage
-    const storedData = localStorage.getItem("formData");
-    if (storedData) {
-      setUserData(JSON.parse(storedData)); // Stocker les données dans l'état
-      localStorage.removeItem("formData"); // Supprimer après récupération
+        if (!response.ok) {
+          console.error("Erreur:", response.status, response.statusText);
+          if (response.status === 401) {
+            router.push("/auth/connexion"); // Redirige vers la page de connexion
+          }
+          return; // Stoppe l'exécution si la réponse n'est pas valide
+        }
+
+        const userData = await response.json();
+        setUser(userData);
+      } catch (error) {
+        console.error(
+          "Erreur lors de la récupération des données utilisateur:",
+          error
+        );
+      }
+    };
+
+    if (isLoggedIn) {
+      fetchUser();
+    } else {
+      checkSession().then(() => {
+        if (isLoggedIn) {
+          fetchUser();
+        } else {
+          //router.push("/auth/connexion");
+        }
+      });
     }
-  }, []);
+  }, [isLoggedIn]);
+
+  if (!user && isClient) {
+    return <p>Chargement des données...</p>;
+  }
 
   // Rendu d'un indicateur de chargement ou un élément temporaire pour éviter le rendu côté serveur
   if (!isClient) {
@@ -40,12 +63,12 @@ export default function ProfilePage(): JSX.Element {
       <div className="text-center mb-5">
         <h1 className="display-4 fw-bold">
           {t("title-profile-part1")}
-          <span className={styles.userFirstName}>{userData?.firstName}</span>
+          <span className={styles.userFirstName}>{user?.firstName}</span>
           {t("title-profile-part2")}
         </h1>
       </div>
 
-      {userData ? (
+      {user ? (
         <div className="row justify-content-center">
           <div className="col-md-8 col-lg-6">
             <div
@@ -58,27 +81,27 @@ export default function ProfilePage(): JSX.Element {
                 </h4>
                 <ul className="list-group-flush">
                   <li className="list-group-item">
-                    <strong>{t("email")}</strong>: {userData.email}
+                    <strong>{t("email")}</strong>: {user.email}
                   </li>
-                  {userData.firstName && userData.lastName && (
+                  {user.firstName && user.lastName && (
                     <li className="list-group-item">
-                      <strong>{t("name")}</strong>: {userData.firstName}{" "}
-                      {userData.lastName}
+                      <strong>{t("name")}</strong>: {user.firstName}{" "}
+                      {user.lastName}
                     </li>
                   )}
-                  {userData.birthDate && (
+                  {user.birthDate && (
                     <li className="list-group-item">
-                      <strong>{t("birthDate")}</strong>: {userData.birthDate}
+                      <strong>{t("birthDate")}</strong>: {user.birthDate}
                     </li>
                   )}
-                  {userData.phone && (
+                  {user.phone && (
                     <li className="list-group-item">
-                      <strong>{t("phone")}</strong>: {userData.phone}
+                      <strong>{t("phone")}</strong>: {user.phone}
                     </li>
                   )}
-                  {userData.gender && (
+                  {user.gender && (
                     <li className="list-group-item">
-                      <strong>{t("gender")}</strong>: {userData.gender}
+                      <strong>{t("gender")}</strong>: {user.gender}
                     </li>
                   )}
                 </ul>

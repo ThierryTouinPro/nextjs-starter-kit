@@ -35,9 +35,9 @@
   "title-connection": "Login",
   "text-securitisation": "This page is secured by an SSL/TLS protocol to protect your information.",
   "title-register-connection": "Log in",
-  "title-register-connection-text": "Already registered?",
-  "texte-create-connection": "Create an account?",
-  "connection-text": "Already registered?",
+  "title-register-connection-text": "Already registered ? ",
+  "texte-create-connection": "Create an account",
+  "connection-text": "If you don't have an account, click on ",
 
   "register-civilite": "Civility",
   "register-civilite-woman": "Mrs",
@@ -53,6 +53,8 @@
   "button-previous": "Previous",
   "button-signup": "Sign Up",
   "button-login": "Login",
+  "button-logout": "Logout",
+  "link-profile": "My profile",
 
   "required": "This field is required.",
   "label-required": "is required.",
@@ -67,6 +69,8 @@
 
   "existUserError": "This email is already in use.",
   "emailRequired": "The email is required and must be a string.",
+
+  "invalidCredentials": "Invalid credentials",
 
   "title-profile-part1": "Welcome ",
   "title-profile-part2": " to your NSK space !",

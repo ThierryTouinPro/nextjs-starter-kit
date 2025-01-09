@@ -1,6 +1,6 @@
-import React from 'react';
-import { useLanguageSwitcher } from '../../../utils/languageSwitcher';
-import styles from '../Interface/css/LanguageSwitcherButton.module.css';
+import React from "react";
+import { useLanguageSwitcher } from "@/utils/languageSwitcher";
+import styles from "@/components/Interface/css/LanguageSwitcherButton.module.css";
 
 export default function LanguageSwitcherButton(): JSX.Element {
   const { switchLanguage, flagIcon } = useLanguageSwitcher();

@@ -2,6 +2,7 @@ import path from "path";
 import fs from "fs";
 import Database from "better-sqlite3";
 import { v4 as uuidv4 } from "uuid";
+import { User } from "lucia";
 
 // Définir le chemin pour les fichiers de log
 const logDirectory =
@@ -105,6 +106,7 @@ export const verifySession = (sessionId: string): Session | null => {
     const session = stmt.get(sessionId, Date.now()) as Session | undefined;
 
     if (session) {
+      console.log(`Session Id from db :  ${session.id}`);
       return session;
     } else {
       // Supprime la session expirée si trouvée

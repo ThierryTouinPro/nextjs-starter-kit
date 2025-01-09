@@ -1,9 +1,10 @@
 import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import styles from "./css/Navigation.module.css";
-import { mainMenus } from "../../data/main-menus";
-import ButtonLink from "../Interface/ButtonLink";
+import styles from "@/components/Header/css/Navigation.module.css";
+import { mainMenus } from "@/data/main-menus";
 import { useTranslation } from "react-i18next";
+import { AuthButton } from "@/components/Interface/AuthButton";
+import { useAuth } from "@/components/Authentification/Logout/useAuth";
 
 interface Menu {
   groupTitle: string;
@@ -16,6 +17,8 @@ function Navigation(): JSX.Element {
 
   const { t } = useTranslation(); // Initialisation du hook pour la traduction
   const menus = mainMenus();
+
+  const { isLoggedIn, handleLogout } = useAuth();
 
   const toggleDropdown = (menuTitle: string) => {
     setOpenDropdown(openDropdown === menuTitle ? null : menuTitle);
@@ -84,16 +87,8 @@ function Navigation(): JSX.Element {
         </div>
       ))}
 
-      <div className="d-flex d-lg-none d-xl-none d-xxl-none justify-content-center gap-2">
-        <ButtonLink
-          label="Inscription"
-          mode={
-            typeof window !== "undefined" && window.innerWidth < 768
-              ? "secondary"
-              : "primary"
-          }
-          href="/auth/registration"
-        />
+      <div className="d-flex flex-column align-items-center d-lg-none d-xl-none d-xxl-none justify-content-center gap-2">
+        <AuthButton isLoggedIn={isLoggedIn} onLogout={handleLogout} t={t} />
       </div>
     </nav>
   );

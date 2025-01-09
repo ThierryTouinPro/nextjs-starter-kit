@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { useRouter } from "next/router";
-import styles from "./css/Header.module.css";
-import Logo from "./Logo";
-import Navigation from "./Navigation";
-import ButtonLink from "../Interface/ButtonLink";
-import LanguageSwitcherButton from "../Interface/LanguageSwitcherButton"; // Importez le bouton de changement de langue
-import { useClientTranslation } from "../../../utils/useClientTranslation";
+import styles from "@/components/Header/css/Header.module.css";
+import Logo from "@/components/Header/Logo";
+import Navigation from "@/components/Header/Navigation";
+import ButtonLink from "@/components/Interface/ButtonLink";
+import LanguageSwitcherButton from "@/components/Interface/LanguageSwitcherButton";
+import { useClientTranslation } from "@/utils/useClientTranslation";
+import { AuthButton } from "@/components/Interface/AuthButton";
+import { useAuth } from "@/components/Authentification/Logout/useAuth";
 
 function Header(): JSX.Element {
   const [navbarOpen, setNavbarOpen] = useState<boolean>(false);
@@ -13,6 +15,8 @@ function Header(): JSX.Element {
   const navbarRef = useRef<HTMLDivElement | null>(null);
   const navbarTogglerRef = useRef<HTMLButtonElement | null>(null);
   const router = useRouter();
+
+  const { isLoggedIn, handleLogout } = useAuth();
 
   const toggleNavbar = () => {
     setNavbarOpen(!navbarOpen);
@@ -115,10 +119,10 @@ function Header(): JSX.Element {
           </nav>
           <div className="col-4 d-none d-lg-block">
             <div className="d-flex justify-content-end gap-4">
-              <ButtonLink
-                label="Inscription"
-                mode="primary"
-                href="/auth/registration"
+              <AuthButton
+                isLoggedIn={isLoggedIn}
+                onLogout={handleLogout}
+                t={t}
               />
               <LanguageSwitcherButton />
             </div>

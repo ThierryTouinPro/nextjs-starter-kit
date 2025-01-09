@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import classes from "./css/Footer.module.css";
-import { mainMenus } from "../../data/main-menus";
+import classes from "@/components/Footer/css/Footer.module.css";
+import { mainMenus } from "@/data/main-menus";
 import { useRouter } from "next/router";
 import Link from "next/link";
 

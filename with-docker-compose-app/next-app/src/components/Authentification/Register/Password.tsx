@@ -1,6 +1,6 @@
 import React from "react";
 import { useFormContext } from "react-hook-form";
-import Input from "../../Interface/Input";
+import Input from "@/components/Interface/Input";
 import LockIcon from "@mui/icons-material/Lock";
 import { useTranslation } from "react-i18next";
 

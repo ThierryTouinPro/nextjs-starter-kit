@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useForm, FormProvider, SubmitHandler } from "react-hook-form";
-import { ReponseError } from "../../../lib/reponse";
-import ButtonSubmit from "../../Interface/ButtonSubmit";
-import RegisterInformation from "./Informations";
-import RegisterPassword from "./Password";
+import { ReponseError } from "@/lib/reponse";
+import ButtonSubmit from "@/components/Interface/ButtonSubmit";
+import RegisterInformation from "@/components/Authentification/Register/Informations";
+import RegisterPassword from "@/components/Authentification/Register/Password";
 import { useTranslation } from "react-i18next";
 import i18next from "i18next";
+import { useRouter } from "next/router";
+import { useAuth } from "@/components/Authentification/Logout/useAuth";
 
 interface FormData {
   email: string;
@@ -34,6 +36,18 @@ export default function Registration(): JSX.Element {
   const [isEmailAvailable, setIsEmailAvailable] = useState(true);
 
   const [globalError, setGlobalError] = useState<string | null>(null);
+
+  const router = useRouter();
+  const { setIsLoggedIn } = useAuth();
+
+  // Détermine le préfixe en fonction de la langue
+  const getLanguagePrefix = () => {
+    if (router.pathname.startsWith("/en")) {
+      return "/en";
+    }
+    // Retourne "/" pour toutes les autres langues (par défaut, Français)
+    return "";
+  };
 
   const handleNextStep = (data: Partial<FormData>) => {
     if (!isEmailAvailable) {
@@ -139,13 +153,12 @@ export default function Registration(): JSX.Element {
       const responseData = await response.json();
       console.log("User registered successfully:", responseData);
 
-      // Enregistrer les données dans localStorage
-      localStorage.setItem("formData", JSON.stringify(finalData));
-
       localStorage.setItem("currentLanguage", i18next.language);
 
+      setIsLoggedIn(true);
+
       // Rediriger avec le paramètre de langue
-      window.location.href = "/profile";
+      router.push(getLanguagePrefix() + "/profile");
     } catch (error) {
       console.error("Error during registration:", error);
       setGlobalError("Internal Server Error");

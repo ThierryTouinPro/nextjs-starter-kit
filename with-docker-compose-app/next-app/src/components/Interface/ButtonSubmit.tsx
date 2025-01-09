@@ -1,4 +1,4 @@
-import styles from "./css/Buttons.module.css";
+import styles from "@/components/Interface/css/Buttons.module.css";
 
 interface ButtonSubmitProps {
   action?: () => void;

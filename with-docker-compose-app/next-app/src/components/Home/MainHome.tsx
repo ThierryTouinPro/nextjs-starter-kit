@@ -1,6 +1,6 @@
-import FeatureFuture from "./FeatureFuture";
-import FeatureExtras from "./FeatureExtras";
-import FeatureInfrastructure from "./FeatureInfrastructure";
+import FeatureFuture from "@/components/Home/FeatureFuture";
+import FeatureExtras from "@/components/Home/FeatureExtras";
+import FeatureInfrastructure from "@/components/Home/FeatureInfrastructure";
 
 export default function MainHome(): JSX.Element {
   return (

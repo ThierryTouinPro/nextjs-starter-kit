@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { useClientTranslation } from "../../utils/useClientTranslation";
+import { useClientTranslation } from "@/utils/useClientTranslation";
 
 function Page404(): JSX.Element {
   const { t, isClient } = useClientTranslation("common"); // Utilisez le hook avec le namespace 'common'
