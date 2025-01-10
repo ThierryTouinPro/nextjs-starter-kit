@@ -1,5 +1,6 @@
 import logger from "@/config/winston";
-import db, { createSession } from "@/lib/db";
+import { createSession } from "@/dao/sessionDao";
+import { getUserByEmail } from "@/dao/userDao";
 import bcrypt from "bcryptjs";
 import { serialize } from "cookie";
 import { NextApiRequest, NextApiResponse } from "next";
@@ -45,7 +46,7 @@ export default async function handler(
 
     try {
       // Recherche de l'utilisateur dans la base de données
-      const user = db.prepare("SELECT * FROM users WHERE email = ?").get(email);
+      const user = getUserByEmail(email);
 
       if (!user) {
         logger.warn(`Utilisateur non trouvé avec l'email : ${email}`);

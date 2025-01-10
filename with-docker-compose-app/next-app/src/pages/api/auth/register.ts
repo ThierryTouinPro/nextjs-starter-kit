@@ -1,5 +1,6 @@
 import logger from "@/config/winston";
-import db, { createSession } from "@/lib/db";
+import { createSession } from "@/dao/sessionDao";
+import { createUser, getUserByEmail } from "@/dao/userDao";
 import bcrypt from "bcryptjs";
 import { serialize } from "cookie";
 import { NextApiRequest, NextApiResponse } from "next";
@@ -31,9 +32,7 @@ export default async function handler(
 
     try {
       // Vérifier si l'utilisateur existe déjà
-      const existingUser = db
-        .prepare("SELECT * FROM users WHERE email = ?")
-        .get(email);
+      const existingUser = getUserByEmail(email);
       logger.info(
         "Vérification de l'utilisateur existant dans la base de données pour l'email :",
         email
@@ -76,39 +75,26 @@ export default async function handler(
         gender,
       });
 
-      const insertUserStmt = db.prepare(`
-        INSERT INTO users (email, password, firstname, lastname, phone, birthdate, gender) 
-        VALUES (?, ?, ?, ?, ?, ?, ?)
-      `);
-      const result = insertUserStmt.run(
+      const insertUser = createUser(
         email,
         hashedPassword,
         firstName,
         lastName,
-        phone,
         formattedBirthDate,
+        phone,
         gender
       );
 
       logger.info(
         "Utilisateur inséré avec succès, création de la session pour l'utilisateur :",
-        result.lastInsertRowid
+        insertUser
       );
-      console.log(
-        "Utilisateur inséré, session créée :",
-        result.lastInsertRowid
-      );
+      console.log("Utilisateur inséré, session créée :", insertUser);
 
       // Créer automatiquement une session pour l'utilisateur
-      const { sessionId, expiresAt } = createSession(result.lastInsertRowid);
+      const { sessionId, expiresAt } = createSession(insertUser);
 
-      // Définir un cookie avec l'identifiant de la session
-      /*res.setHeader(
-        "Set-Cookie",
-        `sessionId=${sessionId}; HttpOnly; Path=/; Max-Age=86400; SameSite=Lax`
-      );*/
-
-      const userId = result.lastInsertRowid;
+      const userId = insertUser;
 
       const sessionCookie = serialize(
         "session",
@@ -130,11 +116,6 @@ export default async function handler(
       logger.info("Données envoyées au client :", responsePayload);
       console.log("Données envoyées au client :", responsePayload);
       return res.status(201).json(responsePayload);
-
-      /*logger.info(`Nouvel utilisateur enregistré avec succès : ${email}`);
-      return res
-        .status(201)
-        .json({ message: "User registered successfully", expiresAt });*/
     } catch (error) {
       logger.error("Erreur lors de l'enregistrement de l'utilisateur :", {
         message: error.message,

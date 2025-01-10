@@ -1,5 +1,5 @@
 import logger from "@/config/winston";
-import { deleteSession } from "@/lib/db";
+import { deleteSession } from "@/dao/sessionDao";
 import { parse } from "cookie";
 import { NextApiRequest, NextApiResponse } from "next";
 

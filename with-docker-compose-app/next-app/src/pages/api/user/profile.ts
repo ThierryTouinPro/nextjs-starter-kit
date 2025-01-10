@@ -1,4 +1,4 @@
-import { getUserProfile } from "@/lib/user";
+import { getUserProfile } from "@/dao/userDao";
 import { parse } from "cookie";
 import { NextApiRequest, NextApiResponse } from "next";
 

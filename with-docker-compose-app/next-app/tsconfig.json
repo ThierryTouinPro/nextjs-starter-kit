@@ -25,7 +25,7 @@
     "**/*.tsx",
     "src/pages/_app.tsx",
     "src/pages/index.tsx",
-    "src/lucia.js"
+    "src/config/lucia.js"
   ],
   "exclude": ["node_modules"]
 }
