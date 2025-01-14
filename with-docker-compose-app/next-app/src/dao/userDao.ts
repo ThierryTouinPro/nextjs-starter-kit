@@ -1,4 +1,5 @@
 import db from "@/lib/db";
+import { hashUserPassword } from "@/services/auth/passwordService";
 import { User } from "@/types/User";
 
 export function createUser(
@@ -10,11 +11,13 @@ export function createUser(
   phone?: string,
   gender?: string
 ): number {
+    // Hachage du mot de passe
+    const hashedPassword = hashUserPassword(password);
   const result = db
     .prepare(
       "INSERT INTO users (email, password, firstName, lastName, birthDate, phone, gender) VALUES (?, ?, ?, ?, ?, ?, ?)"
     )
-    .run(email, password, firstName, lastName, birthDate, phone, gender);
+    .run(email, hashedPassword, firstName, lastName, birthDate, phone, gender);
 
   return result.lastInsertRowid as number;
 }

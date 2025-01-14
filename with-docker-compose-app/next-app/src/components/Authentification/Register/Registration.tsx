@@ -158,7 +158,7 @@ export default function Registration(): JSX.Element {
       setIsLoggedIn(true);
 
       // Rediriger avec le paramètre de langue
-      router.push(getLanguagePrefix() + "/profile");
+      router.push(getLanguagePrefix() + "/user/profile");
     } catch (error) {
       console.error("Error during registration:", error);
       setGlobalError("Internal Server Error");

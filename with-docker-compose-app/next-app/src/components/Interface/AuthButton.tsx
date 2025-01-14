@@ -21,7 +21,7 @@ export function AuthButton({ isLoggedIn, onLogout, t }: AuthButtonProps) {
           <ButtonLink
             label={t("link-profile")}
             mode={buttonMode}
-            href="/profile"
+            href="/user/profile"
           />
           <ButtonSubmit
             type="button"
