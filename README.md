@@ -62,9 +62,13 @@ Windows Terminal est un outil recommandé pour gérer vos terminaux WSL. Il perm
    ```bash
    docker compose -f docker-compose.dev.yml build
    ```
-4. Lancez le conteneur Docker :
+4. Créer le réseau Docker :
+   ```bash
+   docker network create next-network
+   ```
+5. Lancez le conteneur Docker :
    ```bash
    docker compose -f docker-compose.dev.yml up
    ```
-5. Ouvrez votre navigateur et accédez à [http://localhost:3000](http://localhost:3000) pour voir votre projet Next.js en cours d'exécution.
+6. Ouvrez votre navigateur et accédez à [http://localhost:3000](http://localhost:3000) pour voir votre projet Next.js en cours d'exécution.
 
