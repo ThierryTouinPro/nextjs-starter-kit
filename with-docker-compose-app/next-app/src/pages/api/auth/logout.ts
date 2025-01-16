@@ -1,4 +1,4 @@
-import { logoutHandler } from "@/handlers/auth/logoutHandler";
+import { logoutHandler } from "@/backend/handlers/auth/logoutHandler";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(

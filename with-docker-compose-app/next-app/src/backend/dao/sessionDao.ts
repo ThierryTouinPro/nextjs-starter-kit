@@ -1,5 +1,5 @@
 import db from "@/lib/db";
-import { Session } from "@/types/Session";
+import { Session } from "@/backend/types/Session";
 import { v4 as uuidv4 } from "uuid";
 
 export function createSession(

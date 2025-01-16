@@ -1,6 +1,6 @@
 import { parse } from "cookie";
 import { NextApiRequest, NextApiResponse } from "next";
-import { processLogout } from "@/services/auth/logoutService";
+import { processLogout } from "@/backend/services/auth/logoutService";
 import logger from "@/config/winston";
 
 export async function logoutHandler(req: NextApiRequest, res: NextApiResponse) {

@@ -1,4 +1,4 @@
-import { getUserProfileHandler } from "@/handlers/user/getUserProfileHandler";
+import { getUserProfileHandler } from "@/backend/handlers/user/getUserProfileHandler";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(

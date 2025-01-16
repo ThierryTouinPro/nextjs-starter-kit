@@ -1,4 +1,4 @@
-import { verifySessionHandler } from "@/handlers/auth/verifySessionHandler";
+import { verifySessionHandler } from "@/backend/handlers/auth/verifySessionHandler";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(

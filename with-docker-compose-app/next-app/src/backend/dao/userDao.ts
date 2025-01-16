@@ -1,6 +1,6 @@
 import db from "@/lib/db";
-import { hashUserPassword } from "@/services/auth/passwordService";
-import { User } from "@/types/User";
+import { hashUserPassword } from "@/backend/services/auth/passwordService";
+import { User } from "@/backend/types/User";
 
 export function createUser(
   email: string,
@@ -11,8 +11,8 @@ export function createUser(
   phone?: string,
   gender?: string
 ): number {
-    // Hachage du mot de passe
-    const hashedPassword = hashUserPassword(password);
+  // Hachage du mot de passe
+  const hashedPassword = hashUserPassword(password);
   const result = db
     .prepare(
       "INSERT INTO users (email, password, firstName, lastName, birthDate, phone, gender) VALUES (?, ?, ?, ?, ?, ?, ?)"
@@ -28,8 +28,8 @@ export function getUserByEmail(email: string): User | undefined {
 }
 
 export function getUserProfile(userId: number): User | null {
-  const user = db
-    .prepare("SELECT * FROM users WHERE id = ?")
-    .get(userId) as User | undefined;
+  const user = db.prepare("SELECT * FROM users WHERE id = ?").get(userId) as
+    | User
+    | undefined;
   return user || null;
 }

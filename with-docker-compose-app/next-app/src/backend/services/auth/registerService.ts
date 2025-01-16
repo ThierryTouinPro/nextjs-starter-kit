@@ -1,5 +1,5 @@
-import { createUser, getUserByEmail } from "@/dao/userDao";
-import { createSession } from "@/dao/sessionDao";
+import { createUser, getUserByEmail } from "@/backend/dao/userDao";
+import { createSession } from "@/backend/dao/sessionDao";
 import { serialize } from "cookie";
 import logger from "@/config/winston";
 

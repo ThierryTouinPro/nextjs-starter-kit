@@ -1,4 +1,4 @@
-import { emailHandler } from "@/handlers/auth/emailHandler";
+import { emailHandler } from "@/backend/handlers/auth/emailHandler";
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(

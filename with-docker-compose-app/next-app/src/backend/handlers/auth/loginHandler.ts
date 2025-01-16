@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import {
   verifyUserCredentials,
   createUserSession,
-} from "@/services/auth/loginService";
+} from "@/backend/services/auth/loginService";
 import logger from "@/config/winston";
 import { serialize } from "cookie";
 

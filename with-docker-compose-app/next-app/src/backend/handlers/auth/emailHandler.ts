@@ -1,4 +1,4 @@
-import { checkEmailAvailability } from "@/services/auth/checkEmailService";
+import { checkEmailAvailability } from "@/backend/services/auth/checkEmailService";
 import { NextApiRequest, NextApiResponse } from "next";
 
 // Simuler un système de traduction

@@ -1,6 +1,6 @@
 import { parse } from "cookie";
 import logger from "@/config/winston";
-import { getUserProfile } from "@/dao/userDao";
+import { getUserProfile } from "@/backend/dao/userDao";
 
 export async function getUserProfileService(cookieHeader: string) {
   logger.info("Validation des cookies pour la session utilisateur");

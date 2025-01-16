@@ -1,4 +1,4 @@
-import { getUserByEmail } from "@/dao/userDao";
+import { getUserByEmail } from "@/backend/dao/userDao";
 
 export interface EmailCheckResult {
   available: boolean;

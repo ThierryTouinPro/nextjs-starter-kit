@@ -1,7 +1,7 @@
 import { parse } from "cookie";
 import { NextApiRequest, NextApiResponse } from "next";
 import logger from "@/config/winston";
-import { validateSession } from "@/services/auth/verifySessionService";
+import { validateSession } from "@/backend/services/auth/verifySessionService";
 
 export async function verifySessionHandler(
   req: NextApiRequest,

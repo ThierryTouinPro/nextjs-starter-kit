@@ -1,3 +1,3 @@
-import { registerHandler } from "@/handlers/auth/registerHandler";
+import { registerHandler } from "@/backend/handlers/auth/registerHandler";
 
 export default registerHandler;

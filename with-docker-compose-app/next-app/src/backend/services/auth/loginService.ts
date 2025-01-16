@@ -1,6 +1,6 @@
-import { getUserByEmail } from "@/dao/userDao";
-import { verifyPassword } from "@/services/auth/passwordService";
-import { createSession } from "@/dao/sessionDao";
+import { getUserByEmail } from "@/backend/dao/userDao";
+import { verifyPassword } from "@/backend/services/auth/passwordService";
+import { createSession } from "@/backend/dao/sessionDao";
 import logger from "@/config/winston";
 
 /**

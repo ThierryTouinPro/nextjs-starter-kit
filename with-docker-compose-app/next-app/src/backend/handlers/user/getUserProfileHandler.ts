@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import logger from "@/config/winston";
-import { getUserProfileService } from "@/services/user/getUserProfileService";
+import { getUserProfileService } from "@/backend/services/user/getUserProfileService";
 
 export async function getUserProfileHandler(
   req: NextApiRequest,

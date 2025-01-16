@@ -1,4 +1,4 @@
-import { deleteSession } from "@/dao/sessionDao";
+import { deleteSession } from "@/backend/dao/sessionDao";
 import logger from "@/config/winston";
 
 export async function processLogout(sessionCookie: string) {
