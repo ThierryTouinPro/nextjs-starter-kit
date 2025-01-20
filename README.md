@@ -54,7 +54,17 @@ Windows Terminal est un outil recommandé pour gérer vos terminaux WSL. Il perm
 4. Installez le module WSL dans Visual Studio Code (VS Code).
    - Astuce : lancez `code .` pour ouvrir l’éditeur de code à l'endroit du projet NextJS.
 
-## 6. Lancer le projet avec Docker
+## 6. Configurer la redirection de localhost:3000
+
+1. Ouvrez Powershell en tant qu'administrateur.
+2. Vérifier la valeur de votre adresse IP avec la commande `ifconfig`.
+3. Lancez
+   ```bash
+   netsh interface portproxy add v4tov4 listenaddress=127.0.0.1 listenport=3000 connectaddress=<MON_ADRESSE_IP> connectport=3000
+   ```
+   en remplaçant <MON_ADRESSE_IP> par l'adresse IP obtenue précédemment.
+
+## 7. Lancer le projet avec Docker
 
 1. Assurez-vous que Docker est en cours d'exécution.
 2. Depuis le terminal WSL, accédez au répertoire de votre projet Next.js.
