@@ -1,18 +1,19 @@
+import { createSession } from "@/backend/dao/sessionDao";
 import { getUserByEmail } from "@/backend/dao/userDao";
 import { verifyPassword } from "@/backend/services/auth/passwordService";
-import { createSession } from "@/backend/dao/sessionDao";
+import { User } from "@/backend/types/User";
 import logger from "@/config/winston";
 
 /**
  * Vérifie les identifiants utilisateur.
  */
-export function verifyUserCredentials(
+export async function verifyUserCredentials(
   email: string,
   password: string,
   lang: string
-) {
+): Promise<User | null> {
   // Recherche de l'utilisateur dans la base de données
-  const user = getUserByEmail(email);
+  const user = await getUserByEmail(email);
   if (!user) {
     logger.warn(`Utilisateur non trouvé avec l'email : ${email}`);
     console.log(`Utilisateur non trouvé avec l'email : ${email}`);
@@ -35,7 +36,9 @@ export function verifyUserCredentials(
 /**
  * Crée une session utilisateur.
  */
-export function createUserSession(userId: number) {
-  const { sessionId, expiresAt } = createSession(userId);
+export async function createUserSession(
+  userId: number
+): Promise<{ sessionId: string; expiresAt: number }> {
+  const { sessionId, expiresAt } = await createSession(userId);
   return { sessionId, expiresAt };
 }

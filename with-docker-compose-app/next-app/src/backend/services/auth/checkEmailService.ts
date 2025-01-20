@@ -19,7 +19,7 @@ export async function checkEmailAvailability(
     throw new Error(t("emailRequired"));
   }
 
-  const user = getUserByEmail(email);
+  const user = await getUserByEmail(email);
 
   console.log("User found with this email: ", user);
 

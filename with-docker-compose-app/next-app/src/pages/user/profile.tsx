@@ -13,10 +13,12 @@ export default function ProfilePage(): JSX.Element {
   useEffect(() => {
     const fetchUser = async () => {
       try {
+        console.log("Début de la récupération du profil utilisateur ...");
         const response = await fetch("/api/user/profile", {
           method: "GET",
           credentials: "include",
         });
+        console.log("Statut de la réponse: ", response.status);
 
         if (!response.ok) {
           console.error("Erreur:", response.status, response.statusText);
@@ -27,6 +29,7 @@ export default function ProfilePage(): JSX.Element {
         }
 
         const userData = await response.json();
+        console.log("Données utilisateur récupérées: ", userData);
         setUser(userData);
       } catch (error) {
         console.error(
@@ -47,14 +50,16 @@ export default function ProfilePage(): JSX.Element {
         }
       });
     }
-  }, [isLoggedIn]);
+  }, []);
 
   if (!user && isClient) {
+    console.log("Chargement des données...");
     return <p>Chargement des données...</p>;
   }
 
   // Rendu d'un indicateur de chargement ou un élément temporaire pour éviter le rendu côté serveur
   if (!isClient) {
+    console.log("Non rendu côté client");
     return null;
   }
 

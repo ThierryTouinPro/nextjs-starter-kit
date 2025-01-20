@@ -1,6 +1,6 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import { processUserRegistration } from "@/backend/services/auth/registerService";
 import logger from "@/config/winston";
+import { NextApiRequest, NextApiResponse } from "next";
 
 export async function registerHandler(
   req: NextApiRequest,

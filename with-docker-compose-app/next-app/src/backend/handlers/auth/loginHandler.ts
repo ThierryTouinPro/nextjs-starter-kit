@@ -1,10 +1,10 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import {
-  verifyUserCredentials,
   createUserSession,
+  verifyUserCredentials,
 } from "@/backend/services/auth/loginService";
 import logger from "@/config/winston";
 import { serialize } from "cookie";
+import { NextApiRequest, NextApiResponse } from "next";
 
 // Simuler un système de traduction
 const translations = {
@@ -52,14 +52,14 @@ export async function loginHandler(req: NextApiRequest, res: NextApiResponse) {
   }
 
   try {
-    const user = verifyUserCredentials(email, password, lang);
+    const user = await verifyUserCredentials(email, password, lang);
     if (!user) {
       logger.warn(`Identifiants invalides pour l'email : ${email}`);
       return res.status(401).json({ error: t("invalidCredentials", lang) });
     }
 
     // Crée une session pour cet utilisateur
-    const { sessionId, expiresAt } = createUserSession(user.id);
+    const { sessionId, expiresAt } = await createUserSession(user.id);
 
     const sessionCookie = serialize(
       "session",

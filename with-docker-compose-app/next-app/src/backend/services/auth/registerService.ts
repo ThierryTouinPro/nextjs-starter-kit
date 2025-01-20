@@ -1,7 +1,7 @@
-import { createUser, getUserByEmail } from "@/backend/dao/userDao";
 import { createSession } from "@/backend/dao/sessionDao";
-import { serialize } from "cookie";
+import { createUser, getUserByEmail } from "@/backend/dao/userDao";
 import logger from "@/config/winston";
+import { serialize } from "cookie";
 
 /**
  * Traite l'enregistrement de l'utilisateur.
@@ -24,7 +24,7 @@ export async function processUserRegistration({
   gender: string;
 }) {
   // Vérifier si l'utilisateur existe déjà
-  const existingUser = getUserByEmail(email);
+  const existingUser = await getUserByEmail(email);
   logger.info(
     "Vérification de l'utilisateur existant dans la base de données pour l'email :",
     email
@@ -49,7 +49,7 @@ export async function processUserRegistration({
   ).padStart(2, "0")}-${String(birthDateObj.getDate()).padStart(2, "0")}`;
 
   // Insérer l'utilisateur dans la base de données
-  const userId = createUser(
+  const userId = await createUser(
     email,
     password,
     firstName,
@@ -62,7 +62,7 @@ export async function processUserRegistration({
   console.log("Utilisateur inséré :", userId);
 
   // Créer automatiquement une session pour l'utilisateur
-  const { sessionId, expiresAt } = createSession(userId);
+  const { sessionId, expiresAt } = await createSession(userId);
 
   const sessionCookie = serialize(
     "session",

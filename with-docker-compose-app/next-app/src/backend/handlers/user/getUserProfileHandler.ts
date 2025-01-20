@@ -1,6 +1,6 @@
-import { NextApiRequest, NextApiResponse } from "next";
-import logger from "@/config/winston";
 import { getUserProfileService } from "@/backend/services/user/getUserProfileService";
+import logger from "@/config/winston";
+import { NextApiRequest, NextApiResponse } from "next";
 
 export async function getUserProfileHandler(
   req: NextApiRequest,
@@ -20,6 +20,14 @@ export async function getUserProfileHandler(
     logger.info("Cookies reçus :", { cookie: sessionCookie });
 
     const userProfile = await getUserProfileService(sessionCookie);
+
+    if (
+      !userProfile.firstName ||
+      !userProfile.lastName ||
+      !userProfile.birthDate
+    ) {
+      logger.warn("Incomplete user data returned:", { userProfile });
+    }
 
     logger.info("Utilisateur connecté :", { user: userProfile });
     return res.status(200).json(userProfile);

@@ -1,6 +1,6 @@
-import { parse } from "cookie";
-import logger from "@/config/winston";
 import { getUserProfile } from "@/backend/dao/userDao";
+import logger from "@/config/winston";
+import { parse } from "cookie";
 
 export async function getUserProfileService(cookieHeader: string) {
   logger.info("Validation des cookies pour la session utilisateur");
@@ -29,7 +29,7 @@ export async function getUserProfileService(cookieHeader: string) {
 
     logger.info("Récupération du profil utilisateur pour l'ID :", { userId });
 
-    const user = getUserProfile(userId);
+    const user = await getUserProfile(userId);
 
     if (!user) {
       logger.warn("Utilisateur non trouvé :", { userId });
