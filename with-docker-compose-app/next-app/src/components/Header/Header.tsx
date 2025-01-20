@@ -141,11 +141,13 @@ function Header(): JSX.Element {
                 label="Jira"
                 mode="primary"
                 href="https://delivery.inetum.com/jira/secure/RapidBoard.jspa?rapidView=4869&view=planning&selectedIssue=DPPCP-113&issueLimit=100#"
+                target="_blank"
               />
               <ButtonLink
                 label="Confluence"
                 mode="secondary"
                 href="https://delivery.inetum.com/confluence/display/DPPS2402/Projet+Collaboratif+Interne+%3A+Next.js+Starter+Kit"
+                target="_blank"
               />
             </div>
           </div>
