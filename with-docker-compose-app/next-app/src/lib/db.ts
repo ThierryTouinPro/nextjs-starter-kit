@@ -1,146 +1,97 @@
-import path from "path";
-import fs from "fs";
 import Database from "better-sqlite3";
-import { v4 as uuidv4 } from "uuid";
-import { User } from "lucia";
+import fs from "fs";
+import path from "path";
+import postgres from "postgres";
 
-// Définir le chemin pour les fichiers de log
-const logDirectory =
-  process.env.NODE_ENV === "production"
-    ? "/tmp" // Utilisation de /tmp en production
-    : path.join(process.cwd(), ""); // Chemin local en développement
+let db;
+const isProduction = process.env.NODE_ENV === "production";
 
-// Vérifier si le répertoire existe, sinon le créer
-if (!fs.existsSync(logDirectory)) {
-  fs.mkdirSync(logDirectory, { recursive: true });
-  console.log(`Répertoire créé : ${logDirectory}`);
+if (isProduction) {
+  // Configuration PostgreSQL via Neon
+  const connectionString = process.env.DATABASE_URL;
+
+  if (!connectionString) {
+    throw new Error(
+      "DATABASE_URL est manquant dans les variables d'environnement."
+    );
+  }
+
+  db = postgres(connectionString, {
+    ssl: { rejectUnauthorized: false }, // Nécessaire pour Neon
+  });
+} else {
+  // Configuration SQLite pour le développement
+  const dbPath = path.join(process.cwd(), "main.db");
+
+  if (!fs.existsSync(dbPath)) {
+    fs.writeFileSync(dbPath, ""); // Crée le fichier s'il n'existe pas
+  }
+
+  db = new Database(dbPath);
 }
 
-// Définir le chemin pour la base de données
-const dbPath = path.join(logDirectory, "main.db");
+// Fonction pour créer les tables nécessaires
+const createTables = async () => {
+  if (isProduction) {
+    try {
+      // Tables PostgreSQL
+      await db`
+        CREATE TABLE IF NOT EXISTS users (
+          id SERIAL PRIMARY KEY,
+          email TEXT UNIQUE NOT NULL,
+          password TEXT NOT NULL,
+          firstName TEXT,
+          lastName TEXT,
+          birthDate DATE,
+          phone TEXT,
+          gender TEXT
+        );
+      `;
 
-// Vérifier si le fichier existe en production et copier un modèle si nécessaire
-if (process.env.NODE_ENV === "production" && !fs.existsSync(dbPath)) {
-  const templateDbPath = path.join(process.cwd(), "main.db"); // Chemin du modèle de base
-  if (fs.existsSync(templateDbPath)) {
-    fs.copyFileSync(templateDbPath, dbPath);
-    console.log("Base de données copiée dans le répertoire de production.");
+      await db`
+        CREATE TABLE IF NOT EXISTS sessions (
+          id TEXT PRIMARY KEY,
+          expires_at TIMESTAMP NOT NULL,
+          user_id INTEGER NOT NULL,
+          FOREIGN KEY (user_id) REFERENCES users(id)
+        );
+      `;
+    } catch (error) {
+      console.error(
+        "Erreur lors de la création des tables PostgreSQL :",
+        error
+      );
+    }
   } else {
-    console.error("Modèle de base de données introuvable.");
-  }
-}
+    try {
+      // Tables SQLite
+      db.exec(`
+        CREATE TABLE IF NOT EXISTS users (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          email TEXT UNIQUE NOT NULL,
+          password TEXT NOT NULL,
+          firstName TEXT,
+          lastName TEXT,
+          birthDate DATE,
+          phone TEXT,
+          gender TEXT
+        );
+      `);
 
-// Créer une instance de la base de données
-const db = new Database(dbPath);
-
-try {
-  // Création des tables si elles n'existent pas déjà
-  db.exec(`
-    CREATE TABLE IF NOT EXISTS users (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
-      email TEXT UNIQUE,
-      password TEXT,
-      firstName TEXT,
-      lastName TEXT,
-      birthDate DATE,
-      phone TEXT,
-      gender TEXT
-    );
-  `);
-
-  db.exec(`
-    CREATE TABLE IF NOT EXISTS sessions (
-      id TEXT NOT NULL PRIMARY KEY,
-      expires_at INTEGER NOT NULL,
-      user_id INTEGER NOT NULL,
-      FOREIGN KEY (user_id) REFERENCES users(id)
-    );
-  `);
-} catch (error) {
-  console.error("Error setting up the database:", error);
-}
-
-// Types
-interface Session {
-  id: string;
-  expires_at: number;
-  user_id: number;
-}
-
-// Fonction pour créer une nouvelle session
-export const createSession = (
-  userId: number
-): { sessionId: string; expiresAt: number } | null => {
-  if (!userId) {
-    throw new Error("userId is required to create a session.");
-  }
-
-  const sessionId = uuidv4(); // Génère un identifiant unique pour la session
-  const expiresAt = Date.now() + 1000 * 60 * 60 * 24; // Session valide pendant 24h
-
-  try {
-    const stmt = db.prepare(`
-      INSERT INTO sessions (id, expires_at, user_id) 
-      VALUES (?, ?, ?)
-    `); // Éxécute la requête SQL avec les paramètres passés
-
-    const result = stmt.run(sessionId, expiresAt, userId);
-
-    if (result.changes === 0) {
-      throw new Error("No session was created. Check the userId.");
+      db.exec(`
+        CREATE TABLE IF NOT EXISTS sessions (
+          id TEXT PRIMARY KEY,
+          expires_at INTEGER NOT NULL,
+          user_id INTEGER NOT NULL,
+          FOREIGN KEY (user_id) REFERENCES users(id)
+        );
+      `);
+    } catch (error) {
+      console.error("Erreur lors de la création des tables SQLite :", error);
     }
-
-    return { sessionId, expiresAt };
-  } catch (error) {
-    console.error("Error creating session:", error);
-    return null;
   }
 };
 
-// Fonction pour vérifier une session
-export const verifySession = (sessionId: string): Session | null => {
-  try {
-    const stmt = db.prepare(`
-      SELECT * FROM sessions WHERE id = ? AND expires_at > ?
-    `);
-    const session = stmt.get(sessionId, Date.now()) as Session | undefined;
-
-    if (session) {
-      console.log(`Session Id from db :  ${session.id}`);
-      return session;
-    } else {
-      // Supprime la session expirée si trouvée
-      deleteSession(sessionId);
-      return null;
-    }
-  } catch (error) {
-    console.error("Error verifying session:", error);
-    return null;
-  }
-};
-
-// Fonction pour supprimer une session (déconnexion)
-export const deleteSession = (sessionId: string): void => {
-  try {
-    const stmt = db.prepare(`
-      DELETE FROM sessions WHERE id = ?
-    `);
-    stmt.run(sessionId);
-  } catch (error) {
-    console.error("Error deleting session:", error);
-  }
-};
-
-// Fonction pour supprimer les sessions expirées
-export const cleanupExpiredSessions = (): void => {
-  try {
-    const stmt = db.prepare(`
-      DELETE FROM sessions WHERE expires_at <= ?
-    `);
-    stmt.run(Date.now());
-  } catch (error) {
-    console.error("Error cleaning up expired sessions:", error);
-  }
-};
+createTables();
 
 export default db;

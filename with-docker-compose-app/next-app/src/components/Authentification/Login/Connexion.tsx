@@ -72,7 +72,7 @@ export default function Connexion(): JSX.Element {
 
       setIsLoggedIn(true);
 
-      router.push(getLanguagePrefix() + "/profile");
+      router.push(getLanguagePrefix() + "/user/profile");
     } catch (error) {
       console.error("Error during login:", error);
       setGlobalError(error || "Erreur serveur, veuillez réessayer plus tard.");
