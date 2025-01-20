@@ -5,6 +5,7 @@ interface ButtonLinkProps {
   label: string;
   mode: "primary" | "secondary";
   href: string;
+  target: string;
 }
 
 function ButtonLink({ label, mode, href }: ButtonLinkProps): JSX.Element {
@@ -15,6 +16,9 @@ function ButtonLink({ label, mode, href }: ButtonLinkProps): JSX.Element {
         className={`d-block ${
           mode === "primary" ? styles.buttonPrimary : styles.buttonSecondary
         }`}
+        target={
+          (typeof target === 'undefined') ? '_self' : target
+        }
       >
         {label}
       </Link>
