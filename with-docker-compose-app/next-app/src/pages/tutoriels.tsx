@@ -1,4 +1,4 @@
-import MenuNavigablePage from "@/components/Interface/MenuNavigablePage";
+import SidebarNavigablePage from "@/components/Interface/SidebarNavigablePage";
 
 export default function TutorialsPage(): JSX.Element {
   const sections = [{
@@ -24,7 +24,7 @@ export default function TutorialsPage(): JSX.Element {
     }];
   return (
     <>
-      <MenuNavigablePage sections={sections} />
+      <SidebarNavigablePage sections={sections} sidebarWidth="500" />
     </>
   );
 }

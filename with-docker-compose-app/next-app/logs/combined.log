@@ -954,3 +954,10 @@
 {"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-20T08:49:47.405Z"}
 {"level":"info","message":"Session bea17bdb-5f11-4d04-a244-389f1ab316f3 supprimée avec succès","timestamp":"2025-01-20T08:49:47.422Z"}
 {"level":"info","message":"Cookie de session supprimé côté client","timestamp":"2025-01-20T08:49:47.422Z"}
+{"level":"info","message":"Session cookie absent ou invalide","timestamp":"2025-01-21T14:29:11.584Z"}
+{"level":"info","message":"Session cookie absent ou invalide","timestamp":"2025-01-21T14:37:06.610Z"}
+{"level":"info","message":"Session cookie absent ou invalide","timestamp":"2025-01-21T14:43:43.029Z"}
+{"level":"info","message":"Session cookie absent ou invalide","timestamp":"2025-01-21T14:49:58.085Z"}
+{"level":"info","message":"Session cookie absent ou invalide","timestamp":"2025-01-21T14:51:00.975Z"}
+{"level":"info","message":"Session cookie absent ou invalide","timestamp":"2025-01-21T15:14:45.263Z"}
+{"level":"info","message":"Session cookie absent ou invalide","timestamp":"2025-01-21T16:22:58.094Z"}
