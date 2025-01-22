@@ -4,8 +4,14 @@ import Link from "next/link";
 
 export default function SidebarNavigablePage({ sections, sidebarWidth }): JSX.Element {
 
-  const sidebarStyle = useMemo(() => { width: sidebarWidth }, [sidebarWidth]);
-  const mainContainerStyle = useMemo(() => { marginLeft: sidebarWidth }, [sidebarWidth]);
+  const pageStyle = {
+    sidebarStyle: {
+      width: sidebarWidth + 'px'
+    },
+    mainContainerStyle: {
+      marginLeft: sidebarWidth + 'px'
+    },
+  };
 
   const linkList = sections.map(sect =>
     <Link href={`#${sect.id}`}>
@@ -21,10 +27,10 @@ export default function SidebarNavigablePage({ sections, sidebarWidth }): JSX.El
 
   return (
     <>
-      <div className={`${styles.sidenav}`} style={sidebarStyle}>
+      <div className={`${styles.sidenav}`} style={pageStyle.sidebarStyle}>
         {linkList}
       </div>
-      <div className={`${styles.main}`} style={mainContainerStyle}>
+      <div className={`${styles.main}`} style={pageStyle.mainContainerStyle}>
         {sectionList}
       </div>
     </>

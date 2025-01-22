@@ -24,7 +24,7 @@ export default function TutorialsPage(): JSX.Element {
     }];
   return (
     <>
-      <SidebarNavigablePage sections={sections} sidebarWidth="500" />
+      <SidebarNavigablePage sections={sections} sidebarWidth={460} />
     </>
   );
 }
