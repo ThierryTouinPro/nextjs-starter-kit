@@ -954,3 +954,486 @@
 {"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-20T08:49:47.405Z"}
 {"level":"info","message":"Session bea17bdb-5f11-4d04-a244-389f1ab316f3 supprimée avec succès","timestamp":"2025-01-20T08:49:47.422Z"}
 {"level":"info","message":"Cookie de session supprimé côté client","timestamp":"2025-01-20T08:49:47.422Z"}
+{"level":"info","message":"Session cookie absent ou invalide","timestamp":"2025-01-20T15:57:13.956Z"}
+{"level":"info","message":"Session cookie absent ou invalide","timestamp":"2025-01-21T10:57:45.744Z"}
+{"level":"info","message":"Session cookie absent ou invalide","timestamp":"2025-01-21T11:06:37.192Z"}
+{"level":"info","message":"Session cookie absent ou invalide","timestamp":"2025-01-21T11:06:39.795Z"}
+{"body":{"email":"khouloudbensalem789@gmail.com","password":"Khouloud96!"},"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-21T11:06:54.256Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T11:06:54.261Z"}
+{"birthDate":"2024-12-29","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","level":"info","message":"Database result for user: ","password":"$2a$10$DuGKMjc5s8l75VkFVUGBleDHnscSLrrQbMxW2swjMbOaQzPJuignq","phone":"+33758495122","timestamp":"2025-01-21T11:06:54.261Z"}
+{"level":"warn","message":"Utilisateur trouvé avec l'email : khouloudbensalem789@gmail.com","timestamp":"2025-01-21T11:06:54.262Z"}
+{"level":"info","message":"Connexion réussie pour l'utilisateur : khouloudbensalem789@gmail.com","timestamp":"2025-01-21T11:06:54.334Z"}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T11:06:54.879Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%22e74c7bee-0a95-4020-aba9-0c7444c9a83d%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737544014309%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T11:06:54.879Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T11:06:54.880Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737544014309,"sessionId":"e74c7bee-0a95-4020-aba9-0c7444c9a83d","userId":1},"timestamp":"2025-01-21T11:06:54.881Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T11:06:54.881Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T11:06:54.882Z"}
+{"birthDate":"2024-12-29","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","level":"info","message":"Database result for user profile: ","password":"$2a$10$DuGKMjc5s8l75VkFVUGBleDHnscSLrrQbMxW2swjMbOaQzPJuignq","phone":"+33758495122","timestamp":"2025-01-21T11:06:54.882Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T11:06:54.883Z","user":{"birthDate":"2024-12-29","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2a$10$DuGKMjc5s8l75VkFVUGBleDHnscSLrrQbMxW2swjMbOaQzPJuignq","phone":"+33758495122"}}
+{"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-21T11:06:57.749Z"}
+{"level":"info","message":"Session e74c7bee-0a95-4020-aba9-0c7444c9a83d supprimée avec succès","timestamp":"2025-01-21T11:06:57.773Z"}
+{"level":"info","message":"Cookie de session supprimé côté client","timestamp":"2025-01-21T11:06:57.773Z"}
+{"level":"info","message":"Session cookie absent ou invalide","timestamp":"2025-01-21T14:08:43.742Z"}
+{"level":"info","message":"Session cookie absent ou invalide","timestamp":"2025-01-21T15:01:40.149Z"}
+{"level":"info","message":"Session cookie absent ou invalide","timestamp":"2025-01-21T15:06:15.503Z"}
+{"level":"info","message":"Session cookie absent ou invalide","timestamp":"2025-01-21T15:13:58.130Z"}
+{"body":{"email":"khouloudbensalem789@gmail.com","password":"Khouloud96!"},"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-21T15:14:06.329Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:14:06.331Z"}
+{"level":"error","message":"Erreur lors du traitement de la connexion : \nInvalid `prisma.user.findUnique()` invocation:\n\n\nCan't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.","timestamp":"2025-01-21T15:14:06.414Z"}
+{"body":{"email":"khouloudbensalem789@gmail.com","password":"Khouloud96!"},"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-21T15:14:37.536Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:14:37.537Z"}
+{"level":"error","message":"Erreur lors du traitement de la connexion : \nInvalid `prisma.user.findUnique()` invocation:\n\n\nCan't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.","timestamp":"2025-01-21T15:14:37.588Z"}
+{"level":"info","message":"Session cookie absent ou invalide","timestamp":"2025-01-21T15:17:34.405Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:24:53.064Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:24:53.674Z"}
+{"body":{"birthDate":"2024-12-29","confirmPassword":"Khouloud96!","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","lastName":"Ben Salem","password":"Khouloud96!","phone":"+33758495122"},"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-21T15:25:05.125Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:25:05.126Z"}
+{"level":"info","message":"Vérification de l'utilisateur existant dans la base de données pour l'email :","timestamp":"2025-01-21T15:25:05.186Z"}
+{"level":"info","message":"Creating new user ...","timestamp":"2025-01-21T15:25:05.243Z"}
+{"level":"info","message":"Utilisateur inséré avec succès :","timestamp":"2025-01-21T15:25:05.251Z","userId":1}
+{"level":"info","message":"Creating session ...","timestamp":"2025-01-21T15:25:05.252Z"}
+{"level":"info","message":"Session cookie défini :","timestamp":"2025-01-21T15:25:05.258Z"}
+{"expiresAt":1737559505252,"level":"info","message":"Données envoyées au client : User registered successfully","timestamp":"2025-01-21T15:25:05.259Z"}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T15:25:08.469Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%228884dc80-fa07-41b9-9e56-a10d6e56071c%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737559505252%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T15:25:08.469Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T15:25:08.469Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737559505252,"sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","userId":1},"timestamp":"2025-01-21T15:25:08.470Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T15:25:08.470Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T15:25:08.471Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T15:25:08.523Z","user":{"birthDate":"2024-12-29T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$E5a/zSR0BMhcEqILzJC5nuGJo0Zp/YbEUjCcpKkACllIr7CeEE7Qe","phone":"+33758495122"}}
+{"expiresAt":1737559505252,"level":"info","message":"Session valide:","sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","timestamp":"2025-01-21T15:25:15.351Z","userId":1}
+{"expiresAt":1737559505252,"level":"info","message":"Session valide:","sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","timestamp":"2025-01-21T15:25:15.358Z","userId":1}
+{"expiresAt":1737559505252,"level":"info","message":"Session valide:","sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","timestamp":"2025-01-21T15:25:18.237Z","userId":1}
+{"expiresAt":1737559505252,"level":"info","message":"Session valide:","sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","timestamp":"2025-01-21T15:25:18.245Z","userId":1}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T15:25:49.886Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%228884dc80-fa07-41b9-9e56-a10d6e56071c%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737559505252%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T15:25:49.886Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T15:25:49.887Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737559505252,"sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","userId":1},"timestamp":"2025-01-21T15:25:49.887Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T15:25:49.888Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T15:25:49.888Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T15:25:49.938Z","user":{"birthDate":"2024-12-29T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$E5a/zSR0BMhcEqILzJC5nuGJo0Zp/YbEUjCcpKkACllIr7CeEE7Qe","phone":"+33758495122"}}
+{"expiresAt":1737559505252,"level":"info","message":"Session valide:","sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","timestamp":"2025-01-21T15:25:51.700Z","userId":1}
+{"expiresAt":1737559505252,"level":"info","message":"Session valide:","sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","timestamp":"2025-01-21T15:25:51.706Z","userId":1}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T15:26:04.386Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%228884dc80-fa07-41b9-9e56-a10d6e56071c%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737559505252%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T15:26:04.387Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T15:26:04.387Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737559505252,"sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","userId":1},"timestamp":"2025-01-21T15:26:04.387Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T15:26:04.388Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T15:26:04.388Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T15:26:04.391Z","user":{"birthDate":"2024-12-29T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$E5a/zSR0BMhcEqILzJC5nuGJo0Zp/YbEUjCcpKkACllIr7CeEE7Qe","phone":"+33758495122"}}
+{"expiresAt":1737559505252,"level":"info","message":"Session valide:","sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","timestamp":"2025-01-21T15:26:04.396Z","userId":1}
+{"expiresAt":1737559505252,"level":"info","message":"Session valide:","sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","timestamp":"2025-01-21T15:26:05.900Z","userId":1}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T15:26:05.903Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%228884dc80-fa07-41b9-9e56-a10d6e56071c%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737559505252%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T15:26:05.904Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T15:26:05.904Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737559505252,"sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","userId":1},"timestamp":"2025-01-21T15:26:05.904Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T15:26:05.904Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T15:26:05.904Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T15:26:05.908Z","user":{"birthDate":"2024-12-29T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$E5a/zSR0BMhcEqILzJC5nuGJo0Zp/YbEUjCcpKkACllIr7CeEE7Qe","phone":"+33758495122"}}
+{"expiresAt":1737559505252,"level":"info","message":"Session valide:","sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","timestamp":"2025-01-21T15:26:07.671Z","userId":1}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T15:26:07.673Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%228884dc80-fa07-41b9-9e56-a10d6e56071c%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737559505252%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T15:26:07.674Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T15:26:07.674Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737559505252,"sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","userId":1},"timestamp":"2025-01-21T15:26:07.675Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T15:26:07.675Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T15:26:07.675Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T15:26:07.678Z","user":{"birthDate":"2024-12-29T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$E5a/zSR0BMhcEqILzJC5nuGJo0Zp/YbEUjCcpKkACllIr7CeEE7Qe","phone":"+33758495122"}}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T15:26:08.621Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%228884dc80-fa07-41b9-9e56-a10d6e56071c%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737559505252%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T15:26:08.621Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T15:26:08.622Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737559505252,"sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","userId":1},"timestamp":"2025-01-21T15:26:08.622Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T15:26:08.622Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T15:26:08.622Z"}
+{"expiresAt":1737559505252,"level":"info","message":"Session valide:","sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","timestamp":"2025-01-21T15:26:08.625Z","userId":1}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T15:26:08.626Z","user":{"birthDate":"2024-12-29T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$E5a/zSR0BMhcEqILzJC5nuGJo0Zp/YbEUjCcpKkACllIr7CeEE7Qe","phone":"+33758495122"}}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T15:26:09.695Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%228884dc80-fa07-41b9-9e56-a10d6e56071c%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737559505252%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T15:26:09.695Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T15:26:09.696Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737559505252,"sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","userId":1},"timestamp":"2025-01-21T15:26:09.696Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T15:26:09.696Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T15:26:09.696Z"}
+{"expiresAt":1737559505252,"level":"info","message":"Session valide:","sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","timestamp":"2025-01-21T15:26:09.699Z","userId":1}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T15:26:09.700Z","user":{"birthDate":"2024-12-29T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$E5a/zSR0BMhcEqILzJC5nuGJo0Zp/YbEUjCcpKkACllIr7CeEE7Qe","phone":"+33758495122"}}
+{"expiresAt":1737559505252,"level":"info","message":"Session valide:","sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","timestamp":"2025-01-21T15:26:10.694Z","userId":1}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T15:26:10.696Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%228884dc80-fa07-41b9-9e56-a10d6e56071c%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737559505252%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T15:26:10.696Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T15:26:10.697Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737559505252,"sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","userId":1},"timestamp":"2025-01-21T15:26:10.697Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T15:26:10.697Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T15:26:10.697Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T15:26:10.700Z","user":{"birthDate":"2024-12-29T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$E5a/zSR0BMhcEqILzJC5nuGJo0Zp/YbEUjCcpKkACllIr7CeEE7Qe","phone":"+33758495122"}}
+{"expiresAt":1737559505252,"level":"info","message":"Session valide:","sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","timestamp":"2025-01-21T15:26:11.991Z","userId":1}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T15:26:11.992Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%228884dc80-fa07-41b9-9e56-a10d6e56071c%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737559505252%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T15:26:11.992Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T15:26:11.993Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737559505252,"sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","userId":1},"timestamp":"2025-01-21T15:26:11.993Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T15:26:11.993Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T15:26:11.993Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T15:26:11.995Z","user":{"birthDate":"2024-12-29T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$E5a/zSR0BMhcEqILzJC5nuGJo0Zp/YbEUjCcpKkACllIr7CeEE7Qe","phone":"+33758495122"}}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T15:26:15.408Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%228884dc80-fa07-41b9-9e56-a10d6e56071c%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737559505252%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T15:26:15.408Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T15:26:15.408Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737559505252,"sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","userId":1},"timestamp":"2025-01-21T15:26:15.408Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T15:26:15.408Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T15:26:15.409Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T15:26:15.412Z","user":{"birthDate":"2024-12-29T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$E5a/zSR0BMhcEqILzJC5nuGJo0Zp/YbEUjCcpKkACllIr7CeEE7Qe","phone":"+33758495122"}}
+{"expiresAt":1737559505252,"level":"info","message":"Session valide:","sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","timestamp":"2025-01-21T15:26:16.716Z","userId":1}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T15:26:16.721Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%228884dc80-fa07-41b9-9e56-a10d6e56071c%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737559505252%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T15:26:16.721Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T15:26:16.721Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737559505252,"sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","userId":1},"timestamp":"2025-01-21T15:26:16.721Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T15:26:16.722Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T15:26:16.722Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T15:26:16.725Z","user":{"birthDate":"2024-12-29T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$E5a/zSR0BMhcEqILzJC5nuGJo0Zp/YbEUjCcpKkACllIr7CeEE7Qe","phone":"+33758495122"}}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T15:26:17.591Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%228884dc80-fa07-41b9-9e56-a10d6e56071c%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737559505252%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T15:26:17.592Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T15:26:17.592Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737559505252,"sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","userId":1},"timestamp":"2025-01-21T15:26:17.592Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T15:26:17.592Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T15:26:17.592Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T15:26:17.597Z","user":{"birthDate":"2024-12-29T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$E5a/zSR0BMhcEqILzJC5nuGJo0Zp/YbEUjCcpKkACllIr7CeEE7Qe","phone":"+33758495122"}}
+{"expiresAt":1737559505252,"level":"info","message":"Session valide:","sessionId":"8884dc80-fa07-41b9-9e56-a10d6e56071c","timestamp":"2025-01-21T15:26:17.600Z","userId":1}
+{"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-21T15:26:19.105Z"}
+{"level":"info","message":"Deleting session having id: ","timestamp":"2025-01-21T15:26:19.105Z"}
+{"level":"info","message":"Session 8884dc80-fa07-41b9-9e56-a10d6e56071c supprimée avec succès","timestamp":"2025-01-21T15:26:19.106Z"}
+{"level":"info","message":"Cookie de session supprimé côté client","timestamp":"2025-01-21T15:26:19.106Z"}
+{"level":"info","message":"Session cookie absent ou invalide","timestamp":"2025-01-21T15:30:57.416Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:37:59.693Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:00.332Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:00.865Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:01.393Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:01.917Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:02.446Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:02.981Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:03.886Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:04.562Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:05.145Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:06.139Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:06.673Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:07.195Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:07.718Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:08.237Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:08.766Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:09.298Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:09.832Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:10.360Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:10.880Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:11.413Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:11.935Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:12.469Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:12.995Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:13.535Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:14.076Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:14.614Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:15.143Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:15.661Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:38:16.192Z"}
+{"level":"info","message":"Session cookie absent ou invalide","timestamp":"2025-01-21T15:38:17.301Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:39:09.709Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:39:10.293Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:39:10.832Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:39:11.383Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:39:11.904Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:39:12.433Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:39:12.970Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:39:13.547Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:39:14.100Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:39:14.620Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:39:15.144Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:39:15.659Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:39:16.191Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:39:16.720Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:39:17.631Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:39:18.149Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:39:19.097Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:39:19.621Z"}
+{"body":{"birthDate":"1996-10-12","confirmPassword":"Khouloud96!","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","lastName":"Ben Salem","password":"Khouloud96!","phone":"+33758495122"},"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-21T15:39:30.783Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:39:30.784Z"}
+{"level":"info","message":"Vérification de l'utilisateur existant dans la base de données pour l'email :","timestamp":"2025-01-21T15:39:30.845Z"}
+{"level":"info","message":"Creating new user ...","timestamp":"2025-01-21T15:39:30.902Z"}
+{"level":"info","message":"Utilisateur inséré avec succès :","timestamp":"2025-01-21T15:39:30.907Z","userId":1}
+{"level":"info","message":"Creating session ...","timestamp":"2025-01-21T15:39:30.908Z"}
+{"level":"info","message":"Session cookie défini :","timestamp":"2025-01-21T15:39:30.914Z"}
+{"expiresAt":1737560370908,"level":"info","message":"Données envoyées au client : User registered successfully","timestamp":"2025-01-21T15:39:30.914Z"}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T15:39:31.781Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%2200d8c4d0-56ee-4e1d-8108-7782453b813b%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737560370908%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T15:39:31.781Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T15:39:31.782Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737560370908,"sessionId":"00d8c4d0-56ee-4e1d-8108-7782453b813b","userId":1},"timestamp":"2025-01-21T15:39:31.782Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T15:39:31.782Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T15:39:31.783Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T15:39:31.836Z","user":{"birthDate":"1996-10-12T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$26SSOL2mI1zUC08TKn.vy.BfBd.dOxQsERd3.Y87UF1dvNurPVrke","phone":"+33758495122"}}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T15:39:34.135Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%2200d8c4d0-56ee-4e1d-8108-7782453b813b%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737560370908%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T15:39:34.136Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T15:39:34.136Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737560370908,"sessionId":"00d8c4d0-56ee-4e1d-8108-7782453b813b","userId":1},"timestamp":"2025-01-21T15:39:34.136Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T15:39:34.137Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T15:39:34.137Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T15:39:34.140Z","user":{"birthDate":"1996-10-12T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$26SSOL2mI1zUC08TKn.vy.BfBd.dOxQsERd3.Y87UF1dvNurPVrke","phone":"+33758495122"}}
+{"expiresAt":1737560370908,"level":"info","message":"Session valide:","sessionId":"00d8c4d0-56ee-4e1d-8108-7782453b813b","timestamp":"2025-01-21T15:39:34.247Z","userId":1}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T15:39:35.410Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%2200d8c4d0-56ee-4e1d-8108-7782453b813b%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737560370908%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T15:39:35.410Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T15:39:35.410Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737560370908,"sessionId":"00d8c4d0-56ee-4e1d-8108-7782453b813b","userId":1},"timestamp":"2025-01-21T15:39:35.410Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T15:39:35.411Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T15:39:35.411Z"}
+{"expiresAt":1737560370908,"level":"info","message":"Session valide:","sessionId":"00d8c4d0-56ee-4e1d-8108-7782453b813b","timestamp":"2025-01-21T15:39:35.415Z","userId":1}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T15:39:35.478Z","user":{"birthDate":"1996-10-12T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$26SSOL2mI1zUC08TKn.vy.BfBd.dOxQsERd3.Y87UF1dvNurPVrke","phone":"+33758495122"}}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T15:39:36.776Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%2200d8c4d0-56ee-4e1d-8108-7782453b813b%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737560370908%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T15:39:36.776Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T15:39:36.776Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737560370908,"sessionId":"00d8c4d0-56ee-4e1d-8108-7782453b813b","userId":1},"timestamp":"2025-01-21T15:39:36.776Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T15:39:36.777Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T15:39:36.777Z"}
+{"expiresAt":1737560370908,"level":"info","message":"Session valide:","sessionId":"00d8c4d0-56ee-4e1d-8108-7782453b813b","timestamp":"2025-01-21T15:39:36.779Z","userId":1}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T15:39:36.780Z","user":{"birthDate":"1996-10-12T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$26SSOL2mI1zUC08TKn.vy.BfBd.dOxQsERd3.Y87UF1dvNurPVrke","phone":"+33758495122"}}
+{"expiresAt":1737560370908,"level":"info","message":"Session valide:","sessionId":"00d8c4d0-56ee-4e1d-8108-7782453b813b","timestamp":"2025-01-21T15:39:53.219Z","userId":1}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T15:39:57.346Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%2200d8c4d0-56ee-4e1d-8108-7782453b813b%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737560370908%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T15:39:57.347Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T15:39:57.347Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737560370908,"sessionId":"00d8c4d0-56ee-4e1d-8108-7782453b813b","userId":1},"timestamp":"2025-01-21T15:39:57.347Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T15:39:57.348Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T15:39:57.348Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T15:39:57.399Z","user":{"birthDate":"1996-10-12T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$26SSOL2mI1zUC08TKn.vy.BfBd.dOxQsERd3.Y87UF1dvNurPVrke","phone":"+33758495122"}}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T15:39:59.133Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%2200d8c4d0-56ee-4e1d-8108-7782453b813b%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737560370908%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T15:39:59.133Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T15:39:59.134Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737560370908,"sessionId":"00d8c4d0-56ee-4e1d-8108-7782453b813b","userId":1},"timestamp":"2025-01-21T15:39:59.134Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T15:39:59.134Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T15:39:59.134Z"}
+{"expiresAt":1737560370908,"level":"info","message":"Session valide:","sessionId":"00d8c4d0-56ee-4e1d-8108-7782453b813b","timestamp":"2025-01-21T15:39:59.136Z","userId":1}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T15:39:59.137Z","user":{"birthDate":"1996-10-12T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$26SSOL2mI1zUC08TKn.vy.BfBd.dOxQsERd3.Y87UF1dvNurPVrke","phone":"+33758495122"}}
+{"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-21T15:40:00.925Z"}
+{"level":"info","message":"Deleting session having id: ","timestamp":"2025-01-21T15:40:00.925Z"}
+{"level":"info","message":"Session 00d8c4d0-56ee-4e1d-8108-7782453b813b supprimée avec succès","timestamp":"2025-01-21T15:40:00.926Z"}
+{"level":"info","message":"Cookie de session supprimé côté client","timestamp":"2025-01-21T15:40:00.926Z"}
+{"body":{"email":"khouloudbensalem789@gmail.com","password":"Khouloud96!"},"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-21T15:40:08.277Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T15:40:08.278Z"}
+{"level":"warn","message":"Utilisateur trouvé avec l'email : khouloudbensalem789@gmail.com","timestamp":"2025-01-21T15:40:08.321Z"}
+{"level":"info","message":"Creating session ...","timestamp":"2025-01-21T15:40:08.372Z"}
+{"level":"info","message":"Connexion réussie pour l'utilisateur : khouloudbensalem789@gmail.com","timestamp":"2025-01-21T15:40:08.378Z"}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T15:40:08.400Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%22ba1e9f36-daef-4dc3-a3ac-601cc6f5adfe%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737560408372%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T15:40:08.400Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T15:40:08.400Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737560408372,"sessionId":"ba1e9f36-daef-4dc3-a3ac-601cc6f5adfe","userId":1},"timestamp":"2025-01-21T15:40:08.400Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T15:40:08.401Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T15:40:08.401Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T15:40:08.404Z","user":{"birthDate":"1996-10-12T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$26SSOL2mI1zUC08TKn.vy.BfBd.dOxQsERd3.Y87UF1dvNurPVrke","phone":"+33758495122"}}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T15:40:17.147Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%22ba1e9f36-daef-4dc3-a3ac-601cc6f5adfe%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737560408372%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T15:40:17.147Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T15:40:17.147Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737560408372,"sessionId":"ba1e9f36-daef-4dc3-a3ac-601cc6f5adfe","userId":1},"timestamp":"2025-01-21T15:40:17.147Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T15:40:17.148Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T15:40:17.148Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T15:40:17.150Z","user":{"birthDate":"1996-10-12T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$26SSOL2mI1zUC08TKn.vy.BfBd.dOxQsERd3.Y87UF1dvNurPVrke","phone":"+33758495122"}}
+{"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-21T15:40:17.931Z"}
+{"level":"info","message":"Deleting session having id: ","timestamp":"2025-01-21T15:40:17.932Z"}
+{"level":"info","message":"Session ba1e9f36-daef-4dc3-a3ac-601cc6f5adfe supprimée avec succès","timestamp":"2025-01-21T15:40:17.932Z"}
+{"level":"info","message":"Cookie de session supprimé côté client","timestamp":"2025-01-21T15:40:17.933Z"}
+{"body":{"email":"khouloudbensalem789@gmail.com","password":"Khouloud96!"},"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-21T16:00:32.791Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T16:00:32.797Z"}
+{"level":"warn","message":"Utilisateur trouvé avec l'email : khouloudbensalem789@gmail.com","timestamp":"2025-01-21T16:00:32.933Z"}
+{"level":"info","message":"Creating session ...","timestamp":"2025-01-21T16:00:32.998Z"}
+{"level":"info","message":"Connexion réussie pour l'utilisateur : khouloudbensalem789@gmail.com","timestamp":"2025-01-21T16:00:33.012Z"}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T16:00:33.217Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%2261c67a0d-dd12-44e5-a548-c1dba70bd66d%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737561632998%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T16:00:33.218Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T16:00:33.220Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737561632998,"sessionId":"61c67a0d-dd12-44e5-a548-c1dba70bd66d","userId":1},"timestamp":"2025-01-21T16:00:33.222Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T16:00:33.223Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T16:00:33.225Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T16:00:33.277Z","user":{"birthDate":"1996-10-12T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$26SSOL2mI1zUC08TKn.vy.BfBd.dOxQsERd3.Y87UF1dvNurPVrke","phone":"+33758495122"}}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T16:00:35.394Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%2261c67a0d-dd12-44e5-a548-c1dba70bd66d%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737561632998%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T16:00:35.394Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T16:00:35.394Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737561632998,"sessionId":"61c67a0d-dd12-44e5-a548-c1dba70bd66d","userId":1},"timestamp":"2025-01-21T16:00:35.395Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T16:00:35.395Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T16:00:35.395Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T16:00:35.398Z","user":{"birthDate":"1996-10-12T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$26SSOL2mI1zUC08TKn.vy.BfBd.dOxQsERd3.Y87UF1dvNurPVrke","phone":"+33758495122"}}
+{"expiresAt":1737561632998,"level":"info","message":"Session valide:","sessionId":"61c67a0d-dd12-44e5-a548-c1dba70bd66d","timestamp":"2025-01-21T16:00:35.500Z","userId":1}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T16:00:40.406Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%2261c67a0d-dd12-44e5-a548-c1dba70bd66d%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737561632998%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T16:00:40.407Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T16:00:40.407Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737561632998,"sessionId":"61c67a0d-dd12-44e5-a548-c1dba70bd66d","userId":1},"timestamp":"2025-01-21T16:00:40.407Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T16:00:40.408Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T16:00:40.408Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T16:00:40.468Z","user":{"birthDate":"1996-10-12T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$26SSOL2mI1zUC08TKn.vy.BfBd.dOxQsERd3.Y87UF1dvNurPVrke","phone":"+33758495122"}}
+{"expiresAt":1737561632998,"level":"info","message":"Session valide:","sessionId":"61c67a0d-dd12-44e5-a548-c1dba70bd66d","timestamp":"2025-01-21T16:00:41.508Z","userId":1}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T16:00:41.510Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%2261c67a0d-dd12-44e5-a548-c1dba70bd66d%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737561632998%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T16:00:41.511Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T16:00:41.511Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737561632998,"sessionId":"61c67a0d-dd12-44e5-a548-c1dba70bd66d","userId":1},"timestamp":"2025-01-21T16:00:41.511Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T16:00:41.511Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T16:00:41.512Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T16:00:41.513Z","user":{"birthDate":"1996-10-12T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$26SSOL2mI1zUC08TKn.vy.BfBd.dOxQsERd3.Y87UF1dvNurPVrke","phone":"+33758495122"}}
+{"expiresAt":1737561632998,"level":"info","message":"Session valide:","sessionId":"61c67a0d-dd12-44e5-a548-c1dba70bd66d","timestamp":"2025-01-21T16:00:42.718Z","userId":1}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T16:00:42.721Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%2261c67a0d-dd12-44e5-a548-c1dba70bd66d%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737561632998%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T16:00:42.721Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T16:00:42.722Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737561632998,"sessionId":"61c67a0d-dd12-44e5-a548-c1dba70bd66d","userId":1},"timestamp":"2025-01-21T16:00:42.722Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T16:00:42.722Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T16:00:42.722Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T16:00:42.725Z","user":{"birthDate":"1996-10-12T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$26SSOL2mI1zUC08TKn.vy.BfBd.dOxQsERd3.Y87UF1dvNurPVrke","phone":"+33758495122"}}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T16:00:43.602Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%2261c67a0d-dd12-44e5-a548-c1dba70bd66d%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737561632998%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T16:00:43.602Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T16:00:43.602Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737561632998,"sessionId":"61c67a0d-dd12-44e5-a548-c1dba70bd66d","userId":1},"timestamp":"2025-01-21T16:00:43.602Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T16:00:43.602Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T16:00:43.602Z"}
+{"expiresAt":1737561632998,"level":"info","message":"Session valide:","sessionId":"61c67a0d-dd12-44e5-a548-c1dba70bd66d","timestamp":"2025-01-21T16:00:43.605Z","userId":1}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T16:00:43.606Z","user":{"birthDate":"1996-10-12T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$26SSOL2mI1zUC08TKn.vy.BfBd.dOxQsERd3.Y87UF1dvNurPVrke","phone":"+33758495122"}}
+{"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-21T16:00:44.659Z"}
+{"level":"info","message":"Deleting session having id: ","timestamp":"2025-01-21T16:00:44.660Z"}
+{"level":"info","message":"Session 61c67a0d-dd12-44e5-a548-c1dba70bd66d supprimée avec succès","timestamp":"2025-01-21T16:00:44.660Z"}
+{"level":"info","message":"Cookie de session supprimé côté client","timestamp":"2025-01-21T16:00:44.661Z"}
+{"level":"info","message":"Session cookie absent ou invalide","timestamp":"2025-01-21T16:01:27.840Z"}
+{"body":{"email":"khouloudbensalem789@gmail.com","password":"Khouloud96!"},"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-21T16:01:36.162Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-21T16:01:36.167Z"}
+{"level":"warn","message":"Utilisateur trouvé avec l'email : khouloudbensalem789@gmail.com","timestamp":"2025-01-21T16:01:36.224Z"}
+{"level":"info","message":"Creating session ...","timestamp":"2025-01-21T16:01:36.278Z"}
+{"level":"info","message":"Connexion réussie pour l'utilisateur : khouloudbensalem789@gmail.com","timestamp":"2025-01-21T16:01:36.284Z"}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-21T16:01:36.832Z"}
+{"cookie":"session=%7B%22sessionId%22%3A%2264cdb285-c646-414a-862a-783b00f2dec5%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737561696278%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-21T16:01:36.832Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-21T16:01:36.832Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737561696278,"sessionId":"64cdb285-c646-414a-862a-783b00f2dec5","userId":1},"timestamp":"2025-01-21T16:01:36.833Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-21T16:01:36.833Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-21T16:01:36.834Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-21T16:01:36.883Z","user":{"birthDate":"1996-10-12T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$26SSOL2mI1zUC08TKn.vy.BfBd.dOxQsERd3.Y87UF1dvNurPVrke","phone":"+33758495122"}}
+{"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-21T16:01:53.060Z"}
+{"level":"info","message":"Deleting session having id: ","timestamp":"2025-01-21T16:01:53.060Z"}
+{"level":"info","message":"Session 64cdb285-c646-414a-862a-783b00f2dec5 supprimée avec succès","timestamp":"2025-01-21T16:01:53.061Z"}
+{"level":"info","message":"Cookie de session supprimé côté client","timestamp":"2025-01-21T16:01:53.062Z"}
+{"level":"info","message":"Session cookie absent ou invalide","timestamp":"2025-01-22T10:07:32.079Z"}
+{"body":{"email":"khouloudbensalem789@gmail.com","password":"Khouloud96!"},"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-22T10:07:42.720Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-22T10:07:42.724Z"}
+{"level":"error","message":"Erreur lors du traitement de la connexion : \nInvalid `prisma.user.findUnique()` invocation:\n\n\nerror: Error validating datasource `db`: You must provide a nonempty URL. The environment variable `DATABASE_URL` resolved to an empty string.\n  -->  schema.prisma:9\n   | \n 8 |   provider = \"postgresql\"\n 9 |   url      = env(\"DATABASE_URL\")\n   | \n\nValidation Error Count: 1","timestamp":"2025-01-22T10:07:42.793Z"}
+{"body":{"email":"khouloudbensalem@gmail.com","password":"Khouloud96!"},"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-22T10:07:47.459Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-22T10:07:47.459Z"}
+{"level":"error","message":"Erreur lors du traitement de la connexion : \nInvalid `prisma.user.findUnique()` invocation:\n\n\nerror: Error validating datasource `db`: You must provide a nonempty URL. The environment variable `DATABASE_URL` resolved to an empty string.\n  -->  schema.prisma:9\n   | \n 8 |   provider = \"postgresql\"\n 9 |   url      = env(\"DATABASE_URL\")\n   | \n\nValidation Error Count: 1","timestamp":"2025-01-22T10:07:47.462Z"}
+{"expiresAt":1737555939376,"level":"info","message":"Session valide:","sessionId":"d8610f11-7a65-4e81-a921-244de82e046e","timestamp":"2025-01-22T13:08:11.572Z","userId":1}
+{"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-22T13:08:14.133Z"}
+{"level":"info","message":"Deleting session having id: ","timestamp":"2025-01-22T13:08:14.133Z"}
+{"level":"info","message":"Session d8610f11-7a65-4e81-a921-244de82e046e supprimée avec succès","timestamp":"2025-01-22T13:08:14.136Z"}
+{"level":"info","message":"Cookie de session supprimé côté client","timestamp":"2025-01-22T13:08:14.139Z"}
+{"body":{"email":"khouloudbensalem789@gmail.com","password":"Khouloud96!"},"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-22T13:08:24.638Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-22T13:08:24.639Z"}
+{"level":"warn","message":"Utilisateur trouvé avec l'email : khouloudbensalem789@gmail.com","timestamp":"2025-01-22T13:08:24.686Z"}
+{"level":"info","message":"Creating session ...","timestamp":"2025-01-22T13:08:24.735Z"}
+{"level":"info","message":"Connexion réussie pour l'utilisateur : khouloudbensalem789@gmail.com","timestamp":"2025-01-22T13:08:24.740Z"}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-22T13:08:25.314Z"}
+{"cookie":"sessionId=da677f89-8eec-43e4-bfe6-a26f5ba4ba15; session=%7B%22sessionId%22%3A%228cb3ad31-1141-4b54-be99-d6545fec05ff%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737637704735%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-22T13:08:25.315Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-22T13:08:25.315Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737637704735,"sessionId":"8cb3ad31-1141-4b54-be99-d6545fec05ff","userId":1},"timestamp":"2025-01-22T13:08:25.315Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-22T13:08:25.316Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-22T13:08:25.316Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-22T13:08:25.374Z","user":{"birthDate":"1996-10-12T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$26SSOL2mI1zUC08TKn.vy.BfBd.dOxQsERd3.Y87UF1dvNurPVrke","phone":"+33758495122"}}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-22T13:08:27.574Z"}
+{"cookie":"sessionId=da677f89-8eec-43e4-bfe6-a26f5ba4ba15; session=%7B%22sessionId%22%3A%228cb3ad31-1141-4b54-be99-d6545fec05ff%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737637704735%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-22T13:08:27.574Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-22T13:08:27.574Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737637704735,"sessionId":"8cb3ad31-1141-4b54-be99-d6545fec05ff","userId":1},"timestamp":"2025-01-22T13:08:27.575Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-22T13:08:27.575Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-22T13:08:27.575Z"}
+{"expiresAt":1737637704735,"level":"info","message":"Session valide:","sessionId":"8cb3ad31-1141-4b54-be99-d6545fec05ff","timestamp":"2025-01-22T13:08:27.580Z","userId":1}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-22T13:08:27.581Z","user":{"birthDate":"1996-10-12T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$26SSOL2mI1zUC08TKn.vy.BfBd.dOxQsERd3.Y87UF1dvNurPVrke","phone":"+33758495122"}}
+{"expiresAt":1737637704735,"level":"info","message":"Session valide:","sessionId":"8cb3ad31-1141-4b54-be99-d6545fec05ff","timestamp":"2025-01-22T13:08:28.715Z","userId":1}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-22T13:08:28.716Z"}
+{"cookie":"sessionId=da677f89-8eec-43e4-bfe6-a26f5ba4ba15; session=%7B%22sessionId%22%3A%228cb3ad31-1141-4b54-be99-d6545fec05ff%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737637704735%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-22T13:08:28.717Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-22T13:08:28.717Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737637704735,"sessionId":"8cb3ad31-1141-4b54-be99-d6545fec05ff","userId":1},"timestamp":"2025-01-22T13:08:28.717Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-22T13:08:28.717Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-22T13:08:28.717Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-22T13:08:28.720Z","user":{"birthDate":"1996-10-12T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$26SSOL2mI1zUC08TKn.vy.BfBd.dOxQsERd3.Y87UF1dvNurPVrke","phone":"+33758495122"}}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-22T13:08:29.552Z"}
+{"cookie":"sessionId=da677f89-8eec-43e4-bfe6-a26f5ba4ba15; session=%7B%22sessionId%22%3A%228cb3ad31-1141-4b54-be99-d6545fec05ff%22%2C%22userId%22%3A1%2C%22expiresAt%22%3A1737637704735%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-22T13:08:29.553Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-22T13:08:29.553Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737637704735,"sessionId":"8cb3ad31-1141-4b54-be99-d6545fec05ff","userId":1},"timestamp":"2025-01-22T13:08:29.553Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-22T13:08:29.553Z","userId":1}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-22T13:08:29.553Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-22T13:08:29.557Z","user":{"birthDate":"1996-10-12T00:00:00.000Z","email":"khouloudbensalem789@gmail.com","firstName":"Khouloud","gender":"Mme","id":1,"lastName":"Ben Salem","password":"$2b$10$26SSOL2mI1zUC08TKn.vy.BfBd.dOxQsERd3.Y87UF1dvNurPVrke","phone":"+33758495122"}}
+{"expiresAt":1737637704735,"level":"info","message":"Session valide:","sessionId":"8cb3ad31-1141-4b54-be99-d6545fec05ff","timestamp":"2025-01-22T13:08:29.560Z","userId":1}
+{"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-22T13:08:31.415Z"}
+{"level":"info","message":"Deleting session having id: ","timestamp":"2025-01-22T13:08:31.415Z"}
+{"level":"info","message":"Session 8cb3ad31-1141-4b54-be99-d6545fec05ff supprimée avec succès","timestamp":"2025-01-22T13:08:31.415Z"}
+{"level":"info","message":"Cookie de session supprimé côté client","timestamp":"2025-01-22T13:08:31.416Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-22T13:08:35.622Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-22T13:08:36.203Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-22T13:08:36.747Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-22T13:08:37.282Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-22T13:08:37.819Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-22T13:08:38.359Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-22T13:08:38.892Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-22T13:08:39.411Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-22T13:08:39.935Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-22T13:08:40.454Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-22T13:08:41.850Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-22T13:08:42.374Z"}
+{"body":{"birthDate":"2024-12-29","confirmPassword":"Khouloud96!","email":"khouloudbensalem@gmail.com","firstName":"Khouloud","gender":"Mr","lastName":"Ben Salem","password":"Khouloud96!","phone":"+33758495122"},"level":"info","message":"Requête reçue :","method":"POST","timestamp":"2025-01-22T13:08:54.706Z"}
+{"level":"info","message":"Fetching user having this email :","timestamp":"2025-01-22T13:08:54.708Z"}
+{"level":"info","message":"Vérification de l'utilisateur existant dans la base de données pour l'email :","timestamp":"2025-01-22T13:08:54.758Z"}
+{"level":"info","message":"Creating new user ...","timestamp":"2025-01-22T13:08:54.813Z"}
+{"level":"info","message":"Utilisateur inséré avec succès :","timestamp":"2025-01-22T13:08:54.827Z","userId":2}
+{"level":"info","message":"Creating session ...","timestamp":"2025-01-22T13:08:54.828Z"}
+{"level":"info","message":"Session cookie défini :","timestamp":"2025-01-22T13:08:54.831Z"}
+{"expiresAt":1737637734828,"level":"info","message":"Données envoyées au client : User registered successfully","timestamp":"2025-01-22T13:08:54.832Z"}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-22T13:08:54.861Z"}
+{"cookie":"sessionId=da677f89-8eec-43e4-bfe6-a26f5ba4ba15; session=%7B%22sessionId%22%3A%2220194897-71c0-478f-a53d-b2c298aa9c61%22%2C%22userId%22%3A2%2C%22expiresAt%22%3A1737637734828%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-22T13:08:54.861Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-22T13:08:54.862Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737637734828,"sessionId":"20194897-71c0-478f-a53d-b2c298aa9c61","userId":2},"timestamp":"2025-01-22T13:08:54.862Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-22T13:08:54.862Z","userId":2}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-22T13:08:54.862Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-22T13:08:54.865Z","user":{"birthDate":"2024-12-29T00:00:00.000Z","email":"khouloudbensalem@gmail.com","firstName":"Khouloud","gender":"Mr","id":2,"lastName":"Ben Salem","password":"$2b$10$OHdvvkUDt6J7CuBpy64SxuCmQjjdxjGdISA3ZPYOnmjS/NGreR/.6","phone":"+33758495122"}}
+{"expiresAt":1737637734828,"level":"info","message":"Session valide:","sessionId":"20194897-71c0-478f-a53d-b2c298aa9c61","timestamp":"2025-01-22T13:10:28.682Z","userId":2}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-22T13:10:43.197Z"}
+{"cookie":"sessionId=da677f89-8eec-43e4-bfe6-a26f5ba4ba15; session=%7B%22sessionId%22%3A%2220194897-71c0-478f-a53d-b2c298aa9c61%22%2C%22userId%22%3A2%2C%22expiresAt%22%3A1737637734828%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-22T13:10:43.197Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-22T13:10:43.198Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737637734828,"sessionId":"20194897-71c0-478f-a53d-b2c298aa9c61","userId":2},"timestamp":"2025-01-22T13:10:43.198Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-22T13:10:43.198Z","userId":2}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-22T13:10:43.199Z"}
+{"expiresAt":1737637734828,"level":"info","message":"Session valide:","sessionId":"20194897-71c0-478f-a53d-b2c298aa9c61","timestamp":"2025-01-22T13:10:43.202Z","userId":2}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-22T13:10:43.203Z","user":{"birthDate":"2024-12-29T00:00:00.000Z","email":"khouloudbensalem@gmail.com","firstName":"Khouloud","gender":"Mr","id":2,"lastName":"Ben Salem","password":"$2b$10$OHdvvkUDt6J7CuBpy64SxuCmQjjdxjGdISA3ZPYOnmjS/NGreR/.6","phone":"+33758495122"}}
+{"expiresAt":1737637734828,"level":"info","message":"Session valide:","sessionId":"20194897-71c0-478f-a53d-b2c298aa9c61","timestamp":"2025-01-22T13:27:58.896Z","userId":2}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-22T13:28:01.378Z"}
+{"cookie":"sessionId=da677f89-8eec-43e4-bfe6-a26f5ba4ba15; session=%7B%22sessionId%22%3A%2220194897-71c0-478f-a53d-b2c298aa9c61%22%2C%22userId%22%3A2%2C%22expiresAt%22%3A1737637734828%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-22T13:28:01.378Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-22T13:28:01.378Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737637734828,"sessionId":"20194897-71c0-478f-a53d-b2c298aa9c61","userId":2},"timestamp":"2025-01-22T13:28:01.378Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-22T13:28:01.378Z","userId":2}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-22T13:28:01.378Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-22T13:28:01.388Z","user":{"birthDate":"2024-12-29T00:00:00.000Z","email":"khouloudbensalem@gmail.com","firstName":"Khouloud","gender":"Mr","id":2,"lastName":"Ben Salem","password":"$2b$10$OHdvvkUDt6J7CuBpy64SxuCmQjjdxjGdISA3ZPYOnmjS/NGreR/.6","phone":"+33758495122"}}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-22T13:28:04.998Z"}
+{"cookie":"sessionId=da677f89-8eec-43e4-bfe6-a26f5ba4ba15; session=%7B%22sessionId%22%3A%2220194897-71c0-478f-a53d-b2c298aa9c61%22%2C%22userId%22%3A2%2C%22expiresAt%22%3A1737637734828%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-22T13:28:04.998Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-22T13:28:04.998Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737637734828,"sessionId":"20194897-71c0-478f-a53d-b2c298aa9c61","userId":2},"timestamp":"2025-01-22T13:28:04.998Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-22T13:28:04.999Z","userId":2}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-22T13:28:04.999Z"}
+{"expiresAt":1737637734828,"level":"info","message":"Session valide:","sessionId":"20194897-71c0-478f-a53d-b2c298aa9c61","timestamp":"2025-01-22T13:28:05.002Z","userId":2}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-22T13:28:05.003Z","user":{"birthDate":"2024-12-29T00:00:00.000Z","email":"khouloudbensalem@gmail.com","firstName":"Khouloud","gender":"Mr","id":2,"lastName":"Ben Salem","password":"$2b$10$OHdvvkUDt6J7CuBpy64SxuCmQjjdxjGdISA3ZPYOnmjS/NGreR/.6","phone":"+33758495122"}}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-22T13:28:06.054Z"}
+{"cookie":"sessionId=da677f89-8eec-43e4-bfe6-a26f5ba4ba15; session=%7B%22sessionId%22%3A%2220194897-71c0-478f-a53d-b2c298aa9c61%22%2C%22userId%22%3A2%2C%22expiresAt%22%3A1737637734828%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-22T13:28:06.055Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-22T13:28:06.055Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737637734828,"sessionId":"20194897-71c0-478f-a53d-b2c298aa9c61","userId":2},"timestamp":"2025-01-22T13:28:06.055Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-22T13:28:06.055Z","userId":2}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-22T13:28:06.055Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-22T13:28:06.058Z","user":{"birthDate":"2024-12-29T00:00:00.000Z","email":"khouloudbensalem@gmail.com","firstName":"Khouloud","gender":"Mr","id":2,"lastName":"Ben Salem","password":"$2b$10$OHdvvkUDt6J7CuBpy64SxuCmQjjdxjGdISA3ZPYOnmjS/NGreR/.6","phone":"+33758495122"}}
+{"expiresAt":1737637734828,"level":"info","message":"Session valide:","sessionId":"20194897-71c0-478f-a53d-b2c298aa9c61","timestamp":"2025-01-22T13:28:06.060Z","userId":2}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-22T13:28:07.042Z"}
+{"cookie":"sessionId=da677f89-8eec-43e4-bfe6-a26f5ba4ba15; session=%7B%22sessionId%22%3A%2220194897-71c0-478f-a53d-b2c298aa9c61%22%2C%22userId%22%3A2%2C%22expiresAt%22%3A1737637734828%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-22T13:28:07.042Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-22T13:28:07.042Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737637734828,"sessionId":"20194897-71c0-478f-a53d-b2c298aa9c61","userId":2},"timestamp":"2025-01-22T13:28:07.042Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-22T13:28:07.042Z","userId":2}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-22T13:28:07.042Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-22T13:28:07.044Z","user":{"birthDate":"2024-12-29T00:00:00.000Z","email":"khouloudbensalem@gmail.com","firstName":"Khouloud","gender":"Mr","id":2,"lastName":"Ben Salem","password":"$2b$10$OHdvvkUDt6J7CuBpy64SxuCmQjjdxjGdISA3ZPYOnmjS/NGreR/.6","phone":"+33758495122"}}
+{"expiresAt":1737637734828,"level":"info","message":"Session valide:","sessionId":"20194897-71c0-478f-a53d-b2c298aa9c61","timestamp":"2025-01-22T13:28:07.053Z","userId":2}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-22T13:32:15.169Z"}
+{"cookie":"sessionId=da677f89-8eec-43e4-bfe6-a26f5ba4ba15; session=%7B%22sessionId%22%3A%2220194897-71c0-478f-a53d-b2c298aa9c61%22%2C%22userId%22%3A2%2C%22expiresAt%22%3A1737637734828%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-22T13:32:15.169Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-22T13:32:15.170Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737637734828,"sessionId":"20194897-71c0-478f-a53d-b2c298aa9c61","userId":2},"timestamp":"2025-01-22T13:32:15.170Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-22T13:32:15.170Z","userId":2}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-22T13:32:15.170Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-22T13:32:15.172Z","user":{"birthDate":"2024-12-29T00:00:00.000Z","email":"khouloudbensalem@gmail.com","firstName":"Khouloud","gender":"Mr","id":2,"lastName":"Ben Salem","password":"$2b$10$OHdvvkUDt6J7CuBpy64SxuCmQjjdxjGdISA3ZPYOnmjS/NGreR/.6","phone":"+33758495122"}}
+{"level":"info","message":"Requête reçue pour le profil utilisateur","method":"GET","timestamp":"2025-01-22T14:48:21.999Z"}
+{"cookie":"sessionId=da677f89-8eec-43e4-bfe6-a26f5ba4ba15; session=%7B%22sessionId%22%3A%2220194897-71c0-478f-a53d-b2c298aa9c61%22%2C%22userId%22%3A2%2C%22expiresAt%22%3A1737637734828%7D","level":"info","message":"Cookies reçus :","timestamp":"2025-01-22T14:48:22.000Z"}
+{"level":"info","message":"Validation des cookies pour la session utilisateur","timestamp":"2025-01-22T14:48:22.000Z"}
+{"level":"info","message":"Session déchiffrée :","session":{"expiresAt":1737637734828,"sessionId":"20194897-71c0-478f-a53d-b2c298aa9c61","userId":2},"timestamp":"2025-01-22T14:48:22.001Z"}
+{"level":"info","message":"Récupération du profil utilisateur pour l'ID :","timestamp":"2025-01-22T14:48:22.001Z","userId":2}
+{"level":"info","message":"Fetching user profile with ID: ","timestamp":"2025-01-22T14:48:22.001Z"}
+{"birthDate":"2024-12-01","email":"test@gmail.com","firstName":"test","gender":"Mr","id":2,"lastName":"test","level":"info","message":"Database result for user profile: ","password":"f013aee3435942d89a066b5fd9bda72d6a49e0cc9e704262999bad23feb2bb648d11c8804778347e687a5f4eec7344431e1c7214427e944c9f5e53546ecb02f1:1c88b0799d7ccb513a2d12dec3f7d335","phone":"0785412369","timestamp":"2025-01-22T14:48:22.002Z"}
+{"level":"info","message":"Utilisateur connecté :","timestamp":"2025-01-22T14:48:22.002Z","user":{"birthDate":"2024-12-01","email":"test@gmail.com","firstName":"test","gender":"Mr","id":2,"lastName":"test","password":"f013aee3435942d89a066b5fd9bda72d6a49e0cc9e704262999bad23feb2bb648d11c8804778347e687a5f4eec7344431e1c7214427e944c9f5e53546ecb02f1:1c88b0799d7ccb513a2d12dec3f7d335","phone":"0785412369"}}
