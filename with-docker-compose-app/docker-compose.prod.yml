@@ -7,16 +7,37 @@ services:
       args:
         ENV_VARIABLE: ${ENV_VARIABLE}
         NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
+    environment:
+      DATABASE_URL: ${DATABASE_URL_PROD}
+      # Set environment variables based on the .env.prod file
+    env_file:
+      - ./next-app/.env.production
     restart: always
     ports:
       - 3000:3000
     networks:
       - my_network
 
-  # Add more containers below (nginx, postgres, etc.)
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      POSTGRES_DB: ${POSTGRES_DB:-mainDbProd}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    networks:
+      - my_network
+    # Active le service uniquement si USE_DOCKER_POSTGRES=1
+    deploy:
+      replicas: ${USE_DOCKER_POSTGRES:-0}
 
-# Define a network, which allows containers to communicate
-# with each other, by using their container name as a hostname
+volumes:
+  postgres_data:
+
 networks:
   my_network:
     external: true
