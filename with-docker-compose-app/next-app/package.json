@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "dev": "npx prisma generate && npx prisma migrate deploy && next dev -H 0.0.0.0",
+    "dev": "npx prisma generate && npx prisma migrate dev && next dev -H 0.0.0.0",
     "build": "next build",
-    "start": "next start"
+    "start": "npx prisma generate && npx prisma migrate deploy && next start"
   },
   "dependencies": {
     "18": "^0.0.0",
