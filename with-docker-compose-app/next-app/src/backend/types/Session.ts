@@ -1,6 +1,3 @@
-export interface Session {
-    id: string;
-    expires_at: number;
-    user_id: number;
-  }
-  
+import { Session as PrismaSession } from "@prisma/client";
+
+export type Session = PrismaSession;

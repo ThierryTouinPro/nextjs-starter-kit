@@ -38,18 +38,7 @@ export default function ProfilePage(): JSX.Element {
         );
       }
     };
-
-    if (isLoggedIn) {
-      fetchUser();
-    } else {
-      checkSession().then(() => {
-        if (isLoggedIn) {
-          fetchUser();
-        } else {
-          //router.push("/auth/connexion");
-        }
-      });
-    }
+    fetchUser();
   }, []);
 
   if (!user && isClient) {

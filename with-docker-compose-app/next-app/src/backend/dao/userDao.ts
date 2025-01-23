@@ -1,9 +1,7 @@
 import { hashUserPassword } from "@/backend/services/auth/passwordService";
 import { User } from "@/backend/types/User";
 import logger from "@/config/winston";
-import db from "@/lib/db";
-
-const isProduction = process.env.NODE_ENV === "production";
+import prisma from "@/lib/prisma";
 
 export async function createUser(
   email: string,
@@ -14,70 +12,93 @@ export async function createUser(
   phone?: string,
   gender?: string
 ): Promise<number> {
-  // Hachage du mot de passe
   const hashedPassword = hashUserPassword(password);
 
   logger.info("Creating new user ...");
-  if (isProduction) {
-    // PostgreSQL
-    const result = await db`
-      INSERT INTO users (email, password, firstName, lastName, birthDate, phone, gender)
-      VALUES (${email}, ${hashedPassword}, ${firstName}, ${lastName}, ${birthDate}, ${phone}, ${gender})
-      RETURNING id
-    `;
-    return result[0].id;
-  } else {
-    // SQLite
-    const result = db
-      .prepare(
-        "INSERT INTO users (email, password, firstName, lastName, birthDate, phone, gender) VALUES (?, ?, ?, ?, ?, ?, ?)"
-      )
-      .run(
-        email,
-        hashedPassword,
-        firstName,
-        lastName,
-        birthDate,
-        phone,
-        gender
-      );
-    logger.info("User created with ID :", result.lastInsertRowid);
-    return result.lastInsertRowid as number;
-  }
+
+  const user = await prisma.user.create({
+    data: {
+      email,
+      password: hashedPassword,
+      firstName,
+      lastName,
+      birthDate: birthDate ? new Date(birthDate) : undefined,
+      phone,
+      gender,
+    },
+  });
+
+  return user.id;
 }
 
 export async function getUserByEmail(email: string): Promise<User | undefined> {
   logger.info("Fetching user having this email :", email);
-  if (isProduction) {
-    // PostgreSQL
-    const result = await db`
-      SELECT * FROM users WHERE email = ${email}
-    `;
-    logger.info("Database result for user: ", result[0]);
-    return result[0] as User | undefined;
-  } else {
-    // SQLite
-    const result = db.prepare("SELECT * FROM users WHERE email = ?").get(email);
-    logger.info("Database result for user: ", result);
-    return result as User | undefined;
-  }
+
+  const user = await prisma.user.findUnique({
+    where: { email },
+  });
+
+  return user || undefined;
 }
 
 export async function getUserProfile(userId: number): Promise<User | null> {
   logger.info("Fetching user profile with ID: ", userId);
-  if (isProduction) {
-    // PostgreSQL
-    const result = await db`
-      SELECT * FROM users WHERE id = ${userId}
-    `;
-    logger.info("Database result for user profile: ", result[0]);
-    return result[0] || null;
-  } else {
-    // SQLite
-    const user = db.prepare("SELECT * FROM users WHERE id = ?").get(userId) as
-      | User
-      | undefined;
-    logger.info("Database result for user profile: ", user);
-    return user || null;
+
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+  });
+
+  return user || null;
+}
+
+import { Session } from "@/backend/types/Session";
+import { v4 as uuidv4 } from "uuid";
+
+export async function createSession(
+  userId: number
+): Promise<{ sessionId: string; expiresAt: number } | null> {
+  const sessionId = uuidv4();
+  const expiresAt = new Date(Date.now() + 1000 * 60 * 60 * 24); // 24h
+
+  const session = await prisma.session.create({
+    data: {
+      id: sessionId,
+      expiresAt,
+      userId,
+    },
+  });
+
+  return { sessionId: session.id, expiresAt: session.expiresAt.getTime() };
+}
+
+export async function verifySession(
+  sessionId: string
+): Promise<Session | null> {
+  const session = await prisma.session.findUnique({
+    where: { id: sessionId },
+    include: { user: true },
+  });
+
+  if (!session || session.expiresAt.getTime() <= Date.now()) {
+    await deleteSession(sessionId);
+    return null;
   }
+
+  return session;
+}
+
+export async function deleteSession(sessionId: string): Promise<void> {
+  await prisma.session.delete({
+    where: { id: sessionId },
+  });
+}
+
+export async function cleanupExpiredSessions(): Promise<void> {
+  await prisma.session.deleteMany({
+    where: {
+      expiresAt: {
+        lte: new Date(),
+      },
+    },
+  });
 }
