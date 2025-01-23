@@ -1,8 +1,8 @@
-import { Lucia } from "lucia";
-import { BetterSqlite3Adapter } from "@lucia-auth/adapter-sqlite";
-import db from "@/lib/db";
+import { Lucia } from "lucia-auth";
+import { KyselyAdapter } from "@/lib/kyselyAdapter";
+import db from "@/lib/kysely";
 
-const adapter = new BetterSqlite3Adapter(db);
+const adapter = KyselyAdapter(db);
 
 export const lucia = new Lucia({
   adapter,
