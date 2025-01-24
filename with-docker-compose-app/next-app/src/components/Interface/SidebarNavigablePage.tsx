@@ -1,6 +1,12 @@
-import { useMemo } from 'react';
 import styles from "@/components/Interface/css/SidebarNavigablePage.module.css";
 import Link from "next/link";
+
+export function getSectionCode(sect) {
+  return (<section>
+    <h2 id={sect.id}>{sect.title}</h2>
+    <div>{sect.content}</div>
+  </section>);
+};
 
 export default function SidebarNavigablePage({ sections, sidebarWidth }): JSX.Element {
 
@@ -18,12 +24,7 @@ export default function SidebarNavigablePage({ sections, sidebarWidth }): JSX.El
       {sect.title}
     </Link>
   );
-  const sectionList = sections.map(sect =>
-    <section>
-      <h2 id={sect.id}>{sect.title}</h2>
-      <div>{sect.content}</div>
-    </section>
-  );
+  const sectionList = sections.map(sect => getSectionCode(sect));
 
   return (
     <>
