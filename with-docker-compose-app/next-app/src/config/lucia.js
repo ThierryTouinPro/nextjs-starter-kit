@@ -1,8 +1,8 @@
 import { Lucia } from "lucia";
-import { BetterSqlite3Adapter } from "@lucia-auth/adapter-sqlite";
-import db from "@/lib/db";
+import { PrismaAdapter } from "@lucia-auth/adapter-prisma";
+import prisma from "@/lib/prisma";
 
-const adapter = new BetterSqlite3Adapter(db);
+const adapter = new PrismaAdapter(prisma);
 
 export const lucia = new Lucia({
   adapter,

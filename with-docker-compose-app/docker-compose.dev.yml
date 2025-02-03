@@ -11,25 +11,41 @@ services:
     environment:
       ENV_VARIABLE: ${ENV_VARIABLE}
       NEXT_PUBLIC_ENV_VARIABLE: ${NEXT_PUBLIC_ENV_VARIABLE}
-      CHOKIDAR_USEPOLLING: "true"  # Scrutation activée pour le mode développement
+      CHOKIDAR_USEPOLLING: "true" # Scrutation activée pour le mode développement
+      DATABASE_URL: ${DATABASE_URL_DEV}
 
-    # Set environment variables based on the .env file
+    # Set environment variables based on the .env.dev file
     env_file:
-      - .env
+      - ./next-app/.env
 
     volumes:
-      - ./next-app:/app  # Montez tout le projet pour refléter les changements
-      - /app/node_modules  # Exclure node_modules pour éviter les conflits
+      - ./next-app:/app # Montez tout le projet pour refléter les changements
+      - /app/node_modules # Exclure node_modules pour éviter les conflits
 
     restart: always
     ports:
       - 3000:3000
-    command: npm run dev  # Utilisez le mode développement
+    command: npm run dev # Utilisez le mode développement
     networks:
       - next-network
 
-# Define a network, which allows containers to communicate
-# with each other, by using their container name as a hostname
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: myDatabase
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432" # Expose le port 5432 de PostgreSQL
+    networks:
+      - next-network
+
+volumes:
+  postgres_data:
+
 networks:
   next-network:
     external: true

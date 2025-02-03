@@ -1,0 +1,56 @@
+.sidenav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  max-height: 100vh;
+  overflow-y: auto;
+  z-index: 1;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  display: block;
+}
+
+.sidenav a.sidebarLnkLvl1 {
+  margin-left: 0;
+}
+
+.sidenav a.sidebarLnkLvl2 {
+  margin-left: 12px;
+}
+
+.sidenav a.sidebarLnkLvl3 {
+  margin-left: 24px;
+}
+
+.sidenav a:hover {
+  color: #000;
+}
+
+.main {
+  padding: 0px 10px;
+}
+
+.main h1, .main h1 ~ p {
+  margin-left: 0;
+}
+
+.main h2, .main h2 ~ p {
+  margin-left: 30px;
+}
+
+.main h3, .main h3 ~ p {
+  margin-left: 60px;
+}
+
+@media (max-width: 768px) {
+  .sidenav {
+    position: static;
+    width: 100% !important;
+  }
+
+  .main {
+    margin-left: 6px !important;
+  }
+}
