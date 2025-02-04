@@ -4,6 +4,7 @@ import Link from "next/link";
 
 const sectionLinkStyles = [ styles.sidebarLnkLvl1, styles.sidebarLnkLvl2, styles.sidebarLnkLvl3 ];
 const getSectionSummary = (sect, lvl) => {
+  if (!sect.title || !sect.title.length) return '';
   return (
     <>
       <Link key={sect.id} href={`#${sect.id}`} className={sectionLinkStyles[lvl - 1]}>{sect.title}</Link>
@@ -25,7 +26,24 @@ const getSectionCode = (sect, lvl) => {
   );
 };
 
-export default function SidebarNavigablePage({ sections }): JSX.Element {
+const getPageSummary = (pageContentAsJson) => {
+  const sections = pageContentAsJson.sections;
+  return (
+    <>
+      {sections ? sections.map((sect) => getSectionSummary(sect, 1)) : ''}
+    </>
+  )
+};
+const getPageContent = (pageContentAsJson) => {
+  const sections = pageContentAsJson.sections;
+  return (
+    <>
+      {sections ? sections.map((sect) => getSectionCode(sect, 1)) : ''}
+    </>
+  )
+};
+
+export default function SidebarNavigablePage({ pageContentAsJson }): JSX.Element {
   const [stickyStyle, setStickyStyle] = useState({});
 
   useEffect(() => {
@@ -68,8 +86,8 @@ export default function SidebarNavigablePage({ sections }): JSX.Element {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const linkList = sections.map((sect) => getSectionSummary(sect, 1));
-  const sectionList = sections.map((sect) => getSectionCode(sect, 1));
+  const linkList = getPageSummary(pageContentAsJson);
+  const sectionList = getPageContent(pageContentAsJson);
 
   return (
     <div className="container p-4">
