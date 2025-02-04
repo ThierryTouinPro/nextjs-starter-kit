@@ -2,6 +2,14 @@ import { getUserProfile } from "@/backend/dao/userDao";
 import logger from "@/config/winston";
 import { parse } from "cookie";
 
+function formatDate(date) {
+  return date.toLocaleDateString("fr-FR", {
+    day: "2-digit",
+    month: "2-digit",
+    year: "numeric",
+  });
+}
+
 export async function getUserProfileService(cookieHeader: string) {
   logger.info("Validation des cookies pour la session utilisateur");
 
@@ -34,6 +42,13 @@ export async function getUserProfileService(cookieHeader: string) {
     if (!user) {
       logger.warn("Utilisateur non trouvé :", { userId });
       throw { status: 404, message: "Utilisateur non trouvé." };
+    }
+
+    logger.info("birthDate :", user.birthDate);
+
+    // Formater la date de naissance
+    if (user.birthDate) {
+      user.birthDate = formatDate(new Date(user.birthDate));
     }
 
     return user;
