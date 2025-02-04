@@ -1,14 +1,15 @@
-import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
-import styles from "@/components/Header/css/Navigation.module.css";
-import { mainMenus } from "@/data/main-menus";
-import { useTranslation } from "react-i18next";
-import { AuthButton } from "@/components/Interface/AuthButton";
 import { useAuth } from "@/components/Authentification/Logout/useAuth";
+import styles from "@/components/Header/css/Navigation.module.css";
+import { AuthButton } from "@/components/Interface/AuthButton";
+import { mainMenus } from "@/data/main-menus";
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 interface Menu {
   groupTitle: string;
   subMenus: string[];
+  routes: string[];
 }
 
 function Navigation(): JSX.Element {
@@ -76,7 +77,7 @@ function Navigation(): JSX.Element {
             {menu.subMenus.map((subMenu: string, subIndex: number) => (
               <li key={subIndex}>
                 <Link
-                  href={`/${subMenu.toLowerCase()}`}
+                  href={`/${menu.routes[subIndex]}`}
                   className={`dropdown-item ${styles.dropdownItem}`}
                 >
                   {subMenu}

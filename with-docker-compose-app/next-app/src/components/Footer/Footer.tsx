@@ -1,12 +1,13 @@
-import { useTranslation } from "react-i18next";
 import classes from "@/components/Footer/css/Footer.module.css";
-import { mainMenus } from "@/data/main-menus";
-import { useRouter } from "next/router";
+import { mainMenus } from "@/data/main-menus"; // Assurez-vous de mettre à jour le chemin
 import Link from "next/link";
+import { useRouter } from "next/router";
+import { useTranslation } from "react-i18next";
 
 interface FooterMenu {
   groupTitle: string;
   subMenus: string[];
+  routes: string[];
 }
 
 function Footer(): JSX.Element {
@@ -40,20 +41,24 @@ function Footer(): JSX.Element {
             >
               {/* Affichage du titre du groupe de menu */}
               <h4 className="fw-bold mb-3 text-white">
-                {t(footerMenu.groupTitle)} {/* Traduction du titre de groupe */}
+                {footerMenu.groupTitle} {/* Traduction du titre de groupe */}
               </h4>
               <ul className="list-unstyled text-white">
                 {/* Boucle sur les sous-menus et traduction */}
-                {footerMenu.subMenus.map((subMenu: string) => (
-                  <li className="mb-1" key={subMenu}>
-                    <Link
-                      href={`${getLanguagePrefix()}/${subMenu.toLowerCase()}`}
-                      passHref
-                    >
-                      {t(subMenu)}
-                    </Link>
-                  </li>
-                ))}
+                {footerMenu.subMenus.map(
+                  (subMenu: string, subIndex: number) => (
+                    <li className="mb-1" key={subMenu}>
+                      <Link
+                        href={`${getLanguagePrefix()}/${
+                          footerMenu.routes[subIndex]
+                        }`}
+                        passHref
+                      >
+                        {subMenu}
+                      </Link>
+                    </li>
+                  )
+                )}
               </ul>
             </div>
           ))}
